@@ -14,7 +14,7 @@ body {
 
 .site-header {
     width: 100%;
-    min-height: 100vh;
+    /* min-height: 1vh; */
     background: linear-gradient(45deg, #1c1c1c 20%, #08463b 100%);
     color: white;
 }
@@ -208,7 +208,7 @@ input.check-toggle-round-flat:checked+label:after {
 }
 
 .hero-content h1 {
-    font-size: 66px;
+    font-size: 96px;
     font-weight: 700;
     line-height: 1.1;
 }
@@ -235,8 +235,8 @@ input.check-toggle-round-flat:checked+label:after {
 }
 
 .hero-buttons a {
-    border-color: #3dcfb6;
-    color: #3dcfb6;
+    border-color: #ffffff;
+    color: #ffffff;
 }
 
 main{
@@ -265,11 +265,9 @@ main .aboutme-section{
 
 .text-content{
     margin-top: 230px;
-    
-
 }
 
-.text-content .text{
+.text{
     border: 2px solid #08463b;
     border-radius: 32px;
     padding: 16px;
@@ -280,10 +278,24 @@ main .aboutme-section{
 
 .text-content .about{
     font-size: 24px;
-
+    color: #3dcfb6;
 }
 .text p{
     font-size: 18px;
     line-height: 100%;
 
 }
+
+.text .title{
+    font-size: 64px;
+    line-height: 100%;
+    font-weight: 700;
+    padding-bottom: 20px;
+    color: #3dcfb6;
+}
+
+.text span img{
+    position: relative;
+    display: flex;
+}
+
