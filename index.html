@@ -12,64 +12,116 @@
 
 
     <header class="site-header">
+        <div class="navbar-bg">
+            <div class="container">
+                <div class="header-top">
 
-        <div class="container">
+                    <div class="header-content">
+                        <!-- Sprachumschalter -->
+                        <div class="switch">
+                            <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">
+                            <label for="language-toggle"></label>
+                            <span class="on">EN</span>
+                            <span class="off">DE</span>
+                        </div>
 
 
-            <div class="header-top">
+                        <!-- Navigation -->
+                        <nav class="main-nav" aria-label="main-nav">
+                            <ul>
+                                <li><a href="#about">About Me</a></li>
+                                <li><a href="#skills">Skills</a></li>
+                                <li><a href="#projects">Projects</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <p class="logo-name">Aliaqa Alizada</p>
+                </div>
 
-                <div class="header-content">
-                    <!-- Sprachumschalter -->
-                    <div class="switch">
-                        <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">
-                        <label for="language-toggle"></label>
-                        <span class="on">EN</span>
-                        <span class="off">DE</span>
+
+                <!-- Hero Bereich -->
+                <section class="hero-section">
+
+                    <div class="hero-side-left">
+                        <a class="scroll-btn" href="#aboutme">
+                            <svg class="scroll-icon" width="16" height="24" viewBox="0 0 16 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 0L8 22M8 22L2 16M8 22L14 16" stroke="white" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </a>
+                        <div class="vertical-line"></div>
                     </div>
 
+                    <div class="hero-side-right">
+                        <a class="mail-to" href="mailto:alimhd276@gmail.com">alimhd276@gmail.com</a>
+                        <a class="contact-icon" href="https://github.com/Ali-Alizada">
+                            <img src="assets/imgs/icons/Github.svg" alt="Github">
+                        </a>
+                        <a class="contact-icon" href="linkedin-link">
+                            <img src="assets/imgs/icons/Linkedin.svg" alt="Linkedin">
+                        </a>
+                        <div class="vertical-line-right"></div>
+                    </div>
 
-                    <!-- Navigation -->
-                    <nav class="main-nav" aria-label="main-nav">
-                        <ul>
-                            <li><a href="#about">About Me</a></li>
-                            <li><a href="#skills">Skills</a></li>
-                            <li><a href="#projects">Projects</a></li>
-                        </ul>
-                    </nav>
+                    <div class="hero-content">
+                        <p class="hero-subtitle">
+                            Frontend Developer
+                        </p>
+
+                        <h1>Aliaqa Alizada</h1>
+
+                        <div class="hero-buttons">
+
+                            <a href="#projects" class="marquee-btn">
+                                <div class="marquee-track">
+                                    <span>Check my Work</span>
+                                    <span>Check my Work</span>
+                                </div>
+                            </a>
+
+                            <a href="#contact" class="marquee-contact">
+                                <div class="marquee-track">
+                                    <span>Contact me</span>
+                                    <span>Contact me</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </section>
+
+
+                <div class="diagonal-banner">
+
+                    <div class="banner-track">
+                        <span>Frontend Developer</span>
+                        <span class="star">✦</span>
+                        <span>Based in Brandenburg</span>
+                        <span class="star">✦</span>
+                        <span>Open to work</span>
+                        <span class="star">✦</span>
+                        <span>Available for remote work</span>
+                        <span class="star">✦</span>
+                        <span>Frontend Developer</span>
+                        <span class="star">✦</span>
+                        <span>Based in Brandenburg</span>
+                        <span class="star">✦</span>
+                        <span>Open to work</span>
+                        <span class="star">✦</span>
+                        <span>Available for remote work</span>
+                        <span class="star">✦</span>
+                    </div>
                 </div>
-                <p class="logo-name">Aliaqa Alizada</p>
+
             </div>
 
-
-            <!-- Hero Bereich -->
-            <section class="hero-section">
-
-                <div class="hero-content">
-                    <p class="hero-subtitle">
-                        Frontend Developer
-                    </p>
-
-                    <h1>
-                        Aliaqa Alizada
-                    </h1>
-
-                    <div class="hero-buttons">
-
-                        <a href="#projects" class="btn-primary">
-                            Check my Work
-                        </a>
-
-                        <a href="#contact" class="btn-secondary">
-                            Contact me
-                        </a>
-                    </div>
-                </div>
-            </section>
         </div>
+
     </header>
 
     <main>
-        <section class="aboutme-section">
+        <section id="aboutme" class="aboutme-section">
             <div class="img-profile">
                 <img src="assets/imgs/Alizada-ProfileBild-1.jpg .jpeg" alt="">
             </div>
@@ -77,15 +129,20 @@
                 <span class="about">who i am</span>
                 <div class="text">
                     <p class="title">About me</p>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis nulla, nemo sunt possimus consequuntur numquam maxime! In consequuntur maxime modi adipisci ex praesentium, sint atque quaerat assumenda sapiente, ipsam cum?</p>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis nulla, nemo sunt possimus
+                        consequuntur numquam maxime! In consequuntur maxime modi adipisci ex praesentium, sint atque
+                        quaerat assumenda sapiente, ipsam cum?</p>
 
                     <span><img src="assets/imgs/icons/location_on.svg" alt="location-icon"></span>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ratione repellat explicabo voluptate ullam possimus.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ratione repellat explicabo
+                        voluptate ullam possimus.</p>
                     <span><img src="assets/imgs/icons/Property 1=cognition.svg" alt="cognition-icon"></span>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ratione repellat explicabo voluptate ullam possimus.</p>
-                   <span><img src="assets/imgs/icons/Property 1=Quality.svg" alt="Quality-icon"></span>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ratione repellat explicabo voluptate ullam possimus.</p>
-             
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ratione repellat explicabo
+                        voluptate ullam possimus.</p>
+                    <span><img src="assets/imgs/icons/Property 1=Quality.svg" alt="Quality-icon"></span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ratione repellat explicabo
+                        voluptate ullam possimus.</p>
+
                 </div>
             </div>
         </section>
