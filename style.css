@@ -635,14 +635,14 @@ main {
     min-width: 300px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 32px 20px;
+    gap: 40px 20px;
     justify-items: center;
     align-items: start;
     margin-top: 44px;
 
 }
 
-.techs-icons div{
+.techs-icons > div{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -650,7 +650,7 @@ main {
     width: 100%;
 }
 
-.techs-icons div {
+.techs-icons > div {
     transition: all 0.3s ease-in-out;
     /* cursor: pointer; */
     padding: 12px 8px;
@@ -694,14 +694,217 @@ main {
      transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 }
 
+.growth-item .groth-text{
+    margin-top: 22px;
+}
+
+.growth-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+.icon-wrapper {
+    position: relative;
+    width: 64px;
+    height: 64px;
+}
+
+.growth-icon {
+    width: 64px;
+    height: 64px;
+    display: block;
+    transition: all 0.3s ease-in-out;
+}
+
+.growth-text {
+    margin-top: 8px;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.growth-item:hover .growth-text {
+    color: #3dcfb6;
+}
+
+.growth-hover {
+    position: absolute;
+    bottom: 90%;
+    left: 82.5%;
+    transform: translateX(-50%);
+    width: 165px;            
+    background-color: white;
+    /* border: 1px solid #3dcfb6; */
+    border-radius: 18px;
+    padding: 6px 8px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    z-index: 20;
+    pointer-events: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.growth-hover::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 28%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid white;
+    filter: drop-shadow(0 1px 0 #3dcfb6);
+}
+
+.hover-text {
+    color: #3dcfb6;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    line-height: 1.4;
+}
+
+.hover-techs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: nowrap;        
+}
+
+.tech-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* gap: 6px; */
+}
+
+.tech-card img {
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    margin-bottom: 6px;
+    object-fit: contain;
+}
+
+.tech-card span {
+    background: transparent;
+    color: #3dcfb6;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0;
+}
+
+.growth-item:hover .growth-hover {
+    opacity: 1;
+    visibility: visible;
+}
+
+.growth-item:hover .growth-icon {
+    transform: translateY(-4px);
+}
+
+
+
+
+/* section Portofolio beginn ---------------- */
+
+.section-title{
+    font-size: 24px;
+    font-weight: 700;
+    color: #3dcfb6;
+    margin-bottom: 14px;
+    display: inline-block;
+}
+
+.text-contianer{
+    /* padding: 24px; */
+}
+
+.text-contianer .title{
+    font-size: 64px;
+    font-weight: 700;
+    color: #3dcfb6;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.text-contianer .tech-description{
+    color: #ffffff;
+    margin-bottom: 32px;
+    font-size: 18px;
+} 
+
+.projects-container{
+    max-width: 720px;
+    color: white;
+    font-size: 18px;
+}
+
+.projects-container .join{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: 109px;
+    border-top: 1px solid #3dcfb6;
+    border-bottom: 1px solid #3dcfb6;
+}
+.projects-container .el-polo-loco{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: 109px;
+    border-top: 1px solid #3dcfb6;
+    border-bottom: 1px solid #3dcfb6;
+}
+
+.projects-container .da-buble{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: 109px;
+    border-top: 1px solid #3dcfb6;
+    border-bottom: 1px solid #3dcfb6;
+}
+
+.contect-left{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+}
+
+.title{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.contect-left .vertical-line{
+    width: 1px;
+    height: 18px;
+    background-color: #3dcfb6;
+    border-radius: 999px;
+}
 
 
 
 
 /* Responisive beginn -------------- */
 
-
-/* Optional: Auf schmalen Bildschirmen den Abstand verkleinern */
 @media (max-width: 768px) {
     main {
         padding-inline: 20px;
