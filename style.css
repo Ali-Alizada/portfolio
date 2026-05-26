@@ -391,7 +391,7 @@ input.check-toggle-round-flat:checked+label:after {
     border-color: #3dcfb6;
 
     box-shadow:
-    0 0 10px rgba(61, 207, 182, 0.4);
+        0 0 10px rgba(61, 207, 182, 0.4);
 }
 
 .marquee-contact:hover .marquee-track {
@@ -401,7 +401,7 @@ input.check-toggle-round-flat:checked+label:after {
 .marquee-contact:hover {
     border-color: #3dcfb6;
     box-shadow:
-    0 0 10px rgba(61, 207, 182, 0.4);
+        0 0 10px rgba(61, 207, 182, 0.4);
 }
 
 @keyframes marqueeMove {
@@ -425,16 +425,46 @@ main {
 .aboutme-section {
     display: flex;
     flex-wrap: wrap;
-    gap: 60px;
-    align-items: flex-start;  
+    gap: 140px;
+    align-items: flex-start;
     padding-block: 120px;
     color: #ffffff;
 }
 
 .img-profile {
     flex: 1;
-    min-width: 380px;
-    
+    /* max-width: 568px; */
+    height: auto 368px;
+    position: relative;
+    /* ← Wichtig für das absolute Pseudoelement */
+    isolation: isolate;
+    /* ← Für z-index -1 (optional, aber sicher) */
+
+}
+
+/* Pseudoelement für die diagonalen Linien */
+.img-profile::after {
+    content: '';
+    position: absolute;
+    /* Positioniere die Linien relativ zum Container */
+    bottom: -50px;
+    /* Versatz nach unten, falls nötig */
+    left: -50px;
+    /* Versatz nach rechts – anpassen! */
+    width: 95%;
+    /* Oder feste Breite wie 200px */
+    height: 95%;
+    background: repeating-linear-gradient(225deg,
+            /* 225° = von links unten nach rechts oben */
+            transparent 0px,
+            transparent 18px,
+            #3dcfb6 20px,
+            #3dcfb6 15.5px);
+    pointer-events: none;
+    z-index: -1;
+    /* Stellt sicher, dass die Linien hinter dem Bild sind */
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
 }
 
 .img-profile img {
@@ -450,7 +480,7 @@ main {
 .text-content {
     flex: 1;
     min-width: 300px;
-    margin-top: 120px;   
+    margin-top: 120px;
 }
 
 /* Innencontainer mit Rahmen */
@@ -459,7 +489,7 @@ main {
     border-radius: 32px;
     padding: 24px;
     background-color: rgba(0, 0, 0, 0.3);
-    height: auto;         
+    height: auto;
 }
 
 .text-content .about {
@@ -548,14 +578,15 @@ main {
         transform: translateX(-50%);
     }
 }
+
 /* ------------------diagoaal ende */
 
 
-.technologies{
+.technologies {
     display: flex;
     flex-wrap: wrap;
     gap: 60px;
-    align-items: flex-start; 
+    align-items: flex-start;
     padding-block: 120px;
     color: #ffffff;
 }
@@ -573,18 +604,18 @@ main {
     display: inline-block;
 }
 
-.other-skills{
+.other-skills {
     font-size: 26px;
     color: #ffffff;
     margin-bottom: 12px;
     font-weight: 700;
 }
 
-.other-skills span{
+.other-skills span {
     color: #3dcfb6;
 }
 
-.text-contents .tech-description{
+.text-contents .tech-description {
     color: #ffffff;
     margin-bottom: 32px;
     font-size: 18px;
@@ -605,13 +636,13 @@ main {
 
 .marquee-talk {
     position: relative;
-    width: 140px;           
+    width: 140px;
     height: 42px;
     padding-left: 42px;
     border: 1px solid white;
     border-radius: 999px;
     overflow: hidden;
-    display: inline-flex;    
+    display: inline-flex;
     align-items: center;
     text-decoration: none;
     color: white;
@@ -626,11 +657,11 @@ main {
 .marquee-talk:hover {
     border-color: #3dcfb6;
     box-shadow:
-    0 0 10px rgba(61, 207, 182, 0.4);
+        0 0 10px rgba(61, 207, 182, 0.4);
 }
 
 
-.techs-icons{
+.techs-icons {
     flex: 1;
     min-width: 300px;
     display: grid;
@@ -642,7 +673,7 @@ main {
 
 }
 
-.techs-icons > div{
+.techs-icons>div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -650,7 +681,7 @@ main {
     width: 100%;
 }
 
-.techs-icons > div {
+.techs-icons>div {
     transition: all 0.3s ease-in-out;
     /* cursor: pointer; */
     padding: 12px 8px;
@@ -661,14 +692,14 @@ main {
     transform: translateY(-3px);
 }
 
-.techs-icons img{
+.techs-icons img {
     width: 64px;
     height: 64px;
     margin-bottom: 12px;
     object-fit: contain;
 }
 
-.techs-icons div .group-icons:hover{
+.techs-icons div .group-icons:hover {
     position: relative;
     top: 10px;
     left: 20px;
@@ -683,7 +714,7 @@ main {
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
-.techs-icons span{
+.techs-icons span {
     color: white;
     font-size: 18px;
     font-weight: 500;
@@ -691,10 +722,10 @@ main {
 
 .techs-icons div:hover span {
     color: #3dcfb6;
-     transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 }
 
-.growth-item .groth-text{
+.growth-item .groth-text {
     margin-top: 22px;
 }
 
@@ -736,9 +767,9 @@ main {
 .growth-hover {
     position: absolute;
     bottom: 90%;
-    left: 82.5%;
+    left: 69%;
     transform: translateX(-50%);
-    width: 165px;            
+    width: 165px;
     background-color: white;
     /* border: 1px solid #3dcfb6; */
     border-radius: 18px;
@@ -779,7 +810,7 @@ main {
     flex-direction: row;
     justify-content: center;
     gap: 24px;
-    flex-wrap: nowrap;        
+    flex-wrap: nowrap;
 }
 
 .tech-card {
@@ -819,7 +850,13 @@ main {
 
 /* section Portofolio beginn ---------------- */
 
-.section-title{
+.featured-projects {
+    /* max-width: calc(1920px -475px); */
+    padding-block: 120px;
+    position: relative;
+}
+
+.section-title {
     font-size: 24px;
     font-weight: 700;
     color: #3dcfb6;
@@ -827,80 +864,331 @@ main {
     display: inline-block;
 }
 
-.text-contianer{
-    /* padding: 24px; */
+.text-contianer {
+    margin-bottom: 40px;
 }
 
-.text-contianer .title{
+.text-contianer .title {
     font-size: 64px;
     font-weight: 700;
+    line-height: 1.1;
     color: #3dcfb6;
     margin-bottom: 20px;
-    line-height: 1.1;
 }
 
-.text-contianer .tech-description{
+.text-contianer .tech-description {
     color: #ffffff;
-    margin-bottom: 32px;
     font-size: 18px;
-} 
-
-.projects-container{
-    max-width: 720px;
-    color: white;
-    font-size: 18px;
+    line-height: 1.6;
 }
 
-.projects-container .join{
+.projects-container {
+    /* max-width: calc(1920px); */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    height: 109px;
-    border-top: 1px solid #3dcfb6;
-    border-bottom: 1px solid #3dcfb6;
-}
-.projects-container .el-polo-loco{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    height: 109px;
-    border-top: 1px solid #3dcfb6;
-    border-bottom: 1px solid #3dcfb6;
+    flex-direction: column;
+    position: relative;
 }
 
-.projects-container .da-buble{
+.project-card {
+    position: relative;
+    /* max-width: 700px; */
+    width: 75%;
+    padding: 0 30px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    text-align: center;
-    height: 109px;
+    justify-content: space-between;
+    min-height: 110px;
     border-top: 1px solid #3dcfb6;
+    cursor: pointer;
+    transition:
+        background-color 0.3s ease,
+        padding-left 0.3s ease;
+}
+
+.project-card:last-child {
     border-bottom: 1px solid #3dcfb6;
 }
 
-.contect-left{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    gap: 6px;
+.project-card:hover {
+    background-color: rgba(61, 207, 182, 0.08);
 }
 
-.title{
-    font-size: 20px;
+.project-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.project-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.project-title p {
+    font-size: 32px;
     font-weight: 700;
+    color: white;
 }
 
-.contect-left .vertical-line{
+.arrow-icon {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.arrow-icon img {
+    width: 22px;
+}
+
+.project-card:hover .arrow-icon {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.contect-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.contect-left p {
+    font-size: 18px;
+    color: white;
+}
+
+.contect-left .vertical-line {
     width: 1px;
     height: 18px;
     background-color: #3dcfb6;
     border-radius: 999px;
 }
 
+/* ---------------------------------------------- */
 
+.join-project-preview {
+    position: absolute;
+    right: -380px;
+    top: 0%;
+    /* transform: translateY(10%); */
+    opacity: 0;
+    pointer-events: none;
+    z-index: 999;
+
+}
+
+.join-project-preview img {
+    width: 295px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35);
+
+}
+
+.project-card:hover .join-project-preview {
+    opacity: 1;
+}
+
+.el-project-preview {
+    position: absolute;
+    right: -380px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    pointer-events: none;
+
+}
+
+.el-project-preview img {
+    width: 295px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.project-card:hover .el-project-preview {
+    opacity: 1;
+
+}
+
+
+.bubble-project-preview {
+    position: absolute;
+    bottom: 0;
+      right: -380px;
+    /* top: 50%; */
+    transform: translateY(5%);
+    opacity: 0;
+    pointer-events: none;
+    isolation: isolate;
+
+}
+
+.bubble-project-preview img {
+    width: 295px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.project-card:hover .bubble-project-preview {
+    opacity: 1;
+
+}
+
+/* Pseudoelement mit den schrägen Linien */
+:is(.join-project-preview, .el-project-preview, .bubble-project-preview)::after {
+    content: '';
+    position: absolute;
+    top: 16px;
+    bottom: 0;
+    right: 0;
+    left: 16px;
+    width: 100%;
+    /* oder eine bestimmte Größe, z. B. 150px */
+    height: 100%;
+    background: repeating-linear-gradient(-45deg,
+            /* Winkel: 45° = von rechts unten nach links oben */
+            transparent 0px,
+            transparent 8px,
+            #3dcfb6 8px,
+            /* Linienfarbe */
+            #3dcfb6 9px
+            /* Dicke der Linie */
+        );
+    pointer-events: none;
+    /* damit man durchklicken kann */
+    z-index: -1;
+    border-bottom-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+/* Pseudoelement mit den schrägen Linien */
+
+
+/* -------------------------------------------------------- */
+
+/* =========================
+   PORTFOLIO RESPONSIVE
+========================= */
+
+/* =========================
+   PORTFOLIO RESPONSIVE
+========================= */
+@media (max-width: 1770px){
+    .project-card{
+        width:70%;
+    }
+}
+@media (max-width: 1540px){
+    .project-card{
+        width:65%;
+    }
+}
+@media (max-width: 1340px){
+    .project-card{
+        width:60%;
+    }
+}
+@media (max-width: 1240px){
+    .project-card{
+        width:55%;
+    }
+
+    .text-contianer .title{
+        font-size: 58px;
+    }
+
+        .contect-left p {
+        font-size: 17px;
+        /* font-weight: 500; */
+    }
+
+        .project-content {
+            flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding-block: 24px;
+    }
+}
+
+
+
+@media (max-width: 1100px) {
+
+    main,
+    .container {
+        padding-inline: 32px;
+    }
+
+    .project-card {
+        width: 100%;
+    }
+
+    .project-title p {
+        font-size: 28px;
+    }
+
+    .contect-left {
+        gap: 8px;
+    }
+
+    .project-content {
+        flex-direction: row;
+        /* align-items: flex-start; */
+        gap: 16px;
+        padding-block: 24px;
+    }
+
+    .contect-left p {
+        font-size: 18px;
+    }
+
+    /* Preview Images ausblenden */
+
+    .join-project-preview,
+    .el-project-preview,
+    .bubble-project-preview {
+        display: none;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    main,
+    .container {
+        padding-inline: 20px;
+    }
+
+    .text-contianer .title {
+        font-size: 42px;
+    }
+
+    /* .project-title p {
+        font-size: 24px;
+    } */
+
+    .contect-left {
+        flex-wrap: wrap;
+    }
+
+    .project-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding-block: 24px;
+    }
+}
 
 
 /* Responisive beginn -------------- */
@@ -909,15 +1197,18 @@ main {
     main {
         padding-inline: 20px;
     }
+
     .aboutme-section {
         gap: 30px;
     }
+
     .text-content {
-        margin-top: 60px;  
+        margin-top: 60px;
     }
-    .text .title {
+
+    /* .text .title {
         font-size: 48px;
-    }
+    } */
 }
 
 @media (max-width: 768px) {
@@ -933,25 +1224,25 @@ main {
 }
 
 
-@media (max-width: 1040px){
-    .techs-icons{
-        grid-template-columns:(3, 1 fr);
+@media (max-width: 1040px) {
+    .techs-icons {
+        grid-template-columns: (3, 1fr);
     }
 }
 
 @media (max-widh: 768px) {
     .technologies {
-        gap:40px;
+        gap: 40px;
     }
 
-    .techs-icons{
+    .techs-icons {
         grid-template-columns: (2, 1fr);
         gap: 24px;
     }
 }
 
-@media (max-width: 480px){
-    .techs-icons{
+@media (max-width: 480px) {
+    .techs-icons {
         grid-template-columns: 1fr;
         gap: 20px;
     }
