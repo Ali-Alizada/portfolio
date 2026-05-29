@@ -436,33 +436,24 @@ main {
     /* max-width: 568px; */
     height: auto 368px;
     position: relative;
-    /* ← Wichtig für das absolute Pseudoelement */
     isolation: isolate;
-    /* ← Für z-index -1 (optional, aber sicher) */
 
 }
 
-/* Pseudoelement für die diagonalen Linien */
 .img-profile::after {
     content: '';
     position: absolute;
-    /* Positioniere die Linien relativ zum Container */
     bottom: -50px;
-    /* Versatz nach unten, falls nötig */
     left: -50px;
-    /* Versatz nach rechts – anpassen! */
     width: 95%;
-    /* Oder feste Breite wie 200px */
     height: 95%;
     background: repeating-linear-gradient(225deg,
-            /* 225° = von links unten nach rechts oben */
             transparent 0px,
             transparent 18px,
             #3dcfb6 20px,
             #3dcfb6 15.5px);
     pointer-events: none;
     z-index: -1;
-    /* Stellt sicher, dass die Linien hinter dem Bild sind */
     border-bottom-right-radius: 20px;
     border-top-left-radius: 20px;
 }
@@ -483,7 +474,6 @@ main {
     margin-top: 120px;
 }
 
-/* Innencontainer mit Rahmen */
 .text {
     border: 2px solid #08463b;
     border-radius: 32px;
@@ -1067,33 +1057,79 @@ main {
 /*----------------------------------------------- Dialog */
 
 .project-dialog {
-    width: min(1920px - 192px);
+
+    width: calc(100% - 192px);
+    max-width: 1736px;
     min-height: 80vh;
     margin: auto;
     padding: 96px;
     border: 1px solid #3dcfb6;
     border-radius: 32px;
-    background:
-        linear-gradient(90deg,
-            #1c1c1c 0%,
-            #0b3d36 100%);
-
+    background: linear-gradient(
+        90deg,
+        #1c1c1c 0%,
+        #0b3d36 100%
+    );
     color: white;
+    overflow: auto;
+    border: none;
+    will-change: transform, opacity;
+    animation: dialogClose 0.3s ease forwards;
+}
 
+.project-dialog[open] {
+    animation: dialogOpen 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.project-dialog.closing {
+    animation: dialogClose 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .project-dialog::backdrop {
-    background: rgba(0, 0, 0, 0.8);
-    --backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0);
+    animation: backdropFade 0.4s ease forwards;
 }
+
+@keyframes backdropFade {
+    to {
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(10px);
+    }
+}
+
+@keyframes dialogOpen {
+    from {
+        opacity: 0;
+        transform: translateY(80px) scale(0.9);
+        filter: blur(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes dialogClose {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+        filter: blur(10px);
+    }
+}
+
 
 .dialog-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     gap: 80px;
-
     width: 100%;
     height: 100%;
 }
@@ -1225,15 +1261,58 @@ main {
     height: 50px;
 }
 
-.next-project img:hover {
-    transform: translateX(5px);
-    transition: all 0.3 ease-out;
-    color: #3dcfb6;
-}
 
 .next-project:hover {
     color: white;
 }
+
+.close-dialog img, 
+.next-project img, 
+.dialog-buttons a img,
+.arrow-icon img {
+    transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+}
+
+
+.close-dialog:hover img{
+    transform: translateX(5px)
+    rotate(90deg)
+    scale(1.1);
+    filter: brightness(0) saturate(100%)
+    invert(73%) sepia(29%) 
+    saturate(614%)
+    hue-rotate(118deg)
+    brightness(140%)
+    contrast(100%)
+}
+
+.next-project:hover img {
+    transform: translateX(5px) scale(1.1);
+    filter: brightness(0) saturate(100%)
+    invert(73%) sepia(29%) 
+    saturate(614%)
+    hue-rotate(118deg)
+    brightness(140%)
+    contrast(100%);
+}
+
+.dialog-buttons a{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dialog-buttons a:hover img{
+    transform: translateX(5px) scale(1.1);
+    filter: brightness(0) saturate(100%)
+    invert(73%) sepia(29%)
+    saturate(614%)
+    hue-rotate(118deg)
+    brightness(95%)
+    contrast(100%);
+    
+}
+
 
 @media (max-width: 1100px) {
 
