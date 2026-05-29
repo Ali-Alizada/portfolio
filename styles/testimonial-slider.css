@@ -1,0 +1,156 @@
+.comments{
+    padding-block: 140px;
+    /* overflow: auto;    */
+}
+
+.comments-header{
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.comments-header h3{
+    font-size: 46px;
+    color: #3dcfb6;
+    font-weight: 700;
+}
+
+.testimonial-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.testimonial-slider{
+    width: 100%;
+    max-width: 900px;
+    overflow: hidden;
+    position: relative;
+}
+
+.testimonial-slider{
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.testimonial-card{
+    min-width: 100%;
+    background: rgba(61, 207, 182, 0.15);
+    border: 1px solid #3dcfb6;
+    border-radius: 32px;
+    padding: 30px;
+    position: relative;
+    backdrop-filter: blur(6px);
+}
+.testimonial-card::before{
+    content:'';
+    position: absolute;
+    inset: 0;
+    /* box-shadow: 0 0 60px rgba(61, 207, 182, 0.15); */
+    border-radius: 32px;
+}
+
+.quote-mark{
+    width: 50px;
+    /* font-size: 140px; */
+    line-height: 1;
+    color: white;
+    /* margin-bottom: 20px; */
+}
+
+.testimonial-text{
+    font-size: 28px;
+    line-height: 1.6;
+    color: white;
+    margin-bottom: 50px;
+    max-width: 700px;
+}
+
+.testimonial-footer{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.testimonial-footer .line{
+    width: 180px;
+    height: 1px;
+    background: white;
+}
+
+.testimonial-footer span{
+    color: #d9d9d9;
+    font-size: 20px;
+
+}
+
+/* --------------------buttons */
+
+.slider-btn{
+    width: 56px;
+    height: 56px;
+    border-radius:50%;
+    border: 2px solid #3dcfb6;
+    background: transparent;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.slider-btn:hover{
+    background: #3dcfb6;
+    color: black;
+    transform: scale(1.05);
+}
+
+.slider-dots{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    margin-top: 40px;
+}
+
+.dot{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    transition: 0.3s ease;
+}
+
+.dot .active{
+    background: #3dcfb6;
+    box-shadow: 0 0 10px #3dcfb6;
+}
+
+/* ------------------Responsive */
+
+@media (max-width:768px){
+    .comments-header h3{
+        font-size: 38px;
+    }
+
+    .testimonial-card{
+        padding: 40px 24px;
+    }
+
+    .testimonial-text{
+        font-size: 20px;
+    }
+
+    /* .quote-mark{
+        font-size: 90px;
+    } */
+
+    .testimonial-footer{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .testimonial-footer .line{
+        width: 120px;
+    }
+    
+}

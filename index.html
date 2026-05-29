@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/testimonial-slider.css">
     <script src="script.js" defer></script>
 </head>
 
@@ -41,7 +42,7 @@
 
 
                 <!-- Hero Bereich -->
-                <section class="hero-section">
+                <section class="hero-section hidden">
 
                     <div class="hero-side-left">
                         <a class="scroll-btn" href="#aboutme">
@@ -123,7 +124,7 @@
 
     <main>
 
-        <section id="aboutme" class="aboutme-section">
+        <section id="aboutme" class="aboutme-section hidden">
             <div class="img-profile">
                 <img src="assets/imgs/Alizada-ProfileBild.jpg" alt="Profilbild">
             </div>
@@ -157,7 +158,7 @@
         </section>
 
 
-        <section class="technologies">
+        <section class="technologies hidden">
             <div class="text-contents">
                 <span class="skills">Technologies</span>
                 <div class="text">
@@ -250,7 +251,7 @@
         </section>
 
 
-        <section class="featured-projects">
+        <section class="featured-projects hidden">
             <span class="section-title">Portfolio</span>
             <div class="text-contianer">
                 <p class="title">Featured Projects</p>
@@ -565,11 +566,93 @@
                 </dialog>
 
             </div>
-        </section>
 
-        <section class="comments">
 
         </section>
+        <!-- Testimonial Slider  -->
+
+
+
+        
+        <section class="comments hidden">
+            <div class="comments-header">
+                <h3>What my colleagues say about me</h3>
+            </div>
+
+            <div class="testimonial-wrapper">
+               
+
+                <div class="testimonial-slider">
+
+                    <!-- Card-1 -->
+
+                    <article class="testimonial-card active">
+                            <div class="quote-mark">“</div>
+                    
+                        <p class="testimonial-text">
+                        Aliaqa has proven to be a reliable group partner.
+                        His technical skills and proactive approach were crucial
+                        to the success of our project.
+                        </p>
+
+                        <div class="testimonial-footer">
+                            <div class="line"></div>
+                            <span>H.Janisch - Team partner</span>
+                        </div>
+                    </article>
+
+                    <!-- Card-2 -->
+
+                    <article class="testimonial-card">
+                        <div class="quote-mark">“</div>
+                         <p class="testimonial-text">
+                            Working with Aliaqa was a great experience.
+                            He stayed calm under pressure and always helped the team.
+                        </p>
+                        <div class="testimonial-footer">
+                            <div class="line"></div>
+                            <span>T. Schulz - Frontend developer</span>
+                        </div>
+                    </article>
+
+                    <!-- Card-3 -->
+                    
+                    <article class="testimonial-card">
+                        <div class="quote-mark">“</div>
+                         <p class="testimonial-text">
+                            Very structured developer with excellent communication skills.
+                    I       would gladly work with him again.
+                        </p>
+                        <div class="testimonial-footer">
+                            <div class="line"></div>
+                            <span>Developer Akademie Team</span>
+                        </div>
+                    </article>
+
+                </div>
+
+ 
+            </div>
+
+
+            <!-- buttons -->
+                 
+               
+
+            <!-- Dots -->
+            <div class="slider-dots">
+                <button class="slider-btn prev">&#8592;</button>
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <button class="slider-btn next">&#8594;</button>
+            </div>
+
+        </section>
+
+
+
+
         <section class="contact">
 
         </section>

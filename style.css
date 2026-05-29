@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 body {
     width: 100%;
     min-height: 100vh;
@@ -11,6 +12,19 @@ body {
     font-family: sans-serif, arial;
 
 }
+
+/* .hidden{
+    opacity: 0;
+    transform: translateY(80px);
+    transition: 
+    opacity 0.8s ease, 
+    transform 0.8s ease;
+}
+
+.show{
+    opacity: 1;
+    transform: translateY(0);
+} */
 
 .site-header {
     width: 100%;
@@ -889,6 +903,7 @@ main {
     justify-content: space-between;
     min-height: 110px;
     border-top: 1px solid #3dcfb6;
+    border-bottom: 1px solid #3dcfb6;
     cursor: pointer;
     transition:
         background-color 0.3s ease,
@@ -1518,3 +1533,18 @@ main {
         gap: 20px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
