@@ -1022,7 +1022,7 @@ main {
 .bubble-project-preview {
     position: absolute;
     bottom: 0;
-      right: -380px;
+    right: -380px;
     /* top: 50%; */
     transform: translateY(5%);
     opacity: 0;
@@ -1044,7 +1044,6 @@ main {
 
 }
 
-/* Pseudoelement mit den schrägen Linien */
 :is(.join-project-preview, .el-project-preview, .bubble-project-preview)::after {
     content: '';
     position: absolute;
@@ -1053,67 +1052,265 @@ main {
     right: 0;
     left: 16px;
     width: 100%;
-    /* oder eine bestimmte Größe, z. B. 150px */
     height: 100%;
     background: repeating-linear-gradient(-45deg,
-            /* Winkel: 45° = von rechts unten nach links oben */
             transparent 0px,
             transparent 8px,
             #3dcfb6 8px,
-            /* Linienfarbe */
-            #3dcfb6 9px
-            /* Dicke der Linie */
-        );
+            #3dcfb6 9px);
     pointer-events: none;
-    /* damit man durchklicken kann */
     z-index: -1;
     border-bottom-left-radius: 16px;
     border-top-right-radius: 16px;
 }
 
-/* Pseudoelement mit den schrägen Linien */
+/*----------------------------------------------- Dialog */
 
+.project-dialog {
+    width: min(1920px - 192px);
+    min-height: 80vh;
+    margin: auto;
+    padding: 96px;
+    border: 1px solid #3dcfb6;
+    border-radius: 32px;
+    background:
+        linear-gradient(90deg,
+            #1c1c1c 0%,
+            #0b3d36 100%);
 
-/* -------------------------------------------------------- */
+    color: white;
 
-/* =========================
-   PORTFOLIO RESPONSIVE
-========================= */
+}
 
-/* =========================
-   PORTFOLIO RESPONSIVE
-========================= */
-@media (max-width: 1770px){
-    .project-card{
-        width:70%;
+.project-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+    --backdrop-filter: blur(8px);
+}
+
+.dialog-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 80px;
+
+    width: 100%;
+    height: 100%;
+}
+
+.dialog-left {
+    flex: 1;
+    max-width: 50%;
+}
+
+.dialog-left h2 {
+    font-size: 180px;
+    line-height: 1;
+    color: #3dcfb6;
+    margin-bottom: 24px;
+}
+
+.dialog-name {
+    font-size: 92px;
+    font-weight: 700;
+
+    margin-bottom: 48px;
+}
+
+.dialog-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #3dcfb6;
+    margin-bottom: 32px;
+}
+
+.dialog-description {
+    font-size: 24px;
+    line-height: 1.6;
+    max-width: 700px;
+    margin-bottom: 48px;
+}
+
+.tech-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin-bottom: 56px;
+}
+
+.tech-icons div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tech-icons img {
+    width: 28px;
+    height: 28px;
+}
+
+.tech-icons span {
+    font-size: 22px;
+}
+
+.dialog-buttons {
+    display: flex;
+    gap: 24px;
+}
+
+.dialog-buttons a {
+    padding: 16px 32px;
+
+    border: 1px solid white;
+    border-radius: 999px;
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    transition: 0.3s ease;
+}
+
+.dialog-buttons a:hover {
+    border-color: #3dcfb6;
+    color: #3dcfb6;
+}
+
+.dialog-right {
+    flex: 1;
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.dialog-right img {
+    width: 100%;
+    max-width: 850px;
+    border-radius: 26px;
+    display: block;
+    object-fit: contain;
+    image-rendering: auto;
+    backface-visibility: hidden;
+
+}
+
+.close-dialog {
+    position: absolute;
+    top: 86px;
+    right: 80px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 42px;
+    cursor: pointer;
+}
+
+.next-project {
+    position: absolute;
+    right: 88px;
+    bottom: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    color: #3dcfb6;
+    font-size: 28px;
+    cursor: pointer;
+    gap: 12px;
+}
+
+.next-project img {
+    width: 50px;
+    height: 50px;
+}
+
+.next-project img:hover {
+    transform: translateX(5px);
+    transition: all 0.3 ease-out;
+    color: #3dcfb6;
+}
+
+.next-project:hover {
+    color: white;
+}
+
+@media (max-width: 1100px) {
+
+    .project-dialog {
+        padding: 48px 32px;
+    }
+
+    .dialog-wrapper {
+        flex-direction: column-reverse;
+        gap: 48px;
+    }
+
+    .dialog-left,
+    .dialog-right {
+        max-width: 100%;
+    }
+
+    .dialog-left h2 {
+        font-size: 100px;
+    }
+
+    .dialog-name {
+        font-size: 64px;
+    }
+
+    .dialog-title {
+        font-size: 32px;
+    }
+
+    .dialog-description {
+        font-size: 18px;
+    }
+
+    .dialog-buttons {
+        flex-wrap: wrap;
+    }
+
+    .next-project {
+        position: static;
+        margin-top: 48px;
     }
 }
-@media (max-width: 1540px){
-    .project-card{
-        width:65%;
+
+@media (max-width: 1770px) {
+    .project-card {
+        width: 70%;
     }
 }
-@media (max-width: 1340px){
-    .project-card{
-        width:60%;
+
+@media (max-width: 1540px) {
+    .project-card {
+        width: 65%;
     }
 }
-@media (max-width: 1240px){
-    .project-card{
-        width:55%;
+
+@media (max-width: 1340px) {
+    .project-card {
+        width: 60%;
+    }
+}
+
+@media (max-width: 1240px) {
+    .project-card {
+        width: 55%;
     }
 
-    .text-contianer .title{
+    .text-contianer .title {
         font-size: 58px;
     }
 
-        .contect-left p {
+    .contect-left p {
         font-size: 17px;
         /* font-weight: 500; */
     }
 
-        .project-content {
-            flex-direction: column;
+    .project-content {
+        flex-direction: column;
         align-items: flex-start;
         gap: 16px;
         padding-block: 24px;
@@ -1152,8 +1349,6 @@ main {
         font-size: 18px;
     }
 
-    /* Preview Images ausblenden */
-
     .join-project-preview,
     .el-project-preview,
     .bubble-project-preview {
@@ -1161,7 +1356,6 @@ main {
     }
 }
 
-/* Mobile */
 
 @media (max-width: 600px) {
 
@@ -1190,8 +1384,6 @@ main {
     }
 }
 
-
-/* Responisive beginn -------------- */
 
 @media (max-width: 768px) {
     main {

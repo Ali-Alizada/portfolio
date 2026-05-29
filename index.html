@@ -259,48 +259,130 @@
             </div>
 
             <div class="projects-container">
-                <div class="project-card">
-
+                <div class="project-card" onclick="openDialog('joinDialog')">
                     <div class="project-content">
-                        
                         <div class="project-title">
-
                             <p>Join</p>
-
                             <span class="arrow-icon">
                                 <img src="assets/imgs/icons/arrow_outward.svg" alt="">
                             </span>
-
                         </div>
 
                         <div class="contect-left">
-
                             <p>Angular</p>
                             <div class="vertical-line"></div>
-
-                            <p>TypeScript</p>
+                            <p>JavaScript</p>
                             <div class="vertical-line"></div>
-
                             <p>HTML</p>
                             <div class="vertical-line"></div>
-
                             <p>CSS</p>
                             <div class="vertical-line"></div>
-
                             <p>Firebase</p>
-
                         </div>
-
                     </div>
 
                     <!-- Hover Image -->
                     <div class="join-project-preview">
                         <img src="assets/imgs/Join02.png .png" alt="Join Project">
+                    </div>
+
+                    <!-- Dialog -->
+
+
+
+                </div>
+
+                <dialog id="joinDialog" class="project-dialog">
+
+                    <button class="close-dialog" onclick="closeDialog('joinDialog')">
+                        <img src="assets/imgs/icons/close-icon.svg" alt="">
+                    </button>
+
+                    <div class="dialog-wrapper">
+
+                        <!-- LEFT SIDE -->
+
+                        <div class="dialog-left">
+
+                            <h2>01</h2>
+
+                            <p class="dialog-name">Join</p>
+
+                            <p class="dialog-title">
+                                What is this project about?
+                            </p>
+
+                            <p class="dialog-description">
+                                Task manager inspired by the Kanban System.
+                                Create and organize tasks using drag and drop functions,
+                                assign users and categories.
+                            </p>
+
+                            <!-- TECHS -->
+
+                            <div class="tech-icons">
+
+                                <div>
+                                    <img src="assets/imgs/icons/Property 1=CSS.svg" alt="">
+                                    <span>CSS</span>
+                                </div>
+
+                                <div>
+                                    <img src="assets/imgs/icons/Property 1=HTML.svg" alt="">
+                                    <span>HTML</span>
+                                </div>
+
+                                <div>
+                                    <img src="assets/imgs/icons/Property 1=Firebase.svg" alt="">
+                                    <span>Firebase</span>
+                                </div>
+
+                                <div>
+                                    <img src="assets/imgs/icons/Property 1=Angular.svg" alt="">
+                                    <span>Angular</span>
+                                </div>
+
+                                <div>
+                                    <img src="assets/imgs/icons/Property 1=Javascript.svg" alt="">
+                                    <span>JavaScript</span>
+                                </div>
+
+                            </div>
+
+                            <!-- BUTTONS -->
+
+                            <div class="dialog-buttons">
+
+                                <a href="#">GitHub <img src="assets/imgs/icons/arrow_outward.svg" alt=""></a>
+
+                                <a href="#">Live Test <img src="assets/imgs/icons/arrow_outward.svg" alt=""></a>
+
+                            </div>
+
+                        </div>
+
+                        <!-- RIGHT SIDE -->
+
+                        <div class="dialog-right">
+
+                            <img src="assets/imgs/Join01-1.png" alt="Join">
+
+                        </div>
 
                     </div>
 
-                </div>
-                <div class="project-card">
+                    <!-- NEXT PROJECT -->
+
+                    <button class="next-project">
+                        <span>Next project</span>
+                        <img src="assets/imgs/icons/arrow-next.svg" alt="">
+                    </button>
+
+                </dialog>
+
+
+
+                <div class="project-card" onclick="openDialog('elpDialog')">
 
                     <div class="project-content">
 
@@ -327,11 +409,76 @@
                     </div>
 
                 </div>
-                <div class="project-card">
+
+
+
+                <!-- Dilaog-2 -->
+
+                <dialog id="elpDialog" class="project-dialog">
+                    <button class="close-dialog" onclick="closeDialog('elpDialog')">
+                        <img src="assets/imgs/icons/close-icon.svg" alt="">
+                    </button>
+
+                    <div class="dialog-wrapper">
+
+                        <!-- left Side -->
+                        <div class="dialog-left">
+                            <h2>02</h2>
+                            <p class="dialog-name">El Pollo Loco</p>
+                            <p class="dialog-title">
+                                What is this project about?
+                            </p>
+                            <p class="dialog-description">
+                                Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and
+                                tabasco salsa to fight against the crazy hen.
+                            </p>
+
+                            <div class="tech-icons">
+                                <div>
+                                    <img src="assets/imgs/icons/Property 1=Javascript.svg" alt="">
+                                    <span>JavaScript</span>
+                                </div>
+                                <div>
+                                     <img src="assets/imgs/icons/Property 1=HTML.svg" alt="">
+                                    <span>HTML</span>
+                                </div>
+                                <div>
+                                     <img src="assets/imgs/icons/Property 1=CSS.svg" alt="">
+                                    <span>CSS</span>
+                                </div>
+                            </div>
+
+                            <!-- buttons -->
+
+                            <div class="dialog-buttons">
+
+                                <a href="#">GitHub <img src="assets/imgs/icons/arrow_outward.svg" alt=""></a>
+
+                                <a href="#">Live Test <img src="assets/imgs/icons/arrow_outward.svg" alt=""></a>
+
+                            </div>
+
+                        </div>
+
+                        <div class="dialog-right">
+                            <img src="assets/imgs/el-pollo-loco02.png .png" alt="">
+                        </div>
+
+                    </div>
+
+                    <button class="next-project">
+                        <span>Next project</span>
+                        <img src="assets/imgs/icons/arrow-next.svg" alt="">
+                    </button>
+
+                </dialog>
+
+
+                <div class="project-card" onclick="openDialog('bubbleDilaog')">
                     <div class="project-content">
 
                         <div class="project-title">
-                            <p>DA</p>
+                            <p>DA Bubble</p>
                             <span class="arrow-icon">
                                 <img src="assets/imgs/icons/arrow_outward.svg" alt="">
                             </span>
@@ -353,6 +500,74 @@
                     </div>
 
                 </div>
+
+
+                <dialog id="bubbleDilaog" class="project-dialog">
+                    <button class="close-dialog" onclick="closeDialog('bubbleDilaog')">
+                        <img src="assets/imgs/icons/close-icon.svg" alt="">
+                    </button>
+
+                    <div class="dialog-wrapper">
+
+                        <!-- left-side -->
+
+                        <div class="dialog-left">
+                            <h2>03</h2>
+                            <p class="dialog-name">DABubble</p>
+                            <p class="dialog-title">
+                                What is this project about?
+                            </p>
+                            <p class="dialog-description">
+                                Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and
+                                This App is a Slack Clone App. It revolutionizes team communication and collaboration
+                                with its intuitive interface, real-time messaging, and robust channel organization.
+                            </p>
+
+
+                            <div class="tech-icons">
+                                <div>
+                                    <img src="assets/imgs/icons/Property 1=TypeScript.svg" alt="">
+                                    <span>TypeScript</span>
+                                </div>
+                                <div>
+                                     <img src="assets/imgs/icons/Property 1=HTML.svg" alt="">
+                                    <span>HTML</span>
+                                </div>
+                                <div>
+                                     <img src="assets/imgs/icons/Property 1=CSS.svg" alt="">
+                                    <span>CSS</span>
+                                </div>
+                            </div>
+
+                            <!-- Buttons -->
+
+                            <div class="dialog-buttons">
+
+                                <a href="#">GitHub <img src="assets/imgs/icons/arrow_outward.svg" alt=""></a>
+
+                                <a href="#">Live Test <img src="assets/imgs/icons/arrow_outward.svg" alt=""></a>
+
+                            </div>
+                        </div>
+
+
+                        <!-- right-side -->
+
+                        <div class="dialog-right">
+                            <img src="assets/imgs/bubble.png" alt="">
+                        </div>
+
+                    </div>
+
+                    <!-- next button -->
+
+                    <button class="next-project">
+                        <span>Next project</span>
+                        <img src="assets/imgs/icons/arrow-next.svg" alt="">
+                    </button>
+
+                </dialog>
+
             </div>
         </section>
 
