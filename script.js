@@ -52,7 +52,70 @@ dialogs.forEach((dialog, index) => {
     });
 });
 
-// -----------------------testimonial slide
+// -----------------------testimonial slides
+
+let slider = document.querySelector(".testimonial-slider");
+let cards = document.querySelectorAll(".testimonial-card");
+let nextBtn = document.querySelector(".next");
+let prevBtn = document.querySelector(".prev");
+let dots = document.querySelectorAll(".dot");
+let viewport = document.querySelector(".testimonial-viewport");
+
+let currentIndex = 1;
+let slideDistance = 0;   
+
+function updateSlideDistance() {
+  const viewportWidth = viewport.getBoundingClientRect().width;
+  const gap = 76; 
+  slideDistance = viewportWidth + gap;
+}
+
+function updateSlider() {
+  updateSlideDistance();
+  slider.style.transform = `translateX(-${currentIndex * slideDistance}px)`;
+
+  dots.forEach(dot => dot.classList.remove("active"));
+  cards.forEach(card => card.classList.remove("active"));
+  dots[currentIndex].classList.add("active");
+  cards[currentIndex].classList.add("active");
+}
+
+nextBtn.addEventListener("click", () => {
+  currentIndex++;
+  if (currentIndex >= cards.length) currentIndex = 0;
+  updateSlider();
+});
+
+prevBtn.addEventListener("click", () => {
+  currentIndex--;
+  if (currentIndex < 0) currentIndex = cards.length - 1;
+  updateSlider();
+});
+
+dots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    currentIndex = index;
+    updateSlider();
+  });
+});
+
+window.addEventListener("resize", () => {
+  updateSlider();
+});
+
+updateSlider();
+
+//  -------------------------- Contact Form
+
+
+
+
+
+
+
+
+
+
 
 
 

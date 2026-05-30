@@ -1,64 +1,83 @@
-.comments{
+.comments {
     padding-block: 140px;
-    /* overflow: auto;    */
+    overflow: hidden;
 }
 
-.comments-header{
+.comments-header {
     text-align: center;
     margin-bottom: 60px;
 }
 
-.comments-header h3{
+.comments-header h3 {
     font-size: 46px;
     color: #3dcfb6;
     font-weight: 700;
 }
 
-.testimonial-wrapper{
+.testimonial-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 30px;
 }
 
-.testimonial-slider{
+.testimonial-viewport {
     width: 100%;
-    max-width: 900px;
-    overflow: hidden;
+    max-width: 996px;
+    /* overflow: hidden; */
     position: relative;
 }
 
-.testimonial-slider{
-    display: flex;
+.testimonial-slider {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    gap: 76px;
     transition: transform 0.5s ease;
+    padding-bottom: 40px;
 }
 
-.testimonial-card{
-    min-width: 100%;
-    background: rgba(61, 207, 182, 0.15);
+.testimonial-card {
+    background: rgba(71, 224, 199, 0.15);
     border: 1px solid #3dcfb6;
     border-radius: 32px;
-    padding: 30px;
+    padding: 60px;
     position: relative;
     backdrop-filter: blur(6px);
+    opacity: 0.4;
+    transform: scale(0.9);
+    transition: all 0.4s ease;
+    width: auto;
 }
-.testimonial-card::before{
-    content:'';
+
+.testimonial-card.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+.testimonial-card::before {
+    content: '';
     position: absolute;
     inset: 0;
-    /* box-shadow: 0 0 60px rgba(61, 207, 182, 0.15); */
+    box-shadow: 0 0 20px rgba(61, 207, 182, 0.15);
     border-radius: 32px;
 }
 
-.quote-mark{
-    width: 50px;
-    /* font-size: 140px; */
-    line-height: 1;
-    color: white;
-    /* margin-bottom: 20px; */
+.quote-mark {
+    position: absolute;
+    left: -50px;
+    top: -10px;
+    z-index: 100;
+    pointer-events: none;
 }
 
-.testimonial-text{
+.quote-mark img {
+    width: 100px;
+}
+
+
+.testimonial-text {
     font-size: 28px;
     line-height: 1.6;
     color: white;
@@ -66,19 +85,20 @@
     max-width: 700px;
 }
 
-.testimonial-footer{
+.testimonial-footer {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-.testimonial-footer .line{
-    width: 180px;
+.testimonial-footer .line {
+    width: 100%;
+    max-width: 500px;
     height: 1px;
     background: white;
 }
 
-.testimonial-footer span{
+.testimonial-footer span {
     color: #d9d9d9;
     font-size: 20px;
 
@@ -86,25 +106,39 @@
 
 /* --------------------buttons */
 
-.slider-btn{
-    width: 56px;
-    height: 56px;
-    border-radius:50%;
-    border: 2px solid #3dcfb6;
+.slider-btn-left,
+.slider-btn-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: transparent;
+    border: none;
     color: white;
     font-size: 28px;
     cursor: pointer;
-    transition: 0.3s ease;
+    gap: 12px;
 }
 
-.slider-btn:hover{
-    background: #3dcfb6;
-    color: black;
-    transform: scale(1.05);
+
+.slider-btn-left img {
+    height: 50px;
 }
 
-.slider-dots{
+.slider-btn-right img {
+    height: 50px;
+}
+
+.slider-btn-right:hover img {
+    transform: translateX(5px) scale(1.1);
+    filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%) hue-rotate(118deg) brightness(140%) contrast(100%);
+}
+
+.slider-btn-left:hover img {
+    transform: translateX(-5px) scale(1.1);
+    filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%) hue-rotate(118deg) brightness(140%) contrast(100%);
+}
+
+.slider-dots {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -112,7 +146,7 @@
     margin-top: 40px;
 }
 
-.dot{
+.dot {
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -120,37 +154,38 @@
     transition: 0.3s ease;
 }
 
-.dot .active{
+.dot.active {
+    color: #3dcfb6;
     background: #3dcfb6;
-    box-shadow: 0 0 10px #3dcfb6;
+    box-shadow: 0 0 5px #3dcfb6;
 }
 
 /* ------------------Responsive */
 
-@media (max-width:768px){
-    .comments-header h3{
+@media (max-width:768px) {
+    .comments-header h3 {
         font-size: 38px;
     }
 
-    .testimonial-card{
+    .testimonial-card {
         padding: 40px 24px;
     }
 
-    .testimonial-text{
+    .testimonial-text {
         font-size: 20px;
     }
 
     /* .quote-mark{
-        font-size: 90px;
+        font-size: 40px;
     } */
 
-    .testimonial-footer{
+    .testimonial-footer {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .testimonial-footer .line{
+    .testimonial-footer .line {
         width: 120px;
     }
-    
+
 }
