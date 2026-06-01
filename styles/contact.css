@@ -132,7 +132,7 @@ div .title{
     color: #3dcfb6;
 }
 
-.privacy-policy{
+.privacy-policy div{
     display: flex;
     align-items: center;
     padding-bottom: 24px;
@@ -149,6 +149,32 @@ div .title{
     color: #3dcfb6;
     text-decoration: none;
 }
+
+input.error-placeholder::placeholder,
+textarea.error-placeholder::placeholder {
+    color: #b33 !important;
+    opacity: 1;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.form-content .error-message{
+    outline: none;
+    color:#b33;
+    background: transparent;
+    font-size: 16px;
+}
+
+.privacy-policy .error-message{
+    padding-top: 0px;
+}
+
+
+
+
 
 @media (max-width: 992px){
     .contact-wrapper{

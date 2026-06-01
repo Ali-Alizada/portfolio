@@ -666,30 +666,40 @@
 
                 </div>
 
+
+
                 <div class="contact-form">
-                    <form class="form-content" action="">
+                    <form class="form-content" onsubmit="addMessage(); return false;" action="">
+
                         <div class="name">
                             <label for="">What is your name?</label>
-                            <input type="text" placeholder="Your name goes here" required>
+                            <input type="text" id="username" placeholder="Your name goes here">
+                            <div class="error-message" id="error-username"></div>
                         </div>
+
                         <div class="email">
                             <label for="">What is Your email?</label>
-                            <input type="email" placeholder="youremail@email.com" required>
+                            <input type="email" id="useremail" placeholder="youremail@email.com">
+                            <div class="error-message" id="error-email"></div>
                         </div>
+
                         <div class="textarea">
                             <label for="">How can i help you?</label>
-                            <textarea placeholder="Hello Aliaqa, I am interested in..." required></textarea>
+                            <textarea id="usertextarea" placeholder="Hello Aliaqa, I am interested in..."></textarea>
+                            <div class="error-message" id="error-textarea"></div>
                         </div>
+
 
                         <div class="privacy-policy">
-                            <img src="assets/imgs/icons/checkbox-unchecked.svg" alt="checked-icon">
-                            <img src="assets/imgs/icons/checkbox-checked.svg" alt="unchecked-icon">
-
-                            <p>i've read the <a href="#privacy-policy">privacypolicy</a> and agree to the processing of
-                                my data as outlined.</p>
+                            <div>
+                            <img id="checkbox" src="assets/imgs/icons/checkbox-unchecked.svg" alt="checkbox-icon">
+                            <p>i've read the <a href="privacy-policy.html">privacypolicy</a> and agree to the processing of
+                                my data as outlined.</p></div>
+                         
+                            <div class="error-message" id="error-policy"></div>
 
                         </div>
-                        <div class="button"><button type="submit">Say Hello :)</button></div>
+                        <div class="button"><button type="submit">Say Hello :)</button></div> 
 
                     </form>
 
