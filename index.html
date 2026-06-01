@@ -7,6 +7,7 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/testimonial-slider.css">
+    <link rel="stylesheet" href="styles/contact.css">
     <script src="script.js" defer></script>
 </head>
 
@@ -127,7 +128,7 @@
             <div class="text-content">
                 <span class="about">who i am</span>
                 <div class="text">
-                    <p class="title">About me</p>
+                    <h2 class="title">About me</h2>
                     <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis nulla,
                         nemo sunt possimus consequuntur numquam maxime! ...</p>
 
@@ -157,7 +158,7 @@
             <div class="text-contents">
                 <span class="skills">Technologies</span>
                 <div class="text">
-                    <p class="title">Skills Set</p>
+                    <h2 class="title">Skills Set</h2>
 
                     <p class="tech-description">A short introduction of your skills. Highlight your experience of using
                         different front-end technologies and emphasise your openness to learning and adapting to new
@@ -247,7 +248,7 @@
         <section class="featured-projects hidden">
             <span class="section-title">Portfolio</span>
             <div class="text-contianer">
-                <p class="title">Featured Projects</p>
+                <h2 class="title">Featured Projects</h2>
                 <p class="tech-description">Explore a selection of my work here - Interact with <br>
                     projects to see my skills in action.</p>
             </div>
@@ -644,30 +645,56 @@
 
         </section>
 
-
+        <!-- Section: Contact -->
         <section class="contactme">
-        <div class="contact-wrppper">
+            <div class="contact-wrapper">
 
-            <span class="section-title">Contact me</span>
+                <div class="text-container">
+                    <span class="section-title">Contact me</span>
 
-            <div class="contact-header">
-                <h3>Let's work <br> together</h3>
-            </div>
+                    <div class="contact-header">
+                        <h2>Let's work <br> together</h2>
+                    </div>
 
-            <div class="text-contianer">
-                <p class="title">Got a Problem to solve?</p>
-                <p class="contact-motivation">Explore a selection of my work here - Interact with <br>
-                    projects to see my skills in action.</p>
+                    <div>
+                        <p class="title">Got a Problem to solve?</p>
+                        <p class="contact-motivation">Encourage people to contact you and describe what role you are
+                            interested in. <br> Show that you will add value to their projects through your work.</p>
 
-                <p>Need a Frontend developer? <span>Let's talk!</span></p>
-            </div>
+                        <p class="question-text">Need a Frontend developer? <span>Let's talk!</span></p>
+                    </div>
 
+                </div>
 
-            
+                <div class="contact-form">
+                    <form class="form-content" action="">
+                        <div class="name">
+                            <label for="">What is your name?</label>
+                            <input type="text" placeholder="Your name goes here" required>
+                        </div>
+                        <div class="email">
+                            <label for="">What is Your email?</label>
+                            <input type="email" placeholder="youremail@email.com" required>
+                        </div>
+                        <div class="textarea">
+                            <label for="">How can i help you?</label>
+                            <textarea placeholder="Hello Aliaqa, I am interested in..." required></textarea>
+                        </div>
 
-        </div>
+                        <div class="privacy-policy">
+                            <img src="assets/imgs/icons/checkbox-unchecked.svg" alt="checked-icon">
+                            <img src="assets/imgs/icons/checkbox-checked.svg" alt="unchecked-icon">
+
+                            <p>i've read the <a href="#privacy-policy">privacypolicy</a> and agree to the processing of
+                                my data as outlined.</p>
+
+                        </div>
+                        <div class="button"><button type="submit">Say Hello :)</button></div>
+
+                    </form>
+
+                </div>
         </section>
-
 
     </main>
 

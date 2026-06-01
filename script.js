@@ -108,19 +108,6 @@ updateSlider();
 //  -------------------------- Contact Form
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // const hiddenElements = document.querySelectorAll(".hidden");
 
 // const observer = new IntersectionObserver((entries) => {
