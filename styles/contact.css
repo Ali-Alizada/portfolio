@@ -1,4 +1,4 @@
-.contactme .section-title{
+.contactme .section-title {
     font-size: 24px;
     font-weight: 700;
     color: #3dcfb6;
@@ -6,7 +6,7 @@
     display: inline-block;
 }
 
-.contact-header{
+.contact-header {
     font-size: 52px;
     font-weight: 700;
     color: #3dcfb6;
@@ -14,32 +14,32 @@
     padding-bottom: 20px;
 }
 
-div .title{
+div .title {
     font-size: 24px;
     font-weight: 700;
     color: #3dcfb6;
     padding-bottom: 14px;
 }
 
-.contact-motivation{
+.contact-motivation {
     color: rgb(255, 255, 255);
     font-size: 18px;
     line-height: 1.4;
     padding-bottom: 14px;
 }
 
-.question-text{
+.question-text {
     color: rgb(255, 255, 255);
     font-size: 18px;
-   padding-bottom: 14px;
+    padding-bottom: 14px;
 
 }
 
-.question-text span{
+.question-text span {
     color: #3dcfb6;
 }
 
-.contact-wrapper{
+.contact-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -47,21 +47,21 @@ div .title{
     padding-bottom: 100px;
 }
 
- .text-container,
- .contact-form{
-        flex: 1;
-    }
+.text-container,
+.contact-form {
+    flex: 1;
+}
 
 /* -------------------Contqact-form */
 
-.contact-form form{
+.contact-form form {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     flex-direction: column;
     /* min-width: 500px; */
 }
 
-.form-content label{
+.form-content label {
     font-size: 24px;
     font-weight: 500;
     color: #3dcfb6;
@@ -69,70 +69,118 @@ div .title{
     display: inline-block;
 }
 
-.form-content input{
+.form-content input {
     font-size: 18px;
+    font-weight: 500;
+    background-color: transparent;
     color: white;
     background: none;
     border: none;
     outline: none;
     padding-bottom: 40px;
+
 }
 
-.form-content textarea{
+#useremail{
+    padding-bottom: 14px;
+}
+
+.form-content textarea {
     font-size: 18px;
+    font-weight: 500;
     color: white;
     background: none;
     border: none;
     outline: none;
-    padding-bottom: 40px;
+    padding-bottom: 30px;
     overflow-y: hidden;
     /* resize: none; */
+}
 
+/* Autofill-Hintergrund entfernen (Chrome, Edge, Safari) */
+.form-content input:-webkit-autofill,
+.form-content input:-webkit-autofill:hover,
+.form-content input:-webkit-autofill:focus,
+.form-content input:-webkit-autofill:active,
+.form-content textarea:-webkit-autofill,
+.form-content textarea:-webkit-autofill:hover,
+.form-content textarea:-webkit-autofill:focus,
+.form-content textarea:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    box-shadow: 0 0 0px 1000px transparent inset !important;
+    -webkit-text-fill-color: white !important;
+    caret-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Für Firefox */
+.form-content input,
+.form-content textarea {
+    transition: background-color 50000s ease-in-out 0s;
 }
 
 .form-content input:focus,
 .form-content textarea:focus {
     outline: none;
     border-color: #3dcfb6;
-
 }
 
-.form-content .name, .email, .textarea{
+.form-content .name,
+.email,
+.textarea {
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-top: 1px solid #3dcfb6;
     border-bottom: 1px solid #3dcfb6;
     padding: 30px 0 0 30px;
-
 }
 
-.contact-form .button{
+.contact-form .button {
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
-.form-content button{
-    padding: 12px 24px;
+.marquee-submit {
+    position: relative;
+    width: 140px;
+    height: 42px;
     border: 1px solid #ffffff;
-    border-radius: 40px;
-    color: white;
+    border-radius: 999px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
     background: transparent;
+    color: white;
     font-size: 16px;
     font-weight: 500;
-    transform: 0.3 ease;
     cursor: pointer;
-
+    transition: 0.3s ease;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
 }
 
-.form-content button:hover {
+.marquee-submit .marquee-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    gap: 120px;
+    padding-left: 32px;
+}
+
+.marquee-submit:hover {
     border-color: #3dcfb6;
+    box-shadow: 0 0 10px rgba(61, 207, 182, 0.4);
+}
+
+.marquee-submit:hover .marquee-track {
+    animation: marqueeMove 2s linear infinite;
     color: #3dcfb6;
 }
 
-.privacy-policy div{
+.privacy-policy div {
     display: flex;
     align-items: center;
     padding-bottom: 24px;
@@ -140,55 +188,81 @@ div .title{
     padding-top: 50px;
 }
 
-.privacy-policy p{
-    font-size: 16px;
+.privacy-policy p {
+    font-size: 18px;
     color: white;
 }
 
-.privacy-policy a{
+.privacy-policy a {
     color: #3dcfb6;
     text-decoration: none;
+}
+
+.privacy-policy a:hover {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: #3dcfb6;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 10px;
+    /* optional */
+}
+
+#checkbox {
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+#checkbox:hover {
+    transform: scale(1.3);
+    filter: drop-shadow(0 0 5px #3dcfb6);
 }
 
 input.error-placeholder::placeholder,
 textarea.error-placeholder::placeholder {
     color: #b33 !important;
     opacity: 1;
+    font-size: 17px;
 }
 
 input::placeholder,
 textarea::placeholder {
-    color: rgba(255,255,255,0.5);
+    color: rgb(204, 204, 204);
 }
 
-.form-content .error-message{
+.form-content .error-message {
     outline: none;
-    color:#b33;
+    color: #b33;
     background: transparent;
-    font-size: 16px;
+    font-size: 17px;
 }
 
-.privacy-policy .error-message{
+.email-error-message{
+    height: 20px;
+    color: #b33;
+    font-size: 17px;
+    padding-bottom: 30px;
+}
+
+.privacy-policy .error-message {
     padding-top: 0px;
 }
+/* --------------Overlay */
 
 
 
 
-
-@media (max-width: 992px){
-    .contact-wrapper{
+@media (max-width: 992px) {
+    .contact-wrapper {
         flex-direction: column;
         align-items: stretch;
     }
 
-    .text-container, 
-    .contact-form{
+    .text-container,
+    .contact-form {
         width: 100%;
     }
 
-    .contact-form form{
+    .contact-form form {
         width: 100%;
     }
 }
-

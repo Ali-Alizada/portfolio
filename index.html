@@ -666,8 +666,6 @@
 
                 </div>
 
-
-
                 <div class="contact-form">
                     <form class="form-content" onsubmit="addMessage(); return false;" action="">
 
@@ -680,7 +678,7 @@
                         <div class="email">
                             <label for="">What is Your email?</label>
                             <input type="email" id="useremail" placeholder="youremail@email.com">
-                            <div class="error-message" id="error-email"></div>
+                            <div class="email-error-message" id="error-email"></div>
                         </div>
 
                         <div class="textarea">
@@ -689,21 +687,37 @@
                             <div class="error-message" id="error-textarea"></div>
                         </div>
 
-
                         <div class="privacy-policy">
                             <div>
-                            <img id="checkbox" src="assets/imgs/icons/checkbox-unchecked.svg" alt="checkbox-icon">
-                            <p>i've read the <a href="privacy-policy.html">privacypolicy</a> and agree to the processing of
-                                my data as outlined.</p></div>
-                         
+                                <img id="checkbox" src="assets/imgs/icons/checkbox-unchecked.svg" alt="checkbox-icon">
+                                <p>i've read the <a href="privacy-policy.html">privacy policy</a> and agree to the
+                                    processing of
+                                    my data as outlined.</p>
+                            </div>
+
                             <div class="error-message" id="error-policy"></div>
 
                         </div>
-                        <div class="button"><button type="submit">Say Hello :)</button></div> 
+                        <div class="button">
+                            <button type="submit" class="marquee-submit">
+                                <div class="marquee-track">
+                                    <span>Say Hello :)</span>
+                                    <span>Say Hello :)</span>
+                                </div>
+                            </button>
+                        </div>
 
                     </form>
 
                 </div>
+                
+                <div class="successOverlay">
+                    <div class="overlay-content">
+                        <p>message sent successfully!</p>
+                    </div>
+                </div>
+
+                
         </section>
 
     </main>

@@ -107,9 +107,6 @@ updateSlider();
 
 //  -------------------------- Contact Form
 
-
-
-
 const email = document.getElementById("useremail");
 const username = document.getElementById("username");
 const textarea = document.getElementById("usertextarea");
@@ -121,13 +118,13 @@ const originalPlaceholders = {
   textarea: textarea.placeholder
 };
 
-// help Function to delte the error classes.
+// helper Function to delte the error classes.
 
 function removeErrorClass(element) {
   element.classList.remove("error-placeholder");
 };
 
-// help function: to reset placeholder and delete the error classes.
+// helper function: to reset placeholder and delete the error classes.
 function resetField(fieldId, originalText) {
   const field = document.getElementById(fieldId);
   if (field) {
@@ -163,7 +160,7 @@ function validateForm() {
   let valid = true;
 
   if (username.value.trim() === "") {
-    username.placeholder = "Oops! It seems your name is missing";
+    username.placeholder = "Oops! It seems your name is missing.";
     username.classList.add("error-placeholder");
     document.getElementById("error-username").textContent = "";
     valid = false;
@@ -171,9 +168,15 @@ function validateForm() {
   }
 
   if (email.value.trim() === "") {
-    email.placeholder = "Hoppla! your email is required";
+    email.placeholder = "Hoppla! your email is required.";
     email.classList.add("error-placeholder");
     document.getElementById("error-email").textContent = "";
+    valid = false;
+
+  } else if (!isValidEmail(email.value.trim())) {
+    removeErrorClass(email);
+
+    document.getElementById("error-email").textContent = "Please enter a valid email address.";
     valid = false;
   }
 
@@ -218,6 +221,12 @@ function clearErrors() {
   resetField("username", originalPlaceholders.username);
   resetField("email", originalPlaceholders.email);
   resetField("textarea", originalPlaceholders.textarea);
+}
+
+function isValidEmail(email) {
+  const result = /^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$/.test(email);
+  console.log(email, result); 
+  return result;
 }
 
 

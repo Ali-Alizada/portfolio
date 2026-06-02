@@ -1080,11 +1080,9 @@ main {
     padding: 96px;
     border: 1px solid #3dcfb6;
     border-radius: 32px;
-    background: linear-gradient(
-        90deg,
-        #1c1c1c 0%,
-        #0b3d36 100%
-    );
+    background: linear-gradient(90deg,
+            #1c1c1c 0%,
+            #0b3d36 100%);
     color: white;
     overflow: auto;
     border: none;
@@ -1119,6 +1117,7 @@ main {
         transform: translateY(80px) scale(0.9);
         filter: blur(12px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -1132,6 +1131,7 @@ main {
         transform: translateY(0) scale(1);
         filter: blur(0);
     }
+
     to {
         opacity: 0;
         transform: translateY(40px) scale(0.95);
@@ -1281,51 +1281,34 @@ main {
     color: white;
 }
 
-.close-dialog img, 
-.next-project img, 
+.close-dialog img,
+.next-project img,
 .dialog-buttons a img,
 .arrow-icon img {
     transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
 }
 
 
-.close-dialog:hover img{
-    transform: translateX(5px)
-    rotate(90deg)
-    scale(1.1);
-    filter: brightness(0) saturate(100%)
-    invert(73%) sepia(29%) 
-    saturate(614%)
-    hue-rotate(118deg)
-    brightness(140%)
-    contrast(100%)
+.close-dialog:hover img {
+    transform: translateX(5px) rotate(90deg) scale(1.1);
+    filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%) hue-rotate(118deg) brightness(140%) contrast(100%)
 }
 
 .next-project:hover img {
     transform: translateX(5px) scale(1.1);
-    filter: brightness(0) saturate(100%)
-    invert(73%) sepia(29%) 
-    saturate(614%)
-    hue-rotate(118deg)
-    brightness(140%)
-    contrast(100%);
+    filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%) hue-rotate(118deg) brightness(140%) contrast(100%);
 }
 
-.dialog-buttons a{
+.dialog-buttons a {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.dialog-buttons a:hover img{
+.dialog-buttons a:hover img {
     transform: translateX(5px) scale(1.1);
-    filter: brightness(0) saturate(100%)
-    invert(73%) sepia(29%)
-    saturate(614%)
-    hue-rotate(118deg)
-    brightness(95%)
-    contrast(100%);
-    
+    filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%) hue-rotate(118deg) brightness(95%) contrast(100%);
+
 }
 
 
@@ -1533,18 +1516,3 @@ main {
         gap: 20px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
