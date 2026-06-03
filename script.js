@@ -112,6 +112,8 @@ const username = document.getElementById("username");
 const textarea = document.getElementById("usertextarea");
 const submitBtn = document.querySelector(".button button");
 
+const form = document.getElementById("contactForm");
+
 const originalPlaceholders = {
   username: username.placeholder,
   email: email.placeholder,
@@ -229,6 +231,14 @@ function isValidEmail(email) {
   return result;
 }
 
+if (submitBtn) {
+  submitBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    addMessage();
+  })
+   
+}
+
 
 function addMessage() {
   if (!validateForm()) {
@@ -236,16 +246,33 @@ function addMessage() {
   }
   console.log("form submitted!");
   // Hier kommt später meine tatsächlicher Submit-Code hin (z. B. fetch)
+
+ showSuccesMessage();
+ form.reset();
+
+ console.log(form, "Formualr erfolgreich zurückgesetzt!");
+
+  privacyAccepted = false;
+  checkbox.src = "assets/imgs/icons/checkbox-unchecked.svg";
+  clearErrors();
 }
 
 
-if (submitBtn) {
-  submitBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    addMessage();
-  })
+// ----------Message sent Overlay.
+
+function showSuccesMessage(){
+    showOverlay();
+    setTimeout(hideOverlay, 1200);
 }
 
+
+function showOverlay(){
+  document.getElementById("successOverlay").style.display = "flex";
+}
+
+function hideOverlay(){
+  document.getElementById("successOverlay").style.display = "none";
+}
 
 
 
