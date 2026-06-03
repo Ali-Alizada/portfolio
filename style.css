@@ -35,7 +35,7 @@ body {
 
 .navbar-bg {
     width: 100%;
-    height: 100px;
+    height: 120px;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0) 100%);
 }
 
@@ -51,7 +51,7 @@ body {
     /* position: fixed;
     left: 96px;
     right: 96px; */
-    height: 100px;
+    height: 120px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -199,7 +199,6 @@ input.check-toggle-round-flat:checked+label:after {
 .main-nav a::before{
     content: "•";
     position: absolute;
-    bottom: -10px;
     left: 50%;
     top: 70%;
     font-size: 24px;
@@ -218,12 +217,71 @@ input.check-toggle-round-flat:checked+label:after {
     color: #3dcfb6;
 }
 
-.logo-name {
-    font-size: 36px;
-    font-weight: 700;
+.logo-container {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    gap: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+}
+
+.logo-mono span {
+    font-size: 90px;
+    font-weight: 700;
+    color: #3dcfb6;
+    transition: all 0.3s ease;
+}
+
+.logo-mono{
+    display: flex;
+}
+
+.logo-mono .first{
+    margin-right: -36px;
+}
+
+.logo-container:hover .logo-mono span {
+    color: transparent;
+    -webkit-text-stroke: 2px #3dcfb6;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.8;
+    padding-top: 20px;
+    transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.logo-first,
+.logo-last {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 41px;
+    letter-spacing: -0.5px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.logo-container:hover .logo-first,
+.logo-container:hover .logo-last {
+    color: transparent;
+    -webkit-text-stroke: 1.5px white;
+}
+
+.logo-container::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #3dcfb6;
+    transition: width 0.4s ease;
+}
+
+.logo-container:hover::after {
+    width: 100%;
 }
 
 .hero-section {
@@ -232,7 +290,6 @@ input.check-toggle-round-flat:checked+label:after {
     display: flex;
     justify-content: center;
     align-items: center;
-
     text-align: center;
     /* padding-bottom: 180px; */
 }
@@ -1342,14 +1399,6 @@ footer{
     color: white;
     background:transparent;
 }
-/* .footer-wrapper {
-    background:transparent;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 50px;
-    padding-bottom: 100px;
-} */
 
 .footer-content {
     display: flex;
@@ -1360,12 +1409,15 @@ footer{
 .logo-and-bannertext{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
-.logo-and-bannertext img{
+.logo-and-bannertext .logo-container{
     padding-bottom: 20px;
+
+}
+
+.logo-and-bannertext .logo-container::after{
+    display: none;
 }
 
 .banner{
@@ -1383,7 +1435,7 @@ footer{
     color: white;
     text-decoration: none;
     font-size: 18px;
-    line-height: 1.4;
+    line-height: 2;
     padding-left: 14px;
 }
 
