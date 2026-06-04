@@ -81,7 +81,7 @@ div .title {
 
 }
 
-#useremail{
+#useremail {
     padding-bottom: 14px;
 }
 
@@ -237,7 +237,7 @@ textarea::placeholder {
     font-size: 17px;
 }
 
-.email-error-message{
+.email-error-message {
     height: 20px;
     color: #b33;
     font-size: 17px;
@@ -247,9 +247,10 @@ textarea::placeholder {
 .privacy-policy .error-message {
     padding-top: 16px;
 }
+
 /* --------------Overlay */
 
-.overlay{
+.overlay {
     position: fixed;
     top: 0;
     left: 0;
