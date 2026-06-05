@@ -1,5 +1,3 @@
-
-
 // -----------------------------Dilaog
 function openDialog(dialogId) {
   const dialog = document.getElementById(dialogId);
@@ -13,11 +11,10 @@ function closeDialog(dialogId) {
   document.body.style.overflow = "auto";
 }
 
-const dialogs = Array.from(document.querySelectorAll('.project-dialog'));
+const dialogs = Array.from(document.querySelectorAll(".project-dialog"));
 
-dialogs.forEach(dialog => {
-  dialog.addEventListener('click', (e) => {
-
+dialogs.forEach((dialog) => {
+  dialog.addEventListener("click", (e) => {
     const rect = dialog.getBoundingClientRect();
 
     const clickedInside =
@@ -29,7 +26,7 @@ dialogs.forEach(dialog => {
     if (!clickedInside) {
       dialog.close();
     }
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = "auto";
   });
 });
 
@@ -74,8 +71,8 @@ function updateSlider() {
   updateSlideDistance();
   slider.style.transform = `translateX(-${currentIndex * slideDistance}px)`;
 
-  dots.forEach(dot => dot.classList.remove("active"));
-  cards.forEach(card => card.classList.remove("active"));
+  dots.forEach((dot) => dot.classList.remove("active"));
+  cards.forEach((card) => card.classList.remove("active"));
   dots[currentIndex].classList.add("active");
   cards[currentIndex].classList.add("active");
 }
@@ -117,14 +114,14 @@ const form = document.getElementById("contactForm");
 const originalPlaceholders = {
   username: username.placeholder,
   email: email.placeholder,
-  textarea: textarea.placeholder
+  textarea: textarea.placeholder,
 };
 
 // helper Function to delte the error classes.
 
 function removeErrorClass(element) {
   element.classList.remove("error-placeholder");
-};
+}
 
 // helper function: to reset placeholder and delete the error classes.
 function resetField(fieldId, originalText) {
@@ -155,7 +152,6 @@ textarea.addEventListener("input", () => {
   document.getElementById("error-textarea").textContent = "";
 });
 
-
 function validateForm() {
   clearErrors();
 
@@ -166,7 +162,6 @@ function validateForm() {
     username.classList.add("error-placeholder");
     document.getElementById("error-username").textContent = "";
     valid = false;
-
   }
 
   if (email.value.trim() === "") {
@@ -174,11 +169,11 @@ function validateForm() {
     email.classList.add("error-placeholder");
     document.getElementById("error-email").textContent = "";
     valid = false;
-
   } else if (!isValidEmail(email.value.trim())) {
     removeErrorClass(email);
 
-    document.getElementById("error-email").textContent = "Please enter a valid email address.";
+    document.getElementById("error-email").textContent =
+      "Please enter a valid email address.";
     valid = false;
   }
 
@@ -206,19 +201,18 @@ checkbox.addEventListener("click", () => {
   console.log("checkBox checked!");
   privacyAccepted = !privacyAccepted;
 
-  checkbox.src = privacyAccepted
-    ? "assets/imgs/icons/checkbox-checked.svg"
+  checkbox.src =
+    privacyAccepted ?
+      "assets/imgs/icons/checkbox-checked.svg"
     : "assets/imgs/icons/checkbox-unchecked.svg";
 
   document.getElementById("error-policy").textContent = "";
 });
 
-
 function clearErrors() {
   document.querySelectorAll(".error-message").forEach((e) => {
     e.textContent = "";
   });
-
 
   resetField("username", originalPlaceholders.username);
   resetField("email", originalPlaceholders.email);
@@ -226,8 +220,11 @@ function clearErrors() {
 }
 
 function isValidEmail(email) {
-  const result = /^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$/.test(email);
-  console.log(email, result); 
+  const result =
+    /^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$/.test(
+      email,
+    );
+  console.log(email, result);
   return result;
 }
 
@@ -235,10 +232,8 @@ if (submitBtn) {
   submitBtn.addEventListener("click", (e) => {
     e.preventDefault();
     addMessage();
-  })
-   
+  });
 }
-
 
 function addMessage() {
   if (!validateForm()) {
@@ -247,40 +242,43 @@ function addMessage() {
   console.log("form submitted!");
   // Hier kommt später meine tatsächlicher Submit-Code hin (z. B. fetch)
 
- showSuccesMessage();
- form.reset();
+  showSuccesMessage();
+  form.reset();
 
- console.log(form, "Formualr erfolgreich zurückgesetzt!");
+  console.log(form, "Formualr erfolgreich zurückgesetzt!");
 
   privacyAccepted = false;
   checkbox.src = "assets/imgs/icons/checkbox-unchecked.svg";
   clearErrors();
 }
 
-
 // ----------Message sent Overlay.
 
-function showSuccesMessage(){
-    showOverlay();
-    setTimeout(hideOverlay, 1200);
+function showSuccesMessage() {
+  showOverlay();
+  setTimeout(hideOverlay, 1200);
 }
 
-
-function showOverlay(){
+function showOverlay() {
   document.getElementById("successOverlay").style.display = "flex";
 }
 
-function hideOverlay(){
+function hideOverlay() {
   document.getElementById("successOverlay").style.display = "none";
 }
 
+// ----------------------Burger menu
 
+const burger = document.querySelector(".burger");
+const menu = document.querySelector(".header-content");
 
+burger.addEventListener("click", () => {
+  burger.classList.toggle("active");
+  menu.classList.toggle("active");
 
-
-
-
-
+  const expanded = burger.getAttribute("aria-expanded") === "true";
+  burger.setAttribute("aria-expanded", !expanded);
+});
 
 // const hiddenElements = document.querySelectorAll(".hidden");
 
