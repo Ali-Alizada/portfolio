@@ -156,16 +156,17 @@ function validateForm() {
   clearErrors();
 
   let valid = true;
+  const t = window.translations[window.currentLang];
 
   if (username.value.trim() === "") {
-    username.placeholder = "Oops! It seems your name is missing.";
+    username.placeholder = t["error.nameRequired"];
     username.classList.add("error-placeholder");
     document.getElementById("error-username").textContent = "";
     valid = false;
   }
 
   if (email.value.trim() === "") {
-    email.placeholder = "Hoppla! your email is required.";
+    email.placeholder = t["error.emailRequired"];
     email.classList.add("error-placeholder");
     document.getElementById("error-email").textContent = "";
     valid = false;
@@ -173,12 +174,12 @@ function validateForm() {
     removeErrorClass(email);
 
     document.getElementById("error-email").textContent =
-      "Please enter a valid email address.";
+      t["error.emailInvalid"];
     valid = false;
   }
 
   if (textarea.value.trim() === "") {
-    textarea.placeholder = "What do you need to develop?";
+    textarea.placeholder = t["error.messageRequired"];
     textarea.classList.add("error-placeholder");
     document.getElementById("error-textarea").textContent = "";
     valid = false;
@@ -186,7 +187,7 @@ function validateForm() {
 
   if (!privacyAccepted) {
     document.getElementById("error-policy").textContent =
-      "Please accept the privacy policy.";
+      t["error.policyRequired"];
     valid = false;
   }
 

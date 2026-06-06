@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html-root">
 
 <head>
     <meta charset="UTF-8">
@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/testimonial-slider.css">
     <link rel="stylesheet" href="styles/contact.css">
+    <script src="i18n.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 
@@ -41,9 +42,9 @@
                         <!-- Navigation -->
                         <nav class="main-nav" aria-label="main-nav">
                             <ul>
-                                <li><a href="#aboutme">About Me</a></li>
-                                <li><a href="#skills">Skills</a></li>
-                                <li><a href="#project">Projects</a></li>
+                                <li><a href="#aboutme" data-i18n="nav.about">About Me</a></li>
+                                <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+                                <li><a href="#project" data-i18n="nav.projects">Projects</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -92,7 +93,7 @@
                     </div>
 
                     <div class="hero-content">
-                        <p class="hero-subtitle">
+                        <p class="hero-subtitle" data-i18n="hero.subtitle">
                             Frontend Developer
                         </p>
 
@@ -102,15 +103,15 @@
 
                             <a href="#project" class="marquee-btn">
                                 <div class="marquee-track">
-                                    <span>Check my Work</span>
-                                    <span>Check my Work</span>
+                                    <span data-i18n="hero.btnWork">Check my Work</span>
+                                    <span data-i18n="hero.btnWork">Check my Work</span>
                                 </div>
                             </a>
 
                             <a href="#contactForm" class="marquee-contact">
                                 <div class="marquee-track">
-                                    <span>Contact me</span>
-                                    <span>Contact me</span>
+                                    <span data-i18n="hero.btnContact">Contact me</span>
+                                    <span data-i18n="hero.btnContact">Contact me</span>
                                 </div>
                             </a>
                         </div>
@@ -121,21 +122,21 @@
                 <div class="diagonal-banner">
 
                     <div class="banner-track">
-                        <span>Frontend Developer</span>
+                        <span data-i18n="banner.role">Frontend Developer</span>
                         <span class="star">✦</span>
-                        <span>Based in Brandenburg</span>
+                        <span data-i18n="banner.location">Based in Brandenburg</span>
                         <span class="star">✦</span>
-                        <span>Open to work</span>
+                        <span data-i18n="banner.open">Open to work</span>
                         <span class="star">✦</span>
-                        <span>Available for remote work</span>
+                        <span data-i18n="banner.remote">Available for remote work</span>
                         <span class="star">✦</span>
-                        <span>Frontend Developer</span>
+                        <span data-i18n="banner.role">Frontend Developer</span>
                         <span class="star">✦</span>
-                        <span>Based in Brandenburg</span>
+                        <span data-i18n="banner.location">Based in Brandenburg</span>
                         <span class="star">✦</span>
-                        <span>Open to work</span>
+                        <span data-i18n="banner.open">Open to work</span>
                         <span class="star">✦</span>
-                        <span>Available for remote work</span>
+                        <span data-i18n="banner.remote">Available for remote work</span>
                         <span class="star">✦</span>
                     </div>
                 </div>
@@ -153,29 +154,22 @@
                 <img src="assets/imgs/Alizada-ProfileBild.jpg" alt="Profilbild">
             </div>
             <div class="text-content">
-                <span class="about">who i am</span>
+                <span class="about" data-i18n="about.label">who i am</span>
                 <div class="text">
-                    <h2 class="title">About me</h2>
-                    <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis nulla,
-                        nemo sunt possimus consequuntur numquam maxime! ...</p>
+                    <h2 class="title" data-i18n="about.heading">About me</h2>
+                    <p class="description" data-i18n="about.description">Hey there, I'm Aliaqa! Frontend Developer with a passion for creating intuitive and engaging digital experiences. I enjoy transforming ideas into interactive applications and finding creative ways to solve real-world problems. What inspires me most is the opportunity to continuously grow, take on new challenges, and turn concepts into meaningful solutions that people can use and enjoy.</p>
 
                     <div class="info-row">
                         <img src="assets/imgs/icons/location_on.svg" alt="location-icon">
-                        <p>Lorem ipsum dolor sit amet consectetur Lorem ipsum, dolor sit amet consectetur adipisicing
-                            elit. Illum laboriosam incidunt illo harum consectetur delectus asperiores odio sequi, alias
-                            doloribus!</p>
+                        <p data-i18n="about.info1">Based in brandenburg, I am open to remote opportunities and international collaboration. I enjoy working with people from different backgrounds and believe that diverse perspectives lead to better products and stronger teams.</p>
                     </div>
                     <div class="info-row">
                         <img src="assets/imgs/icons/Property 1=cognition.svg" alt="cognition-icon">
-                        <p>Lorem ipsum dolor sit amet consectetur ... Lorem ipsum dolor sit amet consectetur,
-                            adipisicing elit. Expedita iusto fugit esse dolores pariatur neque perspiciatis ipsa odit
-                            nulla enim.</p>
+                        <p data-i18n="about.info2">I am open-minded, adaptable, and always eager to learn. The fast-paced nature of the tech industry motivates me to explore new concepts, improve my knowledge, and grow both professionally and personally. Continuous learning is an essential part of my journey as a developer.</p>
                     </div>
                     <div class="info-row">
                         <img src="assets/imgs/icons/Property 1=Quality.svg" alt="Quality-icon">
-                        <p>Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor, sit amet consectetur adipisicing
-                            elit. Optio, eligendi doloribus ipsum quam aliquam quis quidem provident repudiandae dolores
-                            voluptas.</p>
+                        <p data-i18n="about.info3">My approach to problem-solving combines analytical thinking, creativity, persistence, and collaboration. I enjoy breaking down complex challenges into manageable steps and learning from every obstacle along the way. For me, every project is an opportunity to discover more efficient, elegant, and user-focused solutions.</p>
                     </div>
                 </div>
             </div>
@@ -183,24 +177,22 @@
 
         <section id="skills" class="technologies hidden">
             <div class="text-contents">
-                <span class="skills">Technologies</span>
+                <span class="skills" data-i18n="skills.label">Technologies</span>
                 <div class="text">
-                    <h2 class="title">Skills Set</h2>
+                    <h2 class="title" data-i18n="skills.heading">Skills Set</h2>
 
-                    <p class="tech-description">A short introduction of your skills. Highlight your experience of using
-                        different front-end technologies and emphasise your openness to learning and adapting to new
-                        technologies. Show how important it is for you to keep up with the rapid changes in web
-                        development.</p>
+                    <p class="tech-description" data-i18n="skills.description">I have gained practical experience building web applications using technologies such as HTML, CSS, JavaScript, TypeScript, Angular, Firebase, Material Design, and REST APIs. I also work with Git and GitHub for version control and have experience working with agile principles inspired by Scrum. Through personal projects and continuous learning, I have developed a solid foundation in modern frontend development and a strong passion for creating intuitive user experiences.<br> <br>
+          
+                    Web development is constantly evolving, which is why continuous learning is an essential part of my journey as a developer. I enjoy exploring new technologies, expanding my skill set, and staying up to date with industry trends and best practices. In particular, I have a strong interest in learning Vue.js and React to broaden my knowledge and grow as a Frontend Developer.</p>
 
-                    <p class="other-skills">You need <span>anothr Skill?</span></p>
+                    <p class="other-skills"><span data-i18n="skills.otherSkill">Looking for </span><span data-i18n="skills.otherSkillSpan">a specific skill or technology?</span></p>
 
-                    <p class="tech-description">Feel free to contact me. I look forward to expanding on my previous
-                        knowledge.</p>
+                    <p class="tech-description" data-i18n="skills.contact">Feel free to contact me. I am always excited to take on new challenges, expand my expertise, and continue developing both professionally and personally.</p>
 
-                    <a href="#contact" class="marquee-talk">
+                    <a href="#contactForm" class="marquee-talk">
                         <div class="marquee-track">
-                            <span>let's Talk</span>
-                            <span>let's Talk</span>
+                            <span data-i18n="skills.btnTalk">let's Talk</span>
+                            <span data-i18n="skills.btnTalk">let's Talk</span>
                         </div>
                     </a>
                 </div>
@@ -255,7 +247,7 @@
                     <span class="growth-text">Growth mindset</span>
 
                     <div class="growth-hover">
-                        <p class="hover-text">I have a special interest in learning</p>
+                        <p class="hover-text" data-i18n="skills.growthHover">I have a special interest in learning</p>
                         <div class="hover-techs">
                             <div class="tech-card">
                                 <img src="assets/imgs/icons/React.svg" alt="React">
@@ -273,11 +265,10 @@
         </section>
 
         <section id="project" class="featured-projects hidden">
-            <span class="section-title">Portfolio</span>
+            <span class="section-title" data-i18n="projects.label">Portfolio</span>
             <div class="text-contianer">
-                <h2 class="title">Featured Projects</h2>
-                <p class="tech-description">Explore a selection of my work here - Interact with <br>
-                    projects to see my skills in action.</p>
+                <h2 class="title" data-i18n="projects.heading">Featured Projects</h2>
+                <p class="tech-description" data-i18n="projects.description">Explore a selection of my projects and discover how I transform ideas into functional, user-focused web applications. <br>Each project reflects my passion for learning, problem-solving, and creating engaging digital experiences.</p>
             </div>
 
             <div class="projects-container">
@@ -326,11 +317,11 @@
 
                             <p class="dialog-name">Join</p>
 
-                            <p class="dialog-title">
+                            <p class="dialog-title" data-i18n="projects.dialogTitle">
                                 What is this project about?
                             </p>
 
-                            <p class="dialog-description">
+                            <p class="dialog-description" data-i18n="projects.joinDesc">
                                 Task manager inspired by the Kanban System.
                                 Create and organize tasks using drag and drop functions,
                                 assign users and categories.
@@ -394,7 +385,7 @@
                     <!-- NEXT PROJECT -->
 
                     <button class="next-project">
-                        <span>Next project</span>
+                        <span data-i18n="projects.nextBtn">Next project</span>
                         <img src="assets/imgs/icons/arrow-next.svg" alt="arrow-icon">
                     </button>
 
@@ -441,10 +432,10 @@
                         <div class="dialog-left">
                             <h2>02</h2>
                             <p class="dialog-name">El Pollo Loco</p>
-                            <p class="dialog-title">
+                            <p class="dialog-title" data-i18n="projects.dialogTitle">
                                 What is this project about?
                             </p>
-                            <p class="dialog-description">
+                            <p class="dialog-description" data-i18n="projects.elPolloDesc">
                                 Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and
                                 tabasco salsa to fight against the crazy hen.
                             </p>
@@ -485,7 +476,7 @@
                     </div>
 
                     <button class="next-project">
-                        <span>Next project</span>
+                        <span data-i18n="projects.nextBtn">Next project</span>
                         <img src="assets/imgs/icons/arrow-next.svg" alt="arrow-icon">
                     </button>
 
@@ -530,13 +521,11 @@
                         <div class="dialog-left">
                             <h2>03</h2>
                             <p class="dialog-name">DABubble</p>
-                            <p class="dialog-title">
+                            <p class="dialog-title" data-i18n="projects.dialogTitle">
                                 What is this project about?
                             </p>
-                            <p class="dialog-description">
-                                Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and
-                                This App is a Slack Clone App. It revolutionizes team communication and collaboration
-                                with its intuitive interface, real-time messaging, and robust channel organization.
+                            <p class="dialog-description" data-i18n="projects.bubbleDesc">
+                                This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization.
                             </p>
 
                             <div class="tech-icons">
@@ -577,7 +566,7 @@
                     <!-- next button -->
 
                     <button class="next-project">
-                        <span>Next project</span>
+                        <span data-i18n="projects.nextBtn">Next project</span>
                         <img src="assets/imgs/icons/arrow-next.svg" alt="arrow-icon">
                     </button>
 
@@ -590,7 +579,7 @@
 
         <section class="comments hidden">
             <div class="comments-header">
-                <h3>What my colleagues say about me</h3>
+                <h3 data-i18n="testimonials.heading">What my colleagues say about me</h3>
             </div>
 
             <div class="testimonial-wrapper">
@@ -603,10 +592,8 @@
 
                         <article class="testimonial-card">
 
-                            <p class="testimonial-text">
-                                Aliaqa has proven to be a reliable group partner.
-                                His technical skills and proactive approach were crucial
-                                to the success of our project.
+                            <p class="testimonial-text" data-i18n="testimonials.card1">
+                             Aliaqa was a reliable and dedicated team member throughout our project. His technical understanding, attention to detail, and proactive mindset contributed significantly to achieving our goals.
                             </p>
 
                             <div class="testimonial-footer">
@@ -618,9 +605,8 @@
                         <!-- Card-2 -->
 
                         <article class="testimonial-card active">
-                            <p class="testimonial-text">
-                                Working with Aliaqa was a great experience.
-                                He stayed calm under pressure and always helped the team.
+                            <p class="testimonial-text" data-i18n="testimonials.card2">
+                                Working with Aliaqa was a great experience. He remained solution-oriented under pressure, communicated effectively, and consistently supported the team whenever challenges arose.
                             </p>
                             <div class="testimonial-footer">
                                 <div class="line"></div>
@@ -631,9 +617,8 @@
                         <!-- Card-3 -->
 
                         <article class="testimonial-card">
-                            <p class="testimonial-text">
-                                Very structured developer with excellent communication skills.
-                                would gladly work with him again.
+                            <p class="testimonial-text" data-i18n="testimonials.card3">
+                               Aliaqa approaches his work in a structured and professional manner. His strong communication skills and willingness to collaborate made him a valuable contributor to the project.
                             </p>
                             <div class="testimonial-footer">
                                 <div class="line"></div>
@@ -643,9 +628,8 @@
 
                         <!-- card-4 -->
                         <article class="testimonial-card">
-                            <p class="testimonial-text">
-                                Very structured developer with excellent communication skills.
-                                would gladly work with him again.
+                            <p class="testimonial-text" data-i18n="testimonials.card4">
+                                It was a pleasure working with Aliaqa. He demonstrated analytical thinking, reliability, and a positive attitude, always striving to deliver high-quality results.
                             </p>
                             <div class="testimonial-footer">
                                 <div class="line"></div>
@@ -677,18 +661,19 @@
             <div class="contact-wrapper">
 
                 <div class="text-container">
-                    <span class="section-title">Contact me</span>
+                    <span class="section-title" data-i18n="contact.label">Contact me</span>
 
                     <div class="contact-header">
-                        <h2>Let's work <br> together</h2>
+                        <h2 data-i18n="contact.heading">Let's work <br> together</h2>
                     </div>
 
                     <div>
-                        <p class="title">Got a Problem to solve?</p>
-                        <p class="contact-motivation">Encourage people to contact you and describe what role you are
-                            interested in. <br> Show that you will add value to their projects through your work.</p>
+                        <p class="title" data-i18n="contact.problem">Have a project in mind or a challenge to solve?</p>
+                        <p class="contact-motivation" data-i18n="contact.motivation">I am currently looking for opportunities as a Junior Frontend Developer and eager to contribute, learn, and grow within a motivated team. I enjoy building user-friendly web applications and turning ideas into practical digital solutions. <br><br>
 
-                        <p class="question-text">Need a Frontend developer? <span>Let's talk!</span></p>
+                        If you need someone who is motivated, reliable, and ready to take on new challenges, feel free to reach out.</p>
+
+                        <p class="question-text" data-i18n="contact.question">Need a Frontend developer? <span>Let's talk!</span></p>
                     </div>
 
                 </div>
@@ -697,29 +682,27 @@
                     <form id="contactForm" class="form-content" onsubmit="addMessage(); return false;" action="">
 
                         <div class="name">
-                            <label for="">What is your name?</label>
-                            <input type="text" id="username" placeholder="Your name goes here">
+                            <label for="username" data-i18n="form.nameLabel">What is your name?</label>
+                            <input type="text" id="username" placeholder="Your name goes here" data-i18n-placeholder="form.namePlaceholder">
                             <div class="error-message" id="error-username"></div>
                         </div>
 
                         <div class="email">
-                            <label for="">What is Your email?</label>
-                            <input type="email" id="useremail" placeholder="youremail@email.com">
+                            <label for="useremail" data-i18n="form.emailLabel">What is Your email?</label>
+                            <input type="email" id="useremail" placeholder="youremail@email.com" data-i18n-placeholder="form.emailPlaceholder">
                             <div class="email-error-message" id="error-email"></div>
                         </div>
 
                         <div class="textarea">
-                            <label for="">How can i help you?</label>
-                            <textarea id="usertextarea" placeholder="Hello Aliaqa, I am interested in..."></textarea>
+                            <label for="usertextarea" data-i18n="form.messageLabel">How can i help you?</label>
+                            <textarea id="usertextarea" placeholder="Hello Aliaqa, I am interested in..." data-i18n-placeholder="form.messagePlaceholder"></textarea>
                             <div class="error-message" id="error-textarea"></div>
                         </div>
 
                         <div class="privacy-policy">
                             <div>
                                 <img id="checkbox" src="assets/imgs/icons/checkbox-unchecked.svg" alt="checkbox-icon">
-                                <p>i've read the <a href="html/privacy-policy.html">privacy policy</a> and agree to the
-                                    processing of
-                                    my data as outlined.</p>
+                                <p><span data-i18n="form.privacy">i've read the </span><a href="html/privacy-policy.html" data-i18n="form.privacyLink">privacy policy</a><span data-i18n="form.privacySuffix"> and agree to the processing of my data as outlined.</span></p>
                             </div>
 
                             <div class="error-message" id="error-policy"></div>
@@ -728,8 +711,8 @@
                         <div class="button">
                             <button type="submit" class="marquee-submit">
                                 <div class="marquee-track">
-                                    <span>Say Hello :)</span>
-                                    <span>Say Hello :)</span>
+                                    <span data-i18n="form.submit">Say Hello :)</span>
+                                    <span data-i18n="form.submit">Say Hello :)</span>
                                 </div>
                             </button>
                         </div>
@@ -740,7 +723,7 @@
 
                 <div id="successOverlay" class="overlay">
                     <div class="overlay-content">
-                        <p>Message sent successfully!</p>
+                        <p data-i18n="form.successMsg">Message sent successfully!</p>
                     </div>
                 </div>
 
@@ -763,7 +746,7 @@
                             <span class="logo-last">Alizada</span>
                         </div>
                     </div>
-                    <p class="banner">Web Developer<br>Brandenburg Germany</p>
+                    <p class="banner" data-i18n="footer.banner">Web Developer<br>Brandenburg Germany</p>
                 </div>
 
                 <p class="cpoy-right">&copy; Aliaqa Alizada 2026</p>

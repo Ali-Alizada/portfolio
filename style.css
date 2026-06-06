@@ -450,7 +450,7 @@ input.check-toggle-round-flat:checked+label:after {
 
 .marquee-contact {
     position: relative;
-    width: 138px;
+    width: 170px;
     height: 42px;
     border: 1px solid white;
     border-radius: 999px;
@@ -459,6 +459,13 @@ input.check-toggle-round-flat:checked+label:after {
     align-items: center;
     text-decoration: none;
     color: white;
+}
+
+.marquee-contact span{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    /* padding-left: 6px; */
 }
 
 .marquee-track {
