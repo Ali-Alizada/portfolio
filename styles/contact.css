@@ -26,6 +26,8 @@ div .title {
     font-size: 18px;
     line-height: 1.4;
     padding-bottom: 14px;
+    white-space: pre-wrap; 
+    /* pre-wrpa */
 }
 
 .question-text {
@@ -35,7 +37,7 @@ div .title {
 
 }
 
-.question-text span {
+.question-text .talk {
     color: #3dcfb6;
 }
 

@@ -196,6 +196,7 @@ input.check-toggle-round-flat:checked+label:after {
     padding-bottom: 16px;
 }
 
+
 .main-nav a::before {
     content: "•";
     position: absolute;
@@ -724,9 +725,9 @@ main {
 
 .marquee-talk {
     position: relative;
-    width: 140px;
+    width: 165px;
     height: 42px;
-    padding-left: 42px;
+    padding-left: 14px;
     border: 1px solid white;
     border-radius: 999px;
     overflow: hidden;
