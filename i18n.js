@@ -185,7 +185,7 @@ window.translations = {
     "nav.projects": "Projekte",
 
     "hero.subtitle": "Frontend-Entwickler",
-    "hero.btnWork": "Meine Projekte ansehen",
+    "hero.btnWork": "Projekte ansehen",
     "hero.btnContact": "Kontakt aufnehmen",
 
     "banner.role": "Frontend-Entwickler",

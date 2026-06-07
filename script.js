@@ -117,6 +117,26 @@ const originalPlaceholders = {
   textarea: textarea.placeholder,
 };
 
+function updateMarqueeLabels() {
+  document.querySelectorAll(
+    ".marquee-btn, .marquee-contact, .marquee-talk, .marquee-submit"
+  ).forEach((button) => {
+    const textSpan = button.querySelector(".marquee-track span");
+    if (textSpan) {
+      button.dataset.label = textSpan.textContent.trim();
+    }
+  });
+}
+
+if (typeof window.applyLanguage === "function") {
+  const originalApplyLanguage = window.applyLanguage;
+  window.applyLanguage = function (lang) {
+    originalApplyLanguage(lang);
+    updateMarqueeLabels();
+  };
+  window.applyLanguage(window.currentLang);
+}
+
 // helper Function to delte the error classes.
 
 function removeErrorClass(element) {

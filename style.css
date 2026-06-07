@@ -436,44 +436,43 @@ input.check-toggle-round-flat:checked+label:after {
 }
 
 
-.marquee-btn {
+.marquee-btn,
+.marquee-contact,
+.marquee-talk,
+.marquee-submit {
     position: relative;
-    width: 170px;
+    width: 180px;
     height: 42px;
     border: 1px solid white;
     border-radius: 999px;
     overflow: hidden;
     display: flex;
     align-items: center;
+    justify-content: center;
     text-decoration: none;
     color: white;
 }
 
-.marquee-contact {
-    position: relative;
-    width: 170px;
-    height: 42px;
-    border: 1px solid white;
-    border-radius: 999px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: white;
+.marquee-talk {
+    width: 165px;
+    margin-top: 16px;
 }
 
-.marquee-contact span{
+.marquee-contact span {
     display: flex;
     align-items: center;
     text-align: center;
-    /* padding-left: 6px; */
 }
 
 .marquee-track {
+    position: absolute;
+    inset: 0;
     display: flex;
     align-items: center;
-    width: max-content;
-    gap: 180px;
+    gap: 120px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 0;
 }
 
 .marquee-track span {
@@ -482,25 +481,48 @@ input.check-toggle-round-flat:checked+label:after {
     font-weight: 500;
 }
 
-.marquee-btn:hover .marquee-track {
+.marquee-btn::before,
+.marquee-contact::before,
+.marquee-talk::before,
+.marquee-submit::before {
+    content: attr(data-label);
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    pointer-events: none;
+    color: inherit;
+    transition: opacity 0.2s ease;
+    z-index: 1;
+}
+
+.marquee-btn:hover::before,
+.marquee-contact:hover::before,
+.marquee-talk:hover::before,
+.marquee-submit:hover::before {
+    opacity: 0;
+}
+
+.marquee-btn:hover .marquee-track,
+.marquee-contact:hover .marquee-track,
+.marquee-talk:hover .marquee-track,
+.marquee-submit:hover .marquee-track {
+    opacity: 1;
     animation: marqueeMove 2s linear infinite;
 }
 
 .marquee-btn:hover {
     border-color: #3dcfb6;
-
-    box-shadow:
-        0 0 10px rgba(61, 207, 182, 0.4);
+    box-shadow: 0 0 10px rgba(61, 207, 182, 0.4);
 }
 
-.marquee-contact:hover .marquee-track {
-    animation: marqueeMove 2s linear infinite;
-}
-
-.marquee-contact:hover {
+.marquee-contact:hover,
+.marquee-talk:hover,
+.marquee-submit:hover {
     border-color: #3dcfb6;
-    box-shadow:
-        0 0 10px rgba(61, 207, 182, 0.4);
+    box-shadow: 0 0 10px rgba(61, 207, 182, 0.4);
 }
 
 @keyframes marqueeMove {
@@ -725,7 +747,7 @@ main {
 
 .marquee-talk {
     position: relative;
-    width: 165px;
+    width: 180px;
     height: 42px;
     padding-left: 14px;
     border: 1px solid white;

@@ -153,6 +153,7 @@ div .title {
     overflow: hidden;
     display: flex;
     align-items: center;
+    justify-content: center;
     background: transparent;
     color: white;
     font-size: 16px;
@@ -165,11 +166,32 @@ div .title {
 }
 
 .marquee-submit .marquee-track {
+    position: absolute;
+    inset: 0;
     display: flex;
     align-items: center;
-    width: max-content;
-    gap: 120px;
-    padding-left: 32px;
+    gap: 90px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 0;
+}
+
+.marquee-submit::before {
+    content: attr(data-label);
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    pointer-events: none;
+    color: inherit;
+    transition: opacity 0.2s ease;
+    z-index: 1;
+}
+
+.marquee-submit:hover::before {
+    opacity: 0;
 }
 
 .marquee-submit:hover {
@@ -178,6 +200,7 @@ div .title {
 }
 
 .marquee-submit:hover .marquee-track {
+    opacity: 1;
     animation: marqueeMove 2s linear infinite;
     color: #3dcfb6;
 }
