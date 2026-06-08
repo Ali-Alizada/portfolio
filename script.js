@@ -118,14 +118,16 @@ const originalPlaceholders = {
 };
 
 function updateMarqueeLabels() {
-  document.querySelectorAll(
-    ".marquee-btn, .marquee-contact, .marquee-talk, .marquee-submit"
-  ).forEach((button) => {
-    const textSpan = button.querySelector(".marquee-track span");
-    if (textSpan) {
-      button.dataset.label = textSpan.textContent.trim();
-    }
-  });
+  document
+    .querySelectorAll(
+      ".marquee-btn, .marquee-contact, .marquee-talk, .marquee-submit",
+    )
+    .forEach((button) => {
+      const textSpan = button.querySelector(".marquee-track span");
+      if (textSpan) {
+        button.dataset.label = textSpan.textContent.trim();
+      }
+    });
 }
 
 if (typeof window.applyLanguage === "function") {
@@ -277,7 +279,7 @@ function addMessage() {
 
 function showSuccesMessage() {
   showOverlay();
-  setTimeout(hideOverlay, 1200);
+  setTimeout(hideOverlay, 1500);
 }
 
 function showOverlay() {

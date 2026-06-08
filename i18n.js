@@ -38,7 +38,7 @@ window.translations = {
       "Web development is constantly evolving, which is why continuous learning is an essential part of my journey as a developer. I enjoy exploring new technologies, expanding my skill set, and staying up to date with industry trends and best practices. In particular, I have a strong interest in learning Vue.js and React to broaden my knowledge and grow as a Frontend Developer.",
 
     "skills.otherSkill": "Looking for",
-    "skills.otherSkillSpan": "a specific skill or technology?",
+    "skills.otherSkillSpan": " a specific skill or technology?",
     "skills.contact":
       "Feel free to contact me. I am always excited to take on new challenges, expand my expertise, and continue developing both professionally and personally.",
     "skills.btnTalk": "let's Talk",
@@ -213,7 +213,7 @@ window.translations = {
       "Die Webentwicklung entwickelt sich ständig weiter, weshalb kontinuierliches Lernen ein wesentlicher Bestandteil meines Weges als Entwickler ist. Ich erkunde gerne neue Technologien, erweitere meine Fähigkeiten und halte mich über aktuelle Trends und Best Practices der Branche auf dem Laufenden. Besonders interessiere ich mich für Vue.js und React, um mein Wissen zu erweitern und mich als Frontend-Entwickler weiterzuentwickeln.",
 
     "skills.otherSkill": "Auf der Suche nach",
-    "skills.otherSkillSpan": "einer bestimmten Fähigkeit oder Technologie?",
+    "skills.otherSkillSpan": " einer bestimmten Fähigkeit oder Technologie?",
     "skills.contact":
       "Kontaktiere mich gerne. Ich freue mich immer darauf, neue Herausforderungen anzunehmen, mein Fachwissen zu erweitern und mich sowohl beruflich als auch persönlich weiterzuentwickeln.",
     "skills.btnTalk": "Lass uns sprechen",
