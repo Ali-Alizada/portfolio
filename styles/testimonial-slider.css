@@ -164,7 +164,7 @@
 
 @media (max-width:768px) {
     .comments-header h3 {
-        font-size: 38px;
+        font-size: 34px;
     }
 
     .testimonial-card {
@@ -188,4 +188,24 @@
         width: 120px;
     }
 
+}
+
+@media (max-width: 600px){
+    .testimonial-text {
+        font-size: 18px;
+    }
+}
+@media (max-width: 480px){
+    .testimonial-text {
+        font-size: 16px;
+        padding-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+}
+
+@media (max-width: 430px){
+        .comments-header h3 {
+        font-size: 24px;
+    }
 }

@@ -593,7 +593,7 @@ main {
 
 .text-content {
     flex: 1;
-    min-width: 300px;
+    min-width: auto;
     margin-top: 120px;
 }
 
@@ -612,7 +612,7 @@ main {
     margin-bottom: 12px;
     display: inline-block;
 }
-
+ 
 .text .title {
     font-size: 64px;
     font-weight: 700;
@@ -706,7 +706,7 @@ main {
 
 .text-contents {
     flex: 1;
-    min-width: 250px;
+    /* min-width: 250px; */
 }
 
 .text-contents .skills {
@@ -776,7 +776,7 @@ main {
 
 .techs-icons {
     flex: 1;
-    min-width: 300px;
+    min-width: 0;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 40px 20px;
@@ -785,6 +785,11 @@ main {
     margin-top: 44px;
 
 }
+
+/* .techs-icons span {
+    word-break: break-word;
+    overflow-wrap: break-word;
+} */
 
 .techs-icons>div {
     display: flex;
@@ -880,7 +885,7 @@ main {
 .growth-hover {
     position: absolute;
     bottom: 90%;
-    left: 69%;
+    left: 75%;
     transform: translateX(-50%);
     width: 165px;
     background-color: white;
@@ -1588,8 +1593,19 @@ footer {
     }
 }
 
+@media (max-width: 600px){
+    .header-content.active{
+        right: 20px;
+    }
+}
+
 
 @media (max-width: 1100px) {
+
+    .project-card{
+        padding:0;
+    }
+
 
     .project-dialog {
         padding: 48px 32px;
@@ -1655,7 +1671,7 @@ footer {
     }
 
     .text-contianer .title {
-        font-size: 58px;
+        font-size: 64px;
     }
 
     .contect-left p {
@@ -1675,7 +1691,7 @@ footer {
 
     main,
     .container {
-        padding-inline: 32px;
+        padding-inline: 20px;
     }
 
     .project-card {
@@ -1724,7 +1740,12 @@ footer {
     .img-profile img {
         width: 100%;
         height: auto;
-        padding-left: 0;
+        padding-left: 30px;
+    }
+
+    .img-profile::after {
+        bottom: -25px;
+        left: 0px
     }
 
     .text-content {
@@ -1740,7 +1761,7 @@ footer {
       
     }
 
-    .tech-icons{
+    .techs-icons{
         gap: 38px 38px;
     }
 
@@ -1796,16 +1817,17 @@ footer {
         padding-inline: 20px;
     }
 
-    .text-contianer .title {
+    .text-contianer .title, .text-contents .title, .text .title {
         font-size: 42px;
     }
 
-    /* .project-title p {
-        font-size: 24px;
-    } */
-
     .contect-left {
         flex-wrap: wrap;
+    }
+
+    .other-skills span {
+        font-size: 24px;
+
     }
 
     .project-content {
@@ -1835,17 +1857,79 @@ footer {
     } */
 }
 
-@media (max-width: 1200px){
+@media (max-width: 1620px){
+    .hero-subtitle{
+        font-size: 50px;
+        font-weight: 600;
+    }
+
+    .hero-content h1{
+        font-size: 150px;
+    }
+}
+@media (max-width: 1420px){
+    .hero-subtitle{
+        font-size: 38px;
+    }
+
+    .hero-content h1{
+        font-size: 126px;
+    }
+}
+@media (max-width: 1220px){
     .hero-subtitle{
         font-size: 32px;
     }
 
     .hero-content h1{
-        font-size: 100px;
+        font-size: 116px;
     }
 }
 
-@media (max-width: 868px) {
+@media (max-width: 968px) {
+
+    .hero-subtitle{
+        font-size: 30px;
+    }
+
+    .hero-content h1{
+        font-size: 90px;
+    }
+
+    /* .hero-side-left {
+        left: 20px;
+        bottom: 20px;
+    } */
+
+    .vertical-line {
+        height: 250px;
+    }
+
+    /* .hero-side-right{
+         right: 20px;
+        bottom: 20px;
+    } */
+
+    .vertical-line-right{
+        height: 164px;
+    }
+
+    /* .hero-content{
+        padding-bottom: 75px; 
+    } */
+
+    .diagonal-banner{
+        bottom: 38px;
+        transform: rotate(-2.5deg);
+    }
+
+    .mail-to{
+        display: none;
+    }
+}
+
+
+@media (max-width: 668px) {
 
     .hero-subtitle{
         font-size: 26px;
@@ -1854,32 +1938,97 @@ footer {
     .hero-content h1{
         font-size: 70px;
     }
+}
 
-    .hero-side-left {
-        left: 20px;
-        bottom: 20px;
+@media (max-width: 512px) {
+
+    .hero-subtitle{
+        font-size: 22px;
     }
 
-    .vertical-line {
-        height: 150px;
+    .hero-content h1{
+        font-size: 56px;
     }
 
-    .hero-side-right{
-         right: 20px;
-        bottom: 20px;
+    .hero-buttons{
+        gap: 12px;
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-contianer .title {
+        font-size: 34px;
     }
 
-    .vertical-line-right{
-        height: 120px;
+    .text .title{
+        font-size: 34px;
     }
 
-    /* .hero-content{
-        padding-bottom: 75px;
-    } */
+    .other-skills {
+        font-size: 22px;
+    }
 
-    .diagonal-banner{
-        bottom: 26px;
-        transform: rotate(-2.5deg);
+    .text-contents .tech-description, .description, .info-row p, .text-contianer .tech-description{
+        font-size: 16px;
+    }
+
+    .growth-hover {
+        left: 80%;
+        transform: translateX(-50%);
+        width: 165px;
+    }
+
+
+     .project-title p {
+    font-size: 24px;
+    }
+
+        .contect-left p {
+        font-size: 16px;
+    }
+
+}
+
+@media (max-width: 430px) {
+
+    .hero-subtitle{
+        font-size: 22px;
+    }
+
+    .hero-content h1{
+        font-size: 48px;
+    }
+
+    .hero-buttons{
+      flex-direction: column;
+    }
+
+
+}
+
+@media (max-width:368px) {
+
+    .hero-subtitle{
+        font-size: 18px;
+    }
+
+    .hero-content h1{
+        font-size: 42px;
+    }
+
+    .logo-mono span{
+        font-size: 70px;
+    }
+
+    .logo-mono .first{
+        margin-right: -28px;
+    }
+}
+@media (max-width:336px) {
+
+    .hero-content h1{
+        font-size: 38px;
     }
 }
 
@@ -1890,24 +2039,19 @@ footer {
 
 @media (max-width: 1040px) {
     .techs-icons {
-        grid-template-columns: (3, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media (max-widh: 768px) {
-    .technologies {
-        gap: 40px;
-    }
-
+@media (max-width: 768px) {
     .techs-icons {
-        grid-template-columns: (2, 1fr);
-        gap: 24px;
+        grid-template-columns: repeat(2, 1fr);
     }
+    
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
     .techs-icons {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        grid-template-columns: repeat(1, 1fr);
     }
-}
+} */

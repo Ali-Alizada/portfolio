@@ -6,8 +6,8 @@
     display: inline-block;
 }
 
-.contact-header {
-    font-size: 52px;
+.contact-header h2{
+    font-size: 64px;
     font-weight: 700;
     color: #3dcfb6;
     line-height: 1.1;
@@ -299,6 +299,18 @@ textarea::placeholder {
     font-size: 24px;
 }
 
+@media (max-width:1240px){
+    .contact-header h2{
+        font-size: 64px;
+    }
+}
+
+@media (max-width:1100px){
+    .quote-mark {
+    left: 0px;
+    top: -25px;
+    }
+}
 
 @media (max-width: 992px) {
     .contact-wrapper {
@@ -313,5 +325,34 @@ textarea::placeholder {
 
     .contact-form form {
         width: 100%;
+    }
+}
+
+@media (max-width: 600px){
+    .contact-header h2{
+        font-size: 42px;
+    }
+
+
+}
+@media (max-width: 480px){
+   .contact-motivation{
+        font-size: 16px;
+    }
+
+   .question-text{
+    font-size: 16px;
+    }
+
+    .privacy-policy p{
+        font-size: 16px;
+    }
+
+    .form-content label{
+        font-size: 20px;
+    }
+
+    .form-content input, .form-content textarea {
+        font-size: 16px;
     }
 }
