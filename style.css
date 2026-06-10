@@ -414,6 +414,7 @@ input.check-toggle-round-flat:checked+label:after {
 
 .hero-subtitle {
     font-size: 60px;
+    font-weight: bold;
     letter-spacing: 4px;
     color: #d9d9d9;
 }
@@ -1708,7 +1709,7 @@ footer {
     .img-profile img {
         width: 100%;
         height: auto;
-        padding-left: 30px;
+        padding-left: 20px;
     }
 
     .img-profile::after {
@@ -1726,6 +1727,7 @@ footer {
         flex-direction: column;
         align-items: center;
         padding-block: 0;
+        flex-wrap: nowrap;
     }
 
     .techs-icons {
@@ -1950,7 +1952,7 @@ footer {
 @media (max-width: 650px) {
     .img-profile::after {
         bottom: -18px;
-        left: 10px;
+        left: 0;
         height: 90%;
         width: 90%;
     }
@@ -2073,7 +2075,8 @@ footer {
 
 @media (max-width: 368px) {
     .hero-subtitle {
-        font-size: 18px;
+        font-size: 17px;
+        font-weight: bold;
     }
 
     .hero-content h1 {
