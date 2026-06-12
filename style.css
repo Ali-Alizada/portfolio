@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/karla-v33-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/fira-code-v27-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +22,8 @@ body {
     width: 100%;
     min-height: 100vh;
     background-color: #1c1c1c;
-    font-family: sans-serif, arial;
+    /* font-family: 'Fira Code'; */
+    font-family: 'karla';
 }
 
 /* .hidden{
