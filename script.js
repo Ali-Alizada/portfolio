@@ -63,7 +63,7 @@ let slideDistance = 0;
 
 function updateSlideDistance() {
   const viewportWidth = viewport.getBoundingClientRect().width;
-  const gap = 76;
+  const gap = 22;
   slideDistance = viewportWidth + gap;
 }
 

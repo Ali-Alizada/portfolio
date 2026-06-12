@@ -12,6 +12,7 @@
     color: #3dcfb6;
     line-height: 1.1;
     padding-bottom: 20px;
+    font-family: 'Fira Code';
 }
 
 div .title {
@@ -19,6 +20,7 @@ div .title {
     font-weight: 700;
     color: #3dcfb6;
     padding-bottom: 14px;
+    font-family: 'Fira Code';
 }
 
 .contact-motivation {

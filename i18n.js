@@ -237,7 +237,7 @@ window.translations = {
     "testimonials.card2":
       "Die Zusammenarbeit mit Aliaqa war eine großartige Erfahrung. Er blieb auch unter Druck lösungsorientiert, kommunizierte effektiv und unterstützte das Team stets, wenn Herausforderungen auftraten.",
     "testimonials.card3":
-      "Aliaqa geht seine Arbeit strukturiert und professionell an. Seine ausgeprägten Kommunikationsfähigkeiten und seine Bereitschaft zur Zusammenarbeit machten ihn zu einem wertvollen Beitragenden im Projekt.",
+      "Aliaqa geht seine Arbeit strukturiert und professionell an. Seine ausgeprägten Kommunikations\nfähigkeiten und seine Bereitschaft zur Zusammenarbeit machten ihn zu einem wertvollen Beitragenden im Projekt.",
     "testimonials.card4":
       "Es war eine Freude, mit Aliaqa zusammenzuarbeiten. Er zeigte analytisches Denken, Zuverlässigkeit und eine positive Einstellung und strebte stets danach, hochwertige Ergebnisse zu liefern. Ich würde jederzeit wieder mit ihm zusammenarbeiten.",
 

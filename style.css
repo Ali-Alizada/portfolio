@@ -1,17 +1,20 @@
 @font-face {
-  font-family: 'Karla';
-  font-style: normal;
-  font-weight: 400;
-  src: url('assets/fonts/karla-v33-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 400;
+    src: url('assets/fonts/karla-v33-latin-regular.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 
 @font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 400;
-  src: url('assets/fonts/fira-code-v27-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    font-family: 'Fira Code';
+    font-style: normal;
+    font-weight: 400;
+    src: url('assets/fonts/fira-code-v27-latin-regular.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -84,6 +87,7 @@ body {
     display: inline-block;
     align-items: center;
     justify-content: center;
+
 }
 
 .switch>span {
@@ -113,6 +117,7 @@ input.check-toggle-round-flat:checked~.on {
     color: white;
     text-align: center;
     align-items: center;
+    font-family: 'Fira Code';
 }
 
 .switch>span.off {
@@ -120,6 +125,7 @@ input.check-toggle-round-flat:checked~.on {
     color: rgba(61, 207, 182, 1);
     text-align: center;
     align-items: center;
+    font-family: 'Fira Code';
 }
 
 .check-toggle {
@@ -190,6 +196,11 @@ input.check-toggle-round-flat:checked+label:after {
     left: 1px;
 }
 
+
+.main-nav {
+    font-family: 'Fira Code';
+}
+
 .main-nav ul {
     display: flex;
     gap: 32px;
@@ -236,6 +247,7 @@ input.check-toggle-round-flat:checked+label:after {
     cursor: pointer;
     text-decoration: none;
     position: relative;
+    font-family: 'karla';
 }
 
 .logo-mono span {
@@ -243,14 +255,16 @@ input.check-toggle-round-flat:checked+label:after {
     font-weight: 700;
     color: #3dcfb6;
     transition: all 0.3s ease;
+
 }
 
 .logo-mono {
     display: flex;
+    /* font-family: 'Fira Code'; */
 }
 
 .logo-mono .first {
-    margin-right: -36px;
+    margin-right: -30px;
 }
 
 .logo-container:hover .logo-mono span {
@@ -406,6 +420,7 @@ input.check-toggle-round-flat:checked+label:after {
     text-decoration: none;
     transition: 0.3s ease;
     margin-bottom: 70px;
+    font-family: 'klara';
 }
 
 .mail-to-icon {
@@ -422,9 +437,11 @@ input.check-toggle-round-flat:checked+label:after {
 
 .hero-content h1 {
     /* font-size: 180px; */
-    font-size: 150px;
+    font-size: 160px;
     font-weight: 700;
     padding-bottom: 16px;
+    font-family: 'Karla';
+
 }
 
 .hero-subtitle {
@@ -432,6 +449,7 @@ input.check-toggle-round-flat:checked+label:after {
     font-weight: bold;
     letter-spacing: 4px;
     color: #d9d9d9;
+    font-family: 'Fira Code';
 }
 
 .hero-buttons {
@@ -446,6 +464,7 @@ input.check-toggle-round-flat:checked+label:after {
     color: white;
     text-decoration: none;
     transform: 0.3 ease;
+    font-family: 'klara';
 }
 
 .hero-buttons a:hover {
@@ -631,6 +650,7 @@ main {
     color: #3dcfb6;
     margin-bottom: 20px;
     line-height: 1.1;
+    font-family: 'Fira Code';
 }
 
 .description {
@@ -684,6 +704,7 @@ main {
     font-size: 24px;
     font-weight: 700;
     white-space: nowrap;
+    font-family: 'klara';
 }
 
 .banner-track .star {
@@ -1268,12 +1289,13 @@ main {
     line-height: 1;
     color: #3dcfb6;
     margin-bottom: 24px;
+    font-family: 'Fira Code';
 }
 
 .dialog-name {
     font-size: 92px;
     font-weight: 700;
-
+    font-family: 'Karla';
     margin-bottom: 48px;
 }
 
@@ -1661,7 +1683,6 @@ footer {
 
     .contect-left p {
         font-size: 17px;
-        /* font-weight: 500; */
     }
 
     .project-content {
@@ -1810,7 +1831,7 @@ footer {
     }
 
     .logo-mono .first {
-        margin-right: -26px;
+        margin-right: -22px;
     }
 
     .logo-first,
