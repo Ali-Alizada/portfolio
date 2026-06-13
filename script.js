@@ -2,13 +2,13 @@
 function openDialog(dialogId) {
   const dialog = document.getElementById(dialogId);
   dialog.showModal();
-  document.body.style.overflow = "hidden";
+  // document.body.style.overflow = "hidden";
 }
 
 function closeDialog(dialogId) {
   const dialog = document.getElementById(dialogId);
   dialog.close();
-  document.body.style.overflow = "auto";
+  // document.body.style.overflow = "auto";
 }
 
 const dialogs = Array.from(document.querySelectorAll(".project-dialog"));
@@ -26,7 +26,7 @@ dialogs.forEach((dialog) => {
     if (!clickedInside) {
       dialog.close();
     }
-    document.body.style.overflow = "auto";
+    // document.body.style.overflow = "auto";
   });
 });
 
@@ -43,7 +43,7 @@ dialogs.forEach((dialog, index) => {
       currentDialog.classList.remove("closing");
       requestAnimationFrame(() => {
         nextDialog.showModal();
-        document.body.style.overflow = "hidden";
+        // document.body.style.overflow = "hidden";
       });
     }, 250);
   });
@@ -295,13 +295,36 @@ function hideOverlay() {
 const burger = document.querySelector(".burger");
 const menu = document.querySelector(".header-content");
 
-burger.addEventListener("click", () => {
+function toggleMenu(){
   burger.classList.toggle("active");
   menu.classList.toggle("active");
 
   const expanded = burger.getAttribute("aria-expanded") === "true";
   burger.setAttribute("aria-expanded", !expanded);
+}
+
+function closeMenu(){
+  burger.classList.remove("active");
+  menu.classList.remove("active");
+  burger.setAttribute("aria-expanded, false");
+}
+
+burger.addEventListener("click", (e) => {
+  e.stopPropagation();
+  toggleMenu();  
 });
+
+document.addEventListener("click", (e) => {
+  const clickedOutside = !menu.contains(e.target) && !burger.contains(e.target);
+
+  if(clickedOutside){
+    closeMenu();
+  }
+
+  menu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+  })
+})
 
 // const hiddenElements = document.querySelectorAll(".hidden");
 

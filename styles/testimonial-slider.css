@@ -1,430 +1,419 @@
 .comments {
-    padding-block: 140px;
-    overflow: hidden;
+  padding-block: 140px;
+  overflow: hidden;
 }
 
 .comments-header {
-    text-align: center;
-    margin-bottom: 60px;
+  text-align: center;
+  margin-bottom: 60px;
 }
 
 .comments-header h3 {
-    font-size: 46px;
-    color: #3dcfb6;
-    font-weight: 700;
-    font-family: 'Fira Code';
+  font-size: 46px;
+  color: #3dcfb6;
+  font-weight: 700;
+  font-family: "Fira Code";
 }
 
 .testimonial-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
 }
 
 .testimonial-viewport {
-    width: 100%;
-    max-width: 796px;
-    /* overflow: hidden; */
-    position: relative;
+  width: 100%;
+  max-width: 796px;
+  /* overflow: hidden; */
+  position: relative;
 }
 
 .testimonial-slider {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 100%;
-    gap: 22px;
-    transition: transform 0.5s ease;
-    padding-bottom: 40px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  gap: 22px;
+  transition: transform 0.5s ease;
+  padding-bottom: 40px;
 }
 
 .testimonial-card {
-    /* background: rgba(71, 224, 199, 0.15); */
-    background: linear-gradient(45deg, #1c1c1c 35%, #08463b 100%);
-    border: 1px solid #3dcfb6;
-    border-radius: 32px;
-    padding: 44px;
-    position: relative;
-    backdrop-filter: blur(6px);
-    opacity: 0.4;
-    transform: scale(0.9);
-    transition: all 0.4s ease;
-    width: auto;
+  /* background: rgba(71, 224, 199, 0.15); */
+  background: linear-gradient(45deg, #1c1c1c 35%, #08463b 100%);
+  border: 1px solid #3dcfb6;
+  border-radius: 32px;
+  padding: 44px;
+  position: relative;
+  backdrop-filter: blur(6px);
+  opacity: 0.4;
+  transform: scale(0.9);
+  transition: all 0.4s ease;
+  width: auto;
 }
 
 .testimonial-card.active {
-    opacity: 1;
-    transform: scale(1);
+  opacity: 1;
+  transform: scale(1);
 }
 
-
 .testimonial-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    box-shadow: 0 0 20px rgba(61, 207, 182, 0.15);
-    border-radius: 32px;
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 0 20px rgba(61, 207, 182, 0.15);
+  border-radius: 32px;
 }
 
 .quote-mark {
-    position: absolute;
-    left: -37px;
-    top: -10px;
-    z-index: 100;
-    pointer-events: none;
+  position: absolute;
+  left: -37px;
+  top: -10px;
+  z-index: 100;
+  pointer-events: none;
 }
 
 .quote-mark img {
-    width: 80px;
+  width: 80px;
 }
 
-
 .testimonial-text {
-    font-size: 28px;
-    line-height: 1.6;
-    color: white;
-    margin-bottom: 50px;
-    /* max-width: 700px; */
+  font-size: 28px;
+  line-height: 1.6;
+  color: white;
+  margin-bottom: 50px;
+  /* max-width: 700px; */
 }
 
 .testimonial-footer {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .testimonial-footer .line {
-    width: 100%;
-    max-width: 376px;
-    height: 1px;
-    background: white;
+  width: 100%;
+  max-width: 376px;
+  height: 1px;
+  background: white;
 }
 
 .testimonial-footer span {
-    color: white;
-    font-size: 20px;
-
+  color: white;
+  font-size: 20px;
 }
 
 /* --------------------buttons */
 
 .slider-btn-left,
 .slider-btn-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 28px;
-    cursor: pointer;
-    gap: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  gap: 12px;
 }
 
-
 .slider-btn-left img {
-    height: 50px;
+  height: 50px;
 }
 
 .slider-btn-right img {
-    height: 50px;
+  height: 50px;
 }
 
 .slider-btn-right:hover img {
-    transform: translateX(5px) scale(1.1);
-    filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%) hue-rotate(118deg) brightness(140%) contrast(100%);
+  transform: translateX(5px) scale(1.1);
+  filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%)
+    hue-rotate(118deg) brightness(140%) contrast(100%);
 }
 
 .slider-btn-left:hover img {
-    transform: translateX(-5px) scale(1.1);
-    filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%) hue-rotate(118deg) brightness(140%) contrast(100%);
+  transform: translateX(-5px) scale(1.1);
+  filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%)
+    hue-rotate(118deg) brightness(140%) contrast(100%);
 }
 
 .slider-dots {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 32px;
-    margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  margin-top: 40px;
 }
 
 .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: white;
-    transition: 0.3s ease;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+  transition: 0.3s ease;
 }
 
 .dot.active {
-    color: #3dcfb6;
-    background: #3dcfb6;
-    box-shadow: 0 0 5px #3dcfb6;
+  color: #3dcfb6;
+  background: #3dcfb6;
+  box-shadow: 0 0 5px #3dcfb6;
 }
 
 /* ------------------Responsive */
 
-
 @media (max-width: 1300px) {
+  .testimonial-viewport {
+    max-width: 596px;
+  }
 
-    .testimonial-viewport {
-        max-width: 596px;
-    }
+  .testimonial-card {
+    padding: 40px;
+  }
 
-    .testimonial-card {
-        padding: 40px;
-    }
+  .testimonial-text {
+    font-size: 24px;
+  }
 
-    .testimonial-text {
-        font-size: 24px;
-    }
+  .testimonial-footer {
+    gap: 12px;
+  }
 
-    .testimonial-footer {
-        gap: 12px;
-    }
+  .testimonial-footer .line {
+    width: 100%;
+    max-width: 250px;
+  }
 
+  .testimonial-footer span {
+    font-size: 18px;
+  }
 
-    .testimonial-footer .line {
-        width: 100%;
-        max-width: 250px;
-    }
+  .quote-mark img {
+    width: 60px;
+  }
 
-    .testimonial-footer span {
-        font-size: 18px;
-
-    }
-
-    .quote-mark img {
-        width: 60px;
-    }
-
-    .quote-mark {
-        left: -30px;
-        top: -10px;
-    }
+  .quote-mark {
+    left: -30px;
+    top: -10px;
+  }
 }
 
 @media (max-width: 1024px) {
-    .testimonial-viewport {
-        max-width: 496px;
-    }
+  .testimonial-viewport {
+    max-width: 496px;
+  }
 
-    .testimonial-card {
-        padding: 40px;
-    }
+  .testimonial-card {
+    padding: 40px;
+  }
 
-    .testimonial-text {
-        font-size: 22px;
-    }
+  .testimonial-text {
+    font-size: 22px;
+  }
 
-    .testimonial-footer {
-        gap: 10px;
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  .testimonial-footer {
+    gap: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    .testimonial-footer span {
-        font-size: 16px;
+  .testimonial-footer span {
+    font-size: 16px;
+  }
 
-    }
+  .testimonial-footer .line {
+    width: 100%;
+    max-width: 412px;
+  }
 
-    .testimonial-footer .line {
-        width: 100%;
-        max-width: 412px;
-    }
+  .quote-mark img {
+    width: 60px;
+  }
 
-    .quote-mark img {
-        width: 60px;
-    }
+  .quote-mark {
+    left: -30px;
+    top: -10px;
+  }
 
-    .quote-mark {
-        left: -30px;
-        top: -10px;
-    }
-
-    .slider-dots {
-        gap: 20px;
-        margin-top: 0;
-    }
+  .slider-dots {
+    gap: 20px;
+    margin-top: 0;
+  }
 }
 
 @media (max-width: 920px) {
-    .testimonial-viewport {
-        max-width: 396px;
-    }
+  .testimonial-viewport {
+    max-width: 396px;
+  }
 
-    .testimonial-card {
-        padding: 40px;
-    }
+  .testimonial-card {
+    padding: 40px;
+  }
 
-    .testimonial-text {
-        font-size: 18px;
-    }
+  .testimonial-text {
+    font-size: 18px;
+  }
 
-    .quote-mark img {
-        width: 60px;
-    }
+  .quote-mark img {
+    width: 60px;
+  }
 
-    .quote-mark {
-        left: -30px;
-        top: -10px;
-    }
-
+  .quote-mark {
+    left: -30px;
+    top: -10px;
+  }
 }
 
 @media (max-width: 768px) {
-    .testimonial-viewport {
-        max-width: 346px;
-    }
+  .testimonial-viewport {
+    max-width: 346px;
+  }
 
-    .testimonial-card {
-        padding: 40px;
-    }
+  .testimonial-card {
+    padding: 40px;
+  }
 
-    .testimonial-text {
-        font-size: 18px;
-    }
+  .testimonial-text {
+    font-size: 18px;
+  }
 
-    .quote-mark img {
-        width: 60px;
-    }
+  .quote-mark img {
+    width: 60px;
+  }
 
-    .testimonial-footer .line {
-        width: 100%;
-        max-width: 412px;
-    }
+  .testimonial-footer .line {
+    width: 100%;
+    max-width: 412px;
+  }
 
-    .quote-mark {
-        left: -30px;
-        top: -10px;
-    }
+  .quote-mark {
+    left: -30px;
+    top: -10px;
+  }
 }
 
 @media (max-width: 665px) {
-    .testimonial-viewport {
-        max-width: 300px;
-    }
+  .testimonial-viewport {
+    max-width: 300px;
+  }
 
-    .testimonial-card {
-        padding: 40px;
-    }
+  .testimonial-card {
+    padding: 40px;
+  }
 
-    .testimonial-text {
-        font-size: 16px;
-    }
+  .testimonial-text {
+    font-size: 16px;
+  }
 
-    .quote-mark img {
-        width: 60px;
-    }
+  .quote-mark img {
+    width: 60px;
+  }
 
-    .quote-mark {
-        left: -30px;
-        top: -10px;
-    }
+  .quote-mark {
+    left: -30px;
+    top: -10px;
+  }
 }
 
 @media (max-width: 550px) {
-    .testimonial-viewport {
-        max-width: 250px;
-    }
+  .testimonial-viewport {
+    max-width: 250px;
+  }
 
-    .testimonial-card {
-        padding: 40px;
-    }
+  .testimonial-card {
+    padding: 40px;
+  }
 
-    .testimonial-text {
-        font-size: 16px;
-    }
+  .testimonial-text {
+    font-size: 16px;
+  }
 
-    .quote-mark img {
-        width: 60px;
-    }
+  .quote-mark img {
+    width: 60px;
+  }
 
-    .quote-mark {
-        left: -30px;
-        top: -10px;
-    }
+  .quote-mark {
+    left: -30px;
+    top: -10px;
+  }
 }
 
 @media (max-width: 430px) {
-    .testimonial-viewport {
-        max-width: 200px;
-    }
+  .testimonial-viewport {
+    max-width: 200px;
+  }
 
-    .testimonial-card {
-        padding: 30px;
-    }
+  .testimonial-card {
+    padding: 30px;
+  }
 
-    .testimonial-text {
-        font-size: 16px;
-    }
+  .testimonial-text {
+    font-size: 16px;
+  }
 
-    .quote-mark img {
-        width: 60px;
-    }
+  .quote-mark img {
+    width: 60px;
+  }
 
-    .quote-mark {
-        left: -30px;
-        top: -10px;
-    }
+  .quote-mark {
+    left: -30px;
+    top: -10px;
+  }
 }
 
+@media (max-width: 768px) {
+  .comments-header h3 {
+    font-size: 34px;
+  }
 
-@media (max-width:768px) {
-    .comments-header h3 {
-        font-size: 34px;
-    }
+  .testimonial-card {
+    padding: 40px 24px;
+  }
 
-    .testimonial-card {
-        padding: 40px 24px;
-    }
-
-    .testimonial-text {
-        font-size: 20px;
-    }
-
+  .testimonial-text {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 600px) {
-    .testimonial-text {
-        font-size: 18px;
-    }
+  .testimonial-text {
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 480px) {
-    .testimonial-text {
-        font-size: 16px;
-        /* padding-top: 30px; */
-        margin-bottom: 30px;
-    }
+  .testimonial-text {
+    font-size: 16px;
+    /* padding-top: 30px; */
+    margin-bottom: 30px;
+  }
 
-    .slider-dots {
-        gap: 16px;
-    }
+  .slider-dots {
+    gap: 16px;
+  }
 
-    .dot {
-        width: 8px;
-        height: 8px;
-    }
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
 
-    .slider-btn-left img,
-    .slider-btn-right img {
-        height: 40px;
-    }
-
+  .slider-btn-left img,
+  .slider-btn-right img {
+    height: 40px;
+  }
 }
 
 @media (max-width: 430px) {
-    .comments-header h3 {
-        font-size: 24px;
-    }
+  .comments-header h3 {
+    font-size: 24px;
+  }
 
-    .quote-mark img {
-        width: 60px;
-    }
+  .quote-mark img {
+    width: 60px;
+  }
 
-    .quote-mark {
-        left: 0px;
-        top: -12px;
-    }
+  .quote-mark {
+    left: 0px;
+    top: -12px;
+  }
 }
