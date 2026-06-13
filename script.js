@@ -1,3 +1,11 @@
+// Cursor Shadow
+const cursorShadow = document.querySelector(".cursor-shadow");
+
+document.addEventListener("mousemove", (e) => {
+  cursorShadow.style.left = `${e.clientX}px`;
+  cursorShadow.style.top = `${e.clientY}px`;
+});
+
 // -----------------------------Dilaog
 function openDialog(dialogId) {
   const dialog = document.getElementById(dialogId);

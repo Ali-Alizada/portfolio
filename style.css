@@ -56,6 +56,30 @@ body {
     transform: translateY(0);
 } */
 
+.cursor-shadow {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+
+  pointer-events: none;
+  z-index: 9999;
+
+  transform: translate(-50%, -50%);
+
+  background: radial-gradient(
+    circle,
+    #3dcfb6 0%,
+    #3dcfb6 15%,
+    #08463b 90%,
+    rgba(8, 70, 59, 0) 100%
+  );
+
+  filter: blur(20px);
+
+  transition: transform 0.1s ease-out;
+}
+
 .site-header {
   width: 100%;
   min-height: 100vh;
