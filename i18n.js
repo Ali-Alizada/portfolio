@@ -97,7 +97,7 @@ window.translations = {
     "error.emailInvalid": "Please enter a valid email address.",
     "error.messageRequired": "What do you need to develop?",
     "error.policyRequired": "Please accept the privacy policy.",
-
+    
     // Footer
     "footer.banner": "Web Developer\nBrandenburg Germany",
 

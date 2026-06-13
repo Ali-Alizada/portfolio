@@ -1,107 +1,105 @@
 .contactme .section-title {
-    font-size: 24px;
-    font-weight: 700;
-    color: #3dcfb6;
-    margin-bottom: 14px;
-    display: inline-block;
+  font-size: 24px;
+  font-weight: 700;
+  color: #3dcfb6;
+  margin-bottom: 14px;
+  display: inline-block;
 }
 
 .contact-header h2 {
-    font-size: 64px;
-    font-weight: 700;
-    color: #3dcfb6;
-    line-height: 1.1;
-    padding-bottom: 20px;
-    font-family: 'Fira Code';
+  font-size: 64px;
+  font-weight: 700;
+  color: #3dcfb6;
+  line-height: 1.1;
+  padding-bottom: 20px;
+  font-family: "Fira Code";
 }
 
 div .title {
-    font-size: 24px;
-    font-weight: 700;
-    color: #3dcfb6;
-    padding-bottom: 14px;
-    font-family: 'Fira Code';
+  font-size: 24px;
+  font-weight: 700;
+  color: #3dcfb6;
+  padding-bottom: 14px;
+  font-family: "Fira Code";
 }
 
 .contact-motivation {
-    color: rgb(255, 255, 255);
-    font-size: 18px;
-    line-height: 1.4;
-    padding-bottom: 14px;
-    white-space: pre-wrap;
-    /* pre-wrpa */
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  line-height: 1.4;
+  padding-bottom: 14px;
+  white-space: pre-wrap;
+  /* pre-wrpa */
 }
 
 .question-text {
-    color: rgb(255, 255, 255);
-    font-size: 18px;
-    padding-bottom: 14px;
-
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  padding-bottom: 14px;
 }
 
 .question-text .talk {
-    color: #3dcfb6;
+  color: #3dcfb6;
 }
 
 .contact-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 50px;
-    padding-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 50px;
+  padding-bottom: 100px;
 }
 
 .text-container,
 .contact-form {
-    flex: 1;
+  flex: 1;
 }
 
 /* -------------------Contqact-form */
 
 .contact-form form {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    /* min-width: 500px; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /* min-width: 500px; */
 }
 
 .form-content label {
-    font-size: 24px;
-    font-weight: 500;
-    color: #3dcfb6;
-    margin-bottom: 14px;
-    display: inline-block;
+  font-size: 24px;
+  font-weight: 500;
+  color: #3dcfb6;
+  margin-bottom: 14px;
+  display: inline-block;
 }
 
 .form-content input {
-    font-size: 18px;
-    font-weight: 500;
-    background-color: transparent;
-    color: white;
-    background: none;
-    border: none;
-    outline: none;
-    padding-bottom: 40px;
-
+  font-size: 18px;
+  font-weight: 500;
+  background-color: transparent;
+  color: white;
+  background: none;
+  border: none;
+  outline: none;
+  padding-bottom: 40px;
 }
 
 #useremail {
-    padding-bottom: 14px;
+  padding-bottom: 14px;
 }
 
 .form-content textarea {
-    font-size: 18px;
-    font-weight: 500;
-    color: white;
-    background: none;
-    border: none;
-    outline: none;
-    padding-bottom: 30px;
-    overflow-y: hidden;
-    /* resize: none; */
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  background: none;
+  border: none;
+  outline: none;
+  padding-bottom: 30px;
+  overflow-y: hidden;
+  /* resize: none; */
 }
 
-/* Autofill-Hintergrund entfernen (Chrome, Edge, Safari) */
+/* Autofill-Hintergrund entfernen: Chrome, Edge, Safari */
 .form-content input:-webkit-autofill,
 .form-content input:-webkit-autofill:hover,
 .form-content input:-webkit-autofill:focus,
@@ -110,266 +108,271 @@ div .title {
 .form-content textarea:-webkit-autofill:hover,
 .form-content textarea:-webkit-autofill:focus,
 .form-content textarea:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
-    box-shadow: 0 0 0px 1000px transparent inset !important;
-    -webkit-text-fill-color: white !important;
-    caret-color: white !important;
-    transition: background-color 5000s ease-in-out 0s;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  box-shadow: 0 0 0px 1000px transparent inset !important;
+  -webkit-text-fill-color: white !important;
+  caret-color: white !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
-/* Für Firefox */
+/* Firefox */
 .form-content input,
 .form-content textarea {
-    transition: background-color 50000s ease-in-out 0s;
+  transition: background-color 50000s ease-in-out 0s;
 }
 
 .form-content input:focus,
 .form-content textarea:focus {
-    outline: none;
-    border-color: #3dcfb6;
+  outline: none;
+  border-color: #3dcfb6;
 }
 
 .form-content .name,
 .email,
 .textarea {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-top: 1px solid #3dcfb6;
-    border-bottom: 1px solid #3dcfb6;
-    padding: 30px 0 0 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 1px solid #3dcfb6;
+  border-bottom: 1px solid #3dcfb6;
+  padding: 30px 0 0 30px;
 }
 
 .contact-form .button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .marquee-submit {
-    position: relative;
-    width: 140px;
-    height: 42px;
-    border: 1px solid #ffffff;
-    border-radius: 999px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    color: white;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: 0.3s ease;
-    padding: 0;
-    margin: 0;
-    line-height: 1;
+  position: relative;
+  width: 140px;
+  height: 42px;
+  border: 1px solid #ffffff;
+  border-radius: 999px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
 }
 
 .marquee-submit .marquee-track {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    gap: 90px;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    z-index: 0;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  gap: 90px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 0;
 }
 
 .marquee-submit::before {
-    content: attr(data-label);
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-    pointer-events: none;
-    color: inherit;
-    transition: opacity 0.2s ease;
-    z-index: 1;
+  content: attr(data-label);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  pointer-events: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+  z-index: 1;
+  font-size: 17px;
 }
 
 .marquee-submit:hover::before {
-    opacity: 0;
+  opacity: 0;
 }
 
 .marquee-submit:hover {
-    border-color: #3dcfb6;
-    box-shadow: 0 0 10px rgba(61, 207, 182, 0.4);
+  border-color: #3dcfb6;
+  box-shadow: 0 0 10px rgba(61, 207, 182, 0.4);
 }
 
 .marquee-submit:hover .marquee-track {
-    opacity: 1;
-    animation: marqueeMove 2s linear infinite;
-    color: #3dcfb6;
+  opacity: 1;
+  animation: marqueeMove 2s linear infinite;
+  color: #3dcfb6;
 }
 
 .privacy-policy div {
-    display: flex;
-    align-items: center;
-    padding-bottom: 24px;
-    gap: 10px;
-    padding-top: 50px;
-    height: 20px;
-    line-height: 1.5;
+  display: flex;
+  align-items: center;
+  padding-bottom: 24px;
+  gap: 10px;
+  padding-top: 50px;
+  height: 20px;
+  line-height: 1.5;
 }
 
 .privacy-policy p {
-    font-size: 17px;
-    color: white;
+  font-size: 17px;
+  color: white;
 }
 
 .privacy-policy a {
-    color: #3dcfb6;
-    text-decoration: none;
+  color: #3dcfb6;
+  text-decoration: none;
 }
 
 .privacy-policy a:hover {
-    color: white;
-    text-decoration: underline;
-    text-decoration-color: #3dcfb6;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 6px;
-    /* optional */
+  color: white;
+  text-decoration: underline;
+  text-decoration-color: #3dcfb6;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
 }
 
 #checkbox {
-    cursor: pointer;
-    transition: transform 0.2s ease, filter 0.2s ease;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
 }
 
 #checkbox:hover {
-    transform: scale(1.3);
-    filter: drop-shadow(0 0 5px #3dcfb6);
+  transform: scale(1.3);
+  filter: drop-shadow(0 0 5px #3dcfb6);
 }
 
 input.error-placeholder::placeholder,
 textarea.error-placeholder::placeholder {
-    color: #b33 !important;
-    opacity: 1;
-    font-size: 17px;
+  color: #b33 !important;
+  opacity: 1;
+  font-size: 17px;
 }
 
 input::placeholder,
 textarea::placeholder {
-    color: rgb(204, 204, 204);
+  color: rgb(204, 204, 204);
 }
 
 .form-content .error-message {
-    outline: none;
-    color: #b33;
-    background: transparent;
-    font-size: 17px;
+  outline: none;
+  color: #b33;
+  background: transparent;
+  font-size: 17px;
 }
 
 .email-error-message {
-    height: 20px;
-    color: #b33;
-    font-size: 17px;
-    padding-bottom: 30px;
+  height: 20px;
+  color: #b33;
+  font-size: 17px;
+  padding-bottom: 30px;
 }
 
 .privacy-policy .error-message {
-    padding-top: 16px;
+  padding-top: 16px;
 }
 
 /* --------------Overlay */
 
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 .overlay-content {
-    background: linear-gradient(45deg, #1c1c1c 35%, #08463b 100%);
-    /* border: 1px solid #3dcfb6; */
-    color: white;
-    padding: 40px 60px;
-    border-radius: 16px;
-    text-align: center;
-    font-size: 24px;
-}
-
-@media (max-width:1240px) {
-    .contact-header h2 {
-        font-size: 64px;
-    }
+  background: linear-gradient(45deg, #1c1c1c 35%, #08463b 100%);
+  /* border: 1px solid #3dcfb6; */
+  color: white;
+  padding: 40px 60px;
+  border-radius: 16px;
+  text-align: center;
+  font-size: 24px;
 }
 
 @media (max-width: 1240px) {
-    .privacy-policy .error-message {
-        margin: 12px 0;
-    }
+  .contact-header h2 {
+    font-size: 64px;
+  }
 }
 
-@media (max-width:1100px) {
-    .quote-mark {
-        left: 0px;
-        top: -25px;
-    }
+@media (max-width: 1240px) {
+  .privacy-policy .error-message {
+    margin: 12px 0;
+  }
+}
 
-    .privacy-policy p {
-        font-size: 16px;
-    }
+@media (max-width: 1100px) {
+  .quote-mark {
+    left: 0px;
+    top: -25px;
+  }
+
+  .privacy-policy p {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 992px) {
-    .contact-wrapper {
-        flex-direction: column;
-        align-items: stretch;
-    }
+  .contact-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
-    .text-container,
-    .contact-form {
-        width: 100%;
-    }
+  .text-container,
+  .contact-form {
+    width: 100%;
+  }
 
-    .contact-form form {
-        width: 100%;
-    }
+  .contact-form form {
+    width: 100%;
+  }
 }
 
 @media (max-width: 600px) {
-    .contact-header h2 {
-        font-size: 42px;
-    }
-
-
+  .contact-header h2 {
+    font-size: 42px;
+  }
 }
 
 @media (max-width: 480px) {
-    .contact-motivation {
-        font-size: 16px;
-    }
+  .contact-motivation {
+    font-size: 16px;
+  }
 
-    .question-text {
-        font-size: 16px;
-    }
+  .question-text {
+    font-size: 16px;
+  }
 
-    .form-content label {
-        font-size: 20px;
-    }
+  .form-content label {
+    font-size: 20px;
+  }
 
-    .form-content input,
-    .form-content textarea {
-        font-size: 16px;
-    }
+  .form-content input,
+  .form-content textarea {
+    font-size: 16px;
+  }
 
+  .privacy-policy div {
+    padding-top: 76px;
+    hyphens: auto;
+    overflow-wrap: break-word;
+  }
 }
 
-@media (max-width:350px) {
-    .privacy-policy .error-message {
-        margin: 40px 0 24px 0;
-    }
+@media (max-width: 350px) {
+  .privacy-policy .error-message {
+    margin: 40px 0 24px 0;
+  }
 }
