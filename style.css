@@ -1971,11 +1971,11 @@ footer {
   }
 }
 
-@media (max-width: 1660px) {
+/* @media (max-width: 1660px) {
   .aboutme-section {
     gap: 100px;
   }
-}
+} */
 
 @media (max-width: 1300px) {
   .aboutme-section {

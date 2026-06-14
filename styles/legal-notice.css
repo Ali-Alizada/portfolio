@@ -21,6 +21,21 @@ body {
   font-family: "karla";
 }
 
+.arrow-left img{
+    position: absolute;
+    top: 138px;
+    left: 10px;
+    width: 40px;
+    height: 40px;   
+    display: none;
+}
+
+.arrow-left img:hover{
+  transform: translateX(-5px) scale(1.1);
+  filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%)
+    hue-rotate(118deg) brightness(140%) contrast(100%);
+}
+
 .main-container h2 {
   font-size: 24px;
   font-weight: 700;
@@ -69,6 +84,10 @@ footer {
 
   p {
     font-size: 16px;
+  }
+
+  .arrow-left img{
+    display: block;
   }
 }
 
