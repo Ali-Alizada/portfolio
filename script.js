@@ -379,20 +379,28 @@ if (burger && menu) {
 
 }
 
-// const hiddenElements = document.querySelectorAll(".hidden");
+// scroll Animation
+const hiddenElements = document.querySelectorAll(".hidden");
 
-// const observer = new IntersectionObserver((entries) => {
+hiddenElements.forEach((el, index) => {
+    el.style.transitionDelay = `${index * 10}ms`;
+});
 
-//     entries.forEach((entry) => {
 
-//         if (entry.isIntersecting) {
-//             entry.target.classList.add("show");
-//         }
+const observer = new IntersectionObserver(entries => {
 
-//     });
+    entries.forEach(entry => {
 
-// }, {
-//     threshold: 0.2
-// });
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        } else {
+            entry.target.classList.remove("show");
+        }
 
-// hiddenElements.forEach((el) => observer.observe(el));
+    });
+
+}, {
+    threshold: 0.2
+});
+
+hiddenElements.forEach(el => observer.observe(el));

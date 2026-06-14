@@ -56,6 +56,18 @@ body {
     transform: translateY(0);
 } */
 
+.hidden {
+    opacity: 0;
+    transform: translateY(60px) scale(.95);
+    transition: 
+        .2s cubic-bezier(.17,.55,.55,1);
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
 .cursor-shadow {
   position: fixed;
   width: 60px;

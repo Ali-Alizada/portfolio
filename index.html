@@ -28,12 +28,12 @@
 <body id="main-site">
     <div class="cursor-shadow"></div>
 
-    <header class="site-header">
+    <header class="site-header hidden">
         <div class="navbar-bg">
             <div class="container">
                 <div class="header-top">
 
-                    <div class="header-content">
+                    <div class="header-content hidden">
                         <!-- Sprachumschalter -->
                         <div class="switch">
                             <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">
@@ -52,7 +52,7 @@
                         </nav>
                     </div>
 
-                    <div class="logo-container">
+                    <div class="logo-container hidden">
                         <div class="logo-mono">
                             <span class="first">A</span><span class="last">A</span>
                         </div>
@@ -63,7 +63,7 @@
                         </div>
                     </div>
 
-                    <button class="burger" aria-label="menu" aria-expanded="false">
+                    <button class="burger hidden" aria-label="menu" aria-expanded="false">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -85,7 +85,7 @@
                     </div>
 
                     <div class="hero-side-right">
-                        <a class="mail-to" href="#contactForm">alimhd276@gmail.com</a>
+                        <a class="mail-to" href="mailto:alimhd276@gmail.com">alimhd276@gmail.com</a>
                         <a class="mail-to-icon" href="#contactForm">
                             <img src="assets/imgs/icons/mail.svg" alt="mail-to-icon">
                         </a>
@@ -155,11 +155,11 @@
 
     <main>
 
-        <section id="aboutme" class="aboutme-section hidden">
-            <div class="img-profile">
+        <section id="aboutme" class="aboutme-section">
+            <div class="img-profile hidden">
                 <img src="assets/imgs/Alizada-ProfileBild-1.jpg .jpeg" alt="Profilbild">
             </div>
-            <div class="text-content">
+            <div class="text-content hidden">
                 <span class="about" data-i18n="about.label">who i am</span>
                 <div class="text">
                     <h2 class="title" data-i18n="about.heading">About me</h2>
@@ -193,8 +193,8 @@
             </div>
         </section>
 
-        <section id="skills" class="technologies hidden">
-            <div class="text-contents">
+        <section id="skills" class="technologies">
+            <div class="text-contents hidden">
                 <span class="skills" data-i18n="skills.label">Technologies</span>
                 <div class="text">
                     <h2 class="title" data-i18n="skills.heading">Skills Set</h2>
@@ -229,31 +229,31 @@
             </div>
 
             <div class="techs-icons">
-                <div>
+                <div class="hidden">
                     <img src="assets/imgs/icons/HTML.svg" alt="html-icon">
                     <span>HTML</span>
                 </div>
-                <div>
+                <div class="hidden">
                     <img src="assets/imgs/icons/CSS.svg" alt="css-icon">
                     <span>CSS</span>
                 </div>
-                <div>
+                <div class="hidden">
                     <img src="assets/imgs/icons/JS.svg" alt="js-icon">
                     <span>JavaSript</span>
                 </div>
-                <div>
+                <div class="hidden">
                     <img src="assets/imgs/icons/MD.svg" alt="Material-icon">
                     <span>Material Design</span>
                 </div>
-                <div>
+                <div class="hidden">
                     <img src="assets/imgs/icons/TS.svg" alt="TypeScript-icon">
                     <span>TypeScript</span>
                 </div>
-                <div>
+                <div class="hidden">
                     <img src="assets/imgs/icons/Ag.svg" alt="angular-icon">
                     <span>Angular</span>
                 </div>
-                <div>
+                <div class="hidden">
                     <img src="assets/imgs/icons/FB.svg" alt="firebase-icon">
                     <span>Firebase</span>
                 </div>
@@ -261,16 +261,16 @@
                     <img src="assets/imgs/icons/Git.svg" alt="Git-icon">
                     <span>Git</span>
                 </div>
-                <div>
+                <div class="hidden">
                     <img src="assets/imgs/icons/API.svg" alt="API-icon">
                     <span>REST-API</span>
                 </div>
-                <div>
+                <div class="hidden">
                     <img src="assets/imgs/icons/Scrum.svg" alt="Scrum-icon">
                     <span>Scrum</span>
                 </div>
 
-                <div class="growth-item">
+                <div class="growth-item hidden">
                     <div class="icon-wrapper">
                         <img class="growth-icon" src="assets/imgs/icons/Growth.svg" alt="Growth mindset">
                     </div>
@@ -305,7 +305,7 @@
 
             <div class="projects-container">
                 <div class="project-card" onclick="openDialog('joinDialog')">
-                    <div class="project-content">
+                    <div class="project-content hidden">
                         <div class="project-title">
                             <p>Join</p>
                             <span class="arrow-icon">
@@ -425,7 +425,7 @@
 
                 <div class="project-card" onclick="openDialog('elPolloLocoDialog')">
 
-                    <div class="project-content">
+                    <div class="project-content hidden">
 
                         <div class="project-title">
                             <p>El Pollo Loco</p>
@@ -515,7 +515,7 @@
                 </dialog>
 
                 <div class="project-card" onclick="openDialog('bubbleDialog')">
-                    <div class="project-content">
+                    <div class="project-content hidden">
 
                         <div class="project-title">
                             <p>DA Bubble</p>
@@ -685,7 +685,7 @@
             </div>
 
             <!-- Dots -->
-            <div class="slider-dots">
+            <div class="slider-dots hidden">
                 <button class="slider-btn-left prev"><img src="assets/imgs/icons/arrow-Left-white.svg"
                         alt="arrow-icon-left"></button>
                 <span class="dot"></span>
@@ -699,7 +699,7 @@
         </section>
 
         <!-- Section: Contact -->
-        <section class="contactme">
+        <section class="contactme hidden">
             <div class="contact-wrapper">
 
                 <div class="text-container">
