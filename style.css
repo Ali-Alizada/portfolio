@@ -43,24 +43,12 @@ body {
   scroll-behavior: smooth;
 }
 
-/* .hidden{
-    opacity: 0;
-    transform: translateY(80px);
-    transition: 
-    opacity 0.8s ease, 
-    transform 0.8s ease;
-}
-
-.show{
-    opacity: 1;
-    transform: translateY(0);
-} */
-
 .hidden {
     opacity: 0;
-    transform: translateY(60px) scale(.95);
-    transition: 
-        .2s cubic-bezier(.17,.55,.55,1);
+    transform: translateY(80px) scale(.95);
+    transition:
+        opacity .8s cubic-bezier(.17,.55,.55,1),
+        transform .8s cubic-bezier(.17,.55,.55,1);
 }
 
 .show {
@@ -745,7 +733,6 @@ main {
   font-size: 24px;
   font-weight: 700;
   white-space: nowrap;
-  font-family: "klara";
 }
 
 .banner-track .star {
