@@ -45,8 +45,10 @@ window.translations = {
     "skills.growthHover": "I have a special interest in learning",
 
     // Projects
+    
     "projects.label": "Portfolio",
     "projects.heading": "Featured Projects",
+    "projects.dialogTitle": "What is this project about?",
     "projects.description":
       "Explore a selection of my projects and discover how I transform ideas into functional, user-focused web applications.\n\nEach project reflects my passion for learning, problem-solving, and creating engaging digital experiences.",
     "projects.joinDesc":
@@ -64,9 +66,10 @@ window.translations = {
     "testimonials.card2":
       "Working with Aliaqa was a great experience. He remained solution-oriented under pressure, communicated effectively, and consistently supported the team whenever challenges arose.",
     "testimonials.card3":
-      "Aliaqa approaches his work in a structured and professional manner. His strong communication skills and willingness to collaborate made him a valuable contributor to the project.",
+    "It was a pleasure working with Aliaqa. He demonstrated analytical thinking, reliability, and a positive attitude, always striving to deliver high-quality results. I would gladly collaborate with him again in the future.",
     "testimonials.card4":
-      "It was a pleasure working with Aliaqa. He demonstrated analytical thinking, reliability, and a positive attitude, always striving to deliver high-quality results. I would gladly collaborate with him again in the future.",
+    "Aliaqa approaches his work in a structured and professional manner. His strong communication skills and willingness to collaborate made him a valuable contributor to the project.",
+      
 
     // Contact section
     "contact.label": "Contact me",
@@ -221,6 +224,7 @@ window.translations = {
 
     "projects.label": "Portfolio",
     "projects.heading": "Ausgewählte Projekte",
+    "projects.dialogTitle": "Worum geht es bei diesem Projekt?",
     "projects.description":
       "Entdecke eine Auswahl meiner Projekte und erfahre, wie ich Ideen in funktionale und benutzerorientierte Webanwendungen verwandle.\n\nJedes Projekt spiegelt meine Leidenschaft für Lernen, Problemlösung und die Entwicklung ansprechender digitaler Erlebnisse wider.",
     "projects.joinDesc":
@@ -237,9 +241,10 @@ window.translations = {
     "testimonials.card2":
       "Die Zusammenarbeit mit Aliaqa war eine großartige Erfahrung. Er blieb auch unter Druck lösungsorientiert, kommunizierte effektiv und unterstützte das Team stets, wenn Herausforderungen auftraten.",
     "testimonials.card3":
-      "Aliaqa geht seine Arbeit strukturiert und professionell an. Seine ausgeprägten Kommunikations\nfähigkeiten und seine Bereitschaft zur Zusammenarbeit machten ihn zu einem wertvollen Beitragenden im Projekt.",
+    "Es war eine Freude, mit Aliaqa zusammenzuarbeiten. Er zeigte analytisches Denken, Zuverlässigkeit und eine positive Einstellung und strebte stets danach, hochwertige Ergebnisse zu liefern. Ich würde jederzeit wieder mit ihm zusammenarbeiten.",
     "testimonials.card4":
-      "Es war eine Freude, mit Aliaqa zusammenzuarbeiten. Er zeigte analytisches Denken, Zuverlässigkeit und eine positive Einstellung und strebte stets danach, hochwertige Ergebnisse zu liefern. Ich würde jederzeit wieder mit ihm zusammenarbeiten.",
+    "Aliaqa geht seine Arbeit strukturiert und professionell an. Seine ausgeprägten Kommunikations\nfähigkeiten und seine Bereitschaft zur Zusammenarbeit machten ihn zu einem wertvollen Beitragenden im Projekt.",
+      
 
     "contact.label": "Kontakt",
     "contact.heading": "Lass uns zusammen\narbeiten",
@@ -353,21 +358,15 @@ window.translations = {
 
 window.currentLang = localStorage.getItem("portfolioLang") || "en";
 
-/**
- * Applies the given language to every element that carries a
- * data-i18n or data-i18n-placeholder attribute.
- */
 window.applyLanguage = function (lang) {
   const t = window.translations[lang];
   if (!t) return;
 
-  // Update <html lang="…">
   const htmlRoot = document.getElementById("html-root");
   if (htmlRoot) {
     htmlRoot.lang = lang;
   }
 
-  // Text nodes
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
     if (t[key] !== undefined) {
@@ -384,7 +383,6 @@ window.applyLanguage = function (lang) {
     }
   });
 
-  // Placeholder attributes (inputs & textarea)
   document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
     const key = el.getAttribute("data-i18n-placeholder");
     if (t[key] !== undefined) {
@@ -403,9 +401,9 @@ function initLanguage() {
   const langToggle = document.getElementById("language-toggle");
   if (langToggle) {
     if (window.currentLang === "de") {
-      langToggle.checked = true; // checkbox checked  → DE
+      langToggle.checked = true; 
     } else {
-      langToggle.checked = false; // checkbox unchecked → EN
+      langToggle.checked = false; 
     }
 
     langToggle.addEventListener("change", () => {
@@ -418,7 +416,6 @@ function initLanguage() {
   window.applyLanguage(window.currentLang);
 }
 
-// Initialize as soon as DOM is ready
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initLanguage);
 } else {
