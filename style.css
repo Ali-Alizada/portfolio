@@ -15,7 +15,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box;  
 }
 
 /*Chrome, Edge, Safari*/
@@ -38,9 +38,7 @@ body {
   width: 100%;
   min-height: 100vh;
   background-color: #1c1c1c;
-  /* font-family: 'Fira Code'; */
-  font-family: "karla";
-  scroll-behavior: smooth;
+  font-family: sans-serif, Verdana, Geneva, Tahoma;
 }
 
 .hidden {
@@ -489,7 +487,7 @@ input.check-toggle-round-flat:checked + label:after {
   border-radius: 40px;
   color: white;
   text-decoration: none;
-  transform: 0.3 ease;
+  transition: 0.3s ease;
   font-size: 17px;
 }
 
@@ -1710,6 +1708,25 @@ footer {
     width: 45px;
     height: 45px;
   }
+}
+/* ########################### */
+
+@media (max-width: 1440px) {
+    .project-card {
+        width: 70%;
+    }
+}
+
+@media (max-width: 1240px) {
+    .project-card {
+        width: 65%;
+    }
+}
+
+@media (max-width: 1040px) {
+    .project-card {
+        width: 60%;
+    }
 }
 
 @media (max-width: 768px) {

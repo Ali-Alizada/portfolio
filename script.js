@@ -38,7 +38,7 @@ dialogs.forEach((dialog) => {
     if (!clickedInside) {
       dialog.close();
     }
-    // document.body.style.overflow = "auto";
+    document.body.style.overflow = "auto";
   });
 });
 
@@ -404,5 +404,75 @@ const observer = new IntersectionObserver(entries => {
     threshold: 0.2
 });
 
-
 hiddenElements.forEach(el => observer.observe(el));
+
+
+function smoothScrollTo(target, duration = 1600) {
+
+    const start = window.scrollY;
+
+    const end = target.getBoundingClientRect().top + window.scrollY;
+
+    const distance = end - start;
+
+    let startTime = null;
+
+
+    function animation(currentTime) {
+
+        if (!startTime) {
+            startTime = currentTime;
+        }
+
+
+        const elapsed = currentTime - startTime;
+
+        const progress = Math.min(elapsed / duration, 1);
+
+
+        // smooth easing
+        const ease = 
+            progress < 0.5
+            ? 4 * progress * progress * progress
+            : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+
+        window.scrollTo(
+            0,
+            start + distance * ease
+        );
+
+
+        if (progress < 1) {
+            requestAnimationFrame(animation);
+        }
+
+    }
+
+
+    requestAnimationFrame(animation);
+}
+
+
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+    link.addEventListener("click", e => {
+
+        e.preventDefault();
+
+
+        const selector = link.getAttribute("href");
+
+        const target = document.querySelector(selector);
+
+
+        if(target) {
+
+            smoothScrollTo(target, 1600);
+
+        }
+
+    });
+
+});
