@@ -1,85 +1,68 @@
 async function loadDialogs() {
-
-    const container = document.getElementById("dialogs");
-
-    const response = await fetch("html/project-dialogs.html");
-
-    const html = await response.text();
-
-    container.innerHTML = html;
-
-
-    // danach Sprache neu anwenden
-    if (window.applyLanguage) {
-        window.applyLanguage(window.currentLang);
-    }
-    initDialog();
+  const container = document.getElementById("dialogs");
+  const response = await fetch("html/project-dialogs.html");
+  const html = await response.text();
+  container.innerHTML = html;
+  if (window.applyLanguage) {
+    window.applyLanguage(window.currentLang);
+  }
+  initDialog();
 }
 
 loadDialogs();
 
 // -----------------------------Dilaog
 function openDialog(dialogId) {
-    const dialog = document.getElementById(dialogId);
-    dialog.showModal();
-    // document.body.style.overflow = "hidden";
+  const dialog = document.getElementById(dialogId);
+  dialog.showModal();
 }
 
 function closeDialog(dialogId) {
-    const dialog = document.getElementById(dialogId);
-    dialog.close();
-    // document.body.style.overflow = "auto";
+  const dialog = document.getElementById(dialogId);
+  dialog.close();
 }
 
 function initDialog() {
-    const dialogs = Array.from(document.querySelectorAll(".project-dialog"));
+  const dialogs = Array.from(document.querySelectorAll(".project-dialog"));
 
-    dialogs.forEach((dialog) => {
-        dialog.addEventListener("click", (e) => {
-            const rect = dialog.getBoundingClientRect();
+  dialogs.forEach((dialog) => {
+    dialog.addEventListener("click", (e) => {
+      const rect = dialog.getBoundingClientRect();
 
-            const clickedInside =
-                e.clientX >= rect.left &&
-                e.clientX <= rect.right &&
-                e.clientY >= rect.top &&
-                e.clientY <= rect.bottom;
+      const clickedInside =
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom;
 
-            if (!clickedInside) {
-                dialog.close();
-            }
-            document.body.style.overflow = "auto";
-        });
+      if (!clickedInside) {
+        dialog.close();
+      }
+      document.body.style.overflow = "auto";
     });
+  });
 
-    dialogs.forEach((dialog, index) => {
+  dialogs.forEach((dialog, index) => {
+    const nextBtn = dialog.querySelector(".next-project");
 
-        const nextBtn = dialog.querySelector(".next-project");
+    if (nextBtn) {
+      nextBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
 
-        if (nextBtn) {
+        const currentDialog = dialogs[index];
+        const nextDialog = dialogs[(index + 1) % dialogs.length];
 
-            nextBtn.addEventListener("click", (e) => {
+        currentDialog.classList.add("closing");
 
-                e.stopPropagation();
+        setTimeout(() => {
+          currentDialog.close();
+          currentDialog.classList.remove("closing");
 
-                const currentDialog = dialogs[index];
-                const nextDialog = dialogs[(index + 1) % dialogs.length];
-
-                currentDialog.classList.add("closing");
-
-                setTimeout(() => {
-                    currentDialog.close();
-                    currentDialog.classList.remove("closing");
-
-                    requestAnimationFrame(() => {
-                        nextDialog.showModal();
-                    });
-
-                }, 250);
-
-            });
-
-        }
-
-    });
+          requestAnimationFrame(() => {
+            nextDialog.showModal();
+          });
+        }, 250);
+      });
+    }
+  });
 }
-

@@ -1,9 +1,6 @@
 // Cursor Shadow
-
-
 const cursorShadow = document.querySelector(".cursor-shadow");
-
-if(cursorShadow){
+if (cursorShadow) {
   document.addEventListener("mousemove", (e) => {
     cursorShadow.style.left = `${e.clientX}px`;
     cursorShadow.style.top = `${e.clientY}px`;
@@ -23,23 +20,20 @@ let currentIndex = 1;
 let slideDistance = 0;
 
 function updateSlideDistance() {
-
-  if(!viewport) return;
+  if (!viewport) return;
   const viewportWidth = viewport.getBoundingClientRect().width;
   const gap = 22;
   slideDistance = viewportWidth + gap;
 }
 
 function updateSlider() {
-
-  if(!slider || !cards.length || !dots.length){
+  if (!slider || !cards.length || !dots.length) {
     return;
   }
 
   updateSlideDistance();
 
-  slider.style.transform =
-    `translateX(-${currentIndex * slideDistance}px)`;
+  slider.style.transform = `translateX(-${currentIndex * slideDistance}px)`;
 
   dots.forEach((dot) => dot.classList.remove("active"));
   cards.forEach((card) => card.classList.remove("active"));
@@ -48,21 +42,20 @@ function updateSlider() {
   cards[currentIndex].classList.add("active");
 }
 
-if(nextBtn){
-nextBtn.addEventListener("click", () => {
-  currentIndex++;
-  if (currentIndex >= cards.length) currentIndex = 0;
-  updateSlider();
-});
+if (nextBtn) {
+  nextBtn.addEventListener("click", () => {
+    currentIndex++;
+    if (currentIndex >= cards.length) currentIndex = 0;
+    updateSlider();
+  });
 }
 
-if(prevBtn){
-prevBtn.addEventListener("click", () => {
-  currentIndex--;
-  if (currentIndex < 0) currentIndex = cards.length - 1;
-  updateSlider();
-});
-
+if (prevBtn) {
+  prevBtn.addEventListener("click", () => {
+    currentIndex--;
+    if (currentIndex < 0) currentIndex = cards.length - 1;
+    updateSlider();
+  });
 }
 
 dots.forEach((dot, index) => {
@@ -132,29 +125,28 @@ function resetField(fieldId, originalText) {
 
 // input-EventListener (one time restration!)
 
-if(username){
-username.addEventListener("input", () => {
-  username.placeholder = originalPlaceholders.username;
-  removeErrorClass(username);
-  document.getElementById("error-username").textContent = "";
-});
+if (username) {
+  username.addEventListener("input", () => {
+    username.placeholder = originalPlaceholders.username;
+    removeErrorClass(username);
+    document.getElementById("error-username").textContent = "";
+  });
 }
 
-if(email){
-email.addEventListener("input", () => {
-  email.placeholder = originalPlaceholders.email;
-  removeErrorClass(email);
-  document.getElementById("error-email").textContent = "";
-});
+if (email) {
+  email.addEventListener("input", () => {
+    email.placeholder = originalPlaceholders.email;
+    removeErrorClass(email);
+    document.getElementById("error-email").textContent = "";
+  });
 }
 
-if(textarea){
-textarea.addEventListener("input", () => {
-  textarea.placeholder = originalPlaceholders.textarea;
-  removeErrorClass(textarea);
-  document.getElementById("error-textarea").textContent = "";
-});
-
+if (textarea) {
+  textarea.addEventListener("input", () => {
+    textarea.placeholder = originalPlaceholders.textarea;
+    removeErrorClass(textarea);
+    document.getElementById("error-textarea").textContent = "";
+  });
 }
 
 function validateForm() {
@@ -204,21 +196,16 @@ let privacyAccepted = false;
 
 const checkbox = document.getElementById("checkbox");
 
-if(checkbox){
-
+if (checkbox) {
   checkbox.addEventListener("click", () => {
-
     privacyAccepted = !privacyAccepted;
 
-    checkbox.src =
-      privacyAccepted ?
-      "assets/imgs/icons/checkbox-checked.svg" :
-      "assets/imgs/icons/checkbox-unchecked.svg";
+    checkbox.src = privacyAccepted
+      ? "assets/imgs/icons/checkbox-checked.svg"
+      : "assets/imgs/icons/checkbox-unchecked.svg";
 
     document.getElementById("error-policy").textContent = "";
-
   });
-
 }
 
 function clearErrors() {
@@ -285,8 +272,7 @@ const burger = document.querySelector(".burger");
 const menu = document.querySelector(".header-content");
 
 if (burger && menu) {
-
-  function toggleMenu(){
+  function toggleMenu() {
     burger.classList.toggle("active");
     menu.classList.toggle("active");
 
@@ -294,7 +280,7 @@ if (burger && menu) {
     burger.setAttribute("aria-expanded", String(!expanded));
   }
 
-  function closeMenu(){
+  function closeMenu() {
     burger.classList.remove("active");
     menu.classList.remove("active");
     burger.setAttribute("aria-expanded", "false");
@@ -305,7 +291,7 @@ if (burger && menu) {
     toggleMenu();
   });
 
-  menu.querySelectorAll("a").forEach(link => {
+  menu.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", closeMenu);
   });
 
@@ -314,103 +300,70 @@ if (burger && menu) {
       closeMenu();
     }
   });
-
 }
 
 // scroll Animation
 const hiddenElements = document.querySelectorAll(".hidden");
 
 hiddenElements.forEach((el, index) => {
-    el.style.transitionDelay = `${index * 10}ms`;
+  el.style.transitionDelay = `${index * 10}ms`;
 });
 
-
-const observer = new IntersectionObserver(entries => {
-
-    entries.forEach(entry => {
-
-        if(entry.isIntersecting){
-            entry.target.classList.add("show");
-
-            // danach nicht mehr beobachten
-            observer.unobserve(entry.target);
-        }
-
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
     });
+  },
+  {
+    threshold: 0.2,
+  },
+);
 
-}, {
-    threshold: 0.2
-});
-
-hiddenElements.forEach(el => observer.observe(el));
-
+hiddenElements.forEach((el) => observer.observe(el));
 
 function smoothScrollTo(target, duration = 1600) {
+  const start = window.scrollY;
 
-    const start = window.scrollY;
+  const end = target.getBoundingClientRect().top + window.scrollY;
 
-    const end = target.getBoundingClientRect().top + window.scrollY;
+  const distance = end - start;
 
-    const distance = end - start;
+  let startTime = null;
 
-    let startTime = null;
-
-
-    function animation(currentTime) {
-
-        if (!startTime) {
-            startTime = currentTime;
-        }
-
-
-        const elapsed = currentTime - startTime;
-
-        const progress = Math.min(elapsed / duration, 1);
-
-
-        // smooth easing
-        const ease = 
-            progress < 0.5
-            ? 4 * progress * progress * progress
-            : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-
-
-        window.scrollTo(
-            0,
-            start + distance * ease
-        );
-
-
-        if (progress < 1) {
-            requestAnimationFrame(animation);
-        }
-
+  function animation(currentTime) {
+    if (!startTime) {
+      startTime = currentTime;
     }
 
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease =
+      progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+    window.scrollTo(0, start + distance * ease);
+    if (progress < 1) {
+      requestAnimationFrame(animation);
+    }
+  }
 
-    requestAnimationFrame(animation);
+  requestAnimationFrame(animation);
 }
 
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
 
+    const selector = link.getAttribute("href");
 
-document.querySelectorAll('a[href^="#"]').forEach(link => {
+    const target = document.querySelector(selector);
 
-    link.addEventListener("click", e => {
-
-        e.preventDefault();
-
-
-        const selector = link.getAttribute("href");
-
-        const target = document.querySelector(selector);
-
-
-        if(target) {
-
-            smoothScrollTo(target, 1600);
-
-        }
-
-    });
-
+    if (target) {
+      smoothScrollTo(target, 1600);
+    }
+  });
 });
