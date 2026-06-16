@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="styles/testimonial-slider.css">
     <link rel="stylesheet" href="styles/contact.css">
     <script src="script/i18n.js" defer></script>
+    <script src="script/project-dialogs.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 
@@ -333,96 +334,6 @@
 
                 </div>
 
-                <dialog id="joinDialog" class="project-dialog">
-
-                    <button class="close-dialog" onclick="closeDialog('joinDialog')">
-                        <img src="assets/imgs/icons/close-icon.svg" alt="close-icon">
-                    </button>
-
-                    <div class="dialog-wrapper">
-
-                        <!-- LEFT SIDE -->
-
-                        <div class="dialog-left">
-
-                            <h2>01</h2>
-
-                            <p class="dialog-name">Join</p>
-
-                            <p class="dialog-title" data-i18n="projects.dialogTitle">
-                                What is this project about?
-                            </p>
-
-                            <p class="dialog-description" data-i18n="projects.joinDesc">
-                                Task manager inspired by the Kanban System.
-                                Create and organize tasks using drag and drop functions,
-                                assign users and categories.
-                            </p>
-
-                            <!-- TECHS -->
-
-                            <div class="tech-icons">
-
-                                <div>
-                                    <img src="assets/imgs/icons/Property 1=CSS.svg" alt="css-icon">
-                                    <span>CSS</span>
-                                </div>
-
-                                <div>
-                                    <img src="assets/imgs/icons/Property 1=HTML.svg" alt="html-icon">
-                                    <span>HTML</span>
-                                </div>
-
-                                <div>
-                                    <img src="assets/imgs/icons/Property 1=Firebase.svg" alt="firebase-icon">
-                                    <span>Firebase</span>
-                                </div>
-
-                                <div>
-                                    <img src="assets/imgs/icons/Property 1=Angular.svg" alt="angular-icon">
-                                    <span>Angular</span>
-                                </div>
-
-                                <div>
-                                    <img src="assets/imgs/icons/Property 1=Javascript.svg" alt="js-icon">
-                                    <span>JavaScript</span>
-                                </div>
-
-                            </div>
-
-                            <!-- BUTTONS -->
-
-                            <div class="dialog-buttons">
-
-                                <a href="https://github.com/Ali-Alizada">GitHub <img
-                                        src="assets/imgs/icons/arrow_outward.svg" alt="arrow-icon"></a>
-
-                                <a href="https://aliaqa-alizada.developerakademie.net/Join-Gruppenarbeit/">Live Test
-                                    <img src="assets/imgs/icons/arrow_outward.svg" alt="arrow-icon"></a>
-
-                            </div>
-
-                        </div>
-
-                        <!-- RIGHT SIDE -->
-
-                        <div class="dialog-right">
-
-                            <img src="assets/imgs/Join01-2.png" alt="Join">
-
-                        </div>
-
-                    </div>
-
-                    <!-- NEXT PROJECT -->
-
-                    <button class="next-project">
-                        <span data-i18n="projects.nextBtn">Next project</span>
-                        <img src="assets/imgs/icons/arrow-next.svg" alt="arrow-icon">
-                    </button>
-
-                </dialog>
-
                 <div class="project-card" onclick="openDialog('elPolloLocoDialog')">
 
                     <div class="project-content hidden">
@@ -453,67 +364,6 @@
 
                 <!-- Dilaog-2 -->
 
-                <dialog id="elPolloLocoDialog" class="project-dialog">
-                    <button class="close-dialog" onclick="closeDialog('elPolloLocoDialog')">
-                        <img src="assets/imgs/icons/close-icon.svg" alt="close-icon">
-                    </button>
-
-                    <div class="dialog-wrapper">
-
-                        <!-- left Side -->
-                        <div class="dialog-left">
-                            <h2>02</h2>
-                            <p class="dialog-name">El Pollo Loco</p>
-                            <p class="dialog-title" data-i18n="projects.dialogTitle">
-                                What is this project about?
-                            </p>
-                            <p class="dialog-description" data-i18n="projects.elPolloDesc">
-                                Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and
-                                tabasco salsa to fight against the crazy hen.
-                            </p>
-
-                            <div class="tech-icons">
-                                <div>
-                                    <img src="assets/imgs/icons/Property 1=Javascript.svg" alt="js-icon">
-                                    <span>JavaScript</span>
-                                </div>
-                                <div>
-                                    <img src="assets/imgs/icons/Property 1=HTML.svg" alt="html-icon">
-                                    <span>HTML</span>
-                                </div>
-                                <div>
-                                    <img src="assets/imgs/icons/Property 1=CSS.svg" alt="css-icon">
-                                    <span>CSS</span>
-                                </div>
-                            </div>
-
-                            <!-- buttons -->
-
-                            <div class="dialog-buttons">
-
-                                <a href="https://github.com/Ali-Alizada">GitHub <img
-                                        src="assets/imgs/icons/arrow_outward.svg" alt="arrow-icon"></a>
-
-                                <a href="https://aliaqa-alizada.developerakademie.net/el_poIIo_loco/">Live Test <img
-                                        src="assets/imgs/icons/arrow_outward.svg" alt="arrow-icon"></a>
-
-                            </div>
-
-                        </div>
-
-                        <div class="dialog-right">
-                            <img src="assets/imgs/el-pollo-loco02.webp" alt="el-pollo-loco">
-                        </div>
-
-                    </div>
-
-                    <button class="next-project">
-                        <span data-i18n="projects.nextBtn">Next project</span>
-                        <img src="assets/imgs/icons/arrow-next.svg" alt="arrow-icon">
-                    </button>
-
-                </dialog>
-
                 <div class="project-card" onclick="openDialog('bubbleDialog')">
                     <div class="project-content hidden">
 
@@ -541,71 +391,6 @@
 
                 </div>
 
-                <dialog id="bubbleDialog" class="project-dialog">
-                    <button class="close-dialog" onclick="closeDialog('bubbleDialog')">
-                        <img src="assets/imgs/icons/close-icon.svg" alt="close-icon">
-                    </button>
-
-                    <div class="dialog-wrapper">
-
-                        <!-- left-side -->
-
-                        <div class="dialog-left">
-                            <h2>03</h2>
-                            <p class="dialog-name">DABubble</p>
-                            <p class="dialog-title" data-i18n="projects.dialogTitle">
-                                What is this project about?
-                            </p>
-                            <p class="dialog-description" data-i18n="projects.bubbleDesc">
-                                This App is a Slack Clone App. It revolutionizes team communication and collaboration
-                                with its intuitive interface, real-time messaging, and robust channel organization.
-                            </p>
-
-                            <div class="tech-icons">
-                                <div>
-                                    <img src="assets/imgs/icons/Property 1=TypeScript.svg" alt="TypeScript-icon">
-                                    <span>TypeScript</span>
-                                </div>
-                                <div>
-                                    <img src="assets/imgs/icons/Property 1=HTML.svg" alt="html-icon">
-                                    <span>HTML</span>
-                                </div>
-                                <div>
-                                    <img src="assets/imgs/icons/Property 1=CSS.svg" alt="css-icon">
-                                    <span>CSS</span>
-                                </div>
-                            </div>
-
-                            <!-- Buttons -->
-
-                            <div class="dialog-buttons">
-
-                                <a href="https://github.com/Ali-Alizada">GitHub <img
-                                        src="assets/imgs/icons/arrow_outward.svg" alt="arrow-icon"></a>
-
-                                <a href="#">Live Test <img src="assets/imgs/icons/arrow_outward.svg"
-                                        alt="arrow-icon"></a>
-
-                            </div>
-                        </div>
-
-                        <!-- right-side -->
-
-                        <div class="dialog-right">
-                            <img src="assets/imgs/bubble.webp" alt="bubble">
-                        </div>
-
-                    </div>
-
-                    <!-- next button -->
-
-                    <button class="next-project">
-                        <span data-i18n="projects.nextBtn">Next project</span>
-                        <img src="assets/imgs/icons/arrow-next.svg" alt="arrow-icon">
-                    </button>
-
-                </dialog>
-
             </div>
 
         </section>
@@ -627,14 +412,15 @@
                         <article class="testimonial-card">
 
                             <p class="testimonial-text" data-i18n="testimonials.card1">
-                                Aliaqa was a reliable and dedicated team member throughout our project. His technical
-                                understanding, attention to detail, and proactive mindset contributed significantly to
-                                achieving our goals.
+                                Working with Aliaqa on the JOIN project was a very positive experience. He is a
+                                reliable, supportive, and dedicated teammate who actively looks for solutions and is
+                                open to feedback. His structured approach and teamwork contributed significantly to the
+                                success of the project.
                             </p>
 
                             <div class="testimonial-footer">
                                 <div class="line"></div>
-                                <span>H.Janisch - Team partner</span>
+                                <span>A.Baranyi - Team partner</span>
                             </div>
                         </article>
 
@@ -656,6 +442,21 @@
 
                         <article class="testimonial-card">
                             <p class="testimonial-text" data-i18n="testimonials.card3">
+                                Working with Aliaqa on projects at Developer Akademie was a great experience. He is
+                                hardworking, learns new things quickly, and stays motivated throughout the process. I
+                                highly recommend him because his strong work ethic, adaptability, and teamwork truly
+                                stand out. Aliaqa’s commitment and integrity are qualities I genuinely respect and
+                                appreciate.
+                            </p>
+                            <div class="testimonial-footer">
+                                <div class="line"></div>
+                                <span>R. Behruz - Frontend Developer</span>
+                            </div>
+                        </article>
+
+                        <!-- card-4 -->
+                        <article class="testimonial-card">
+                            <p class="testimonial-text" data-i18n="testimonials.card4">
                                 It was a pleasure working with Aliaqa. He demonstrated analytical thinking, reliability,
                                 and a positive attitude, always striving to deliver high-quality results. I would gladly
                                 collaborate with him again in the future.
@@ -663,19 +464,6 @@
                             <div class="testimonial-footer">
                                 <div class="line"></div>
                                 <span>R. Amar Fullstack Developer</span>
-                            </div>
-                        </article>
-
-                        <!-- card-4 -->
-                        <article class="testimonial-card">
-                            <p class="testimonial-text" data-i18n="testimonials.card4">
-                                Aliaqa approaches his work in a structured and professional manner. His strong
-                                communication skills and willingness to collaborate made him a valuable contributor to
-                                the project.
-                            </p>
-                            <div class="testimonial-footer">
-                                <div class="line"></div>
-                                <span>A. Fischer Team partner</span>
                             </div>
                         </article>
 
@@ -775,11 +563,11 @@
 
                 </div>
             </div>
-                <div id="successOverlay" class="overlay">
-                    <div class="overlay-content">
-                        <p data-i18n="form.successMsg">Message sent successfully!</p>
-                    </div>
+            <div id="successOverlay" class="overlay">
+                <div class="overlay-content">
+                    <p data-i18n="form.successMsg">Message sent successfully!</p>
                 </div>
+            </div>
 
         </section>
 
@@ -815,6 +603,8 @@
         </div>
 
     </footer>
+
+    <div id="dialogs"></div>
 
 </body>
 

@@ -45,7 +45,7 @@ window.translations = {
     "skills.growthHover": "I have a special interest in learning",
 
     // Projects
-    
+
     "projects.label": "Portfolio",
     "projects.heading": "Featured Projects",
     "projects.dialogTitle": "What is this project about?",
@@ -62,14 +62,13 @@ window.translations = {
     // Testimonials
     "testimonials.heading": "What my colleagues say about me",
     "testimonials.card1":
-      "Aliaqa was a reliable and dedicated team member throughout our project. His technical understanding, attention to detail, and proactive mindset contributed significantly to achieving our goals.",
+      "Working with Aliaqa on the JOIN project was a very positive experience. He is a reliable, supportive, and dedicated teammate who actively looks for solutions and is open to feedback. His structured approach and teamwork contributed significantly to the success of the project.",
     "testimonials.card2":
-      "Working with Aliaqa was a great experience. He remained solution-oriented under pressure, communicated effectively, and consistently supported the team whenever challenges arose.",
+      "Working with Aliaqa on the JOIN project was a very positive experience. He was a reliable and engaged team member who actively contributed to Scrum teamwork and took responsibility for his tasks. His helpfulness, communication skills, and problem-solving mindset made him a valuable part of the team.",
     "testimonials.card3":
-    "It was a pleasure working with Aliaqa. He demonstrated analytical thinking, reliability, and a positive attitude, always striving to deliver high-quality results. I would gladly collaborate with him again in the future.",
+      "Working with Aliaqa on projects at Developer Akademie was a great experience. He is hardworking, learns new things quickly, and stays motivated throughout the process. I highly recommend him because his strong work ethic, adaptability, and teamwork truly stand out. Aliaqa’s commitment and integrity are qualities I genuinely respect and appreciate.",
     "testimonials.card4":
-    "Aliaqa approaches his work in a structured and professional manner. His strong communication skills and willingness to collaborate made him a valuable contributor to the project.",
-      
+      "It was a pleasure working with Aliaqa. He demonstrated analytical thinking, reliability, and a positive attitude, always striving to deliver high-quality results. I would gladly collaborate with him again in the future.",
 
     // Contact section
     "contact.label": "Contact me",
@@ -100,7 +99,7 @@ window.translations = {
     "error.emailInvalid": "Please enter a valid email address.",
     "error.messageRequired": "What do you need to develop?",
     "error.policyRequired": "Please accept the privacy policy.",
-    
+
     // Footer
     "footer.banner": "Web Developer\nBrandenburg Germany",
 
@@ -212,7 +211,7 @@ window.translations = {
     "skills.description1":
       "Ich habe praktische Erfahrung in der Entwicklung von Webanwendungen mit Technologien wie HTML, CSS, JavaScript, TypeScript, Angular, Firebase, Material Design und REST-APIs gesammelt. Außerdem arbeite ich mit Git und GitHub zur Versionsverwaltung und habe Erfahrung mit agilen Arbeitsweisen, die von Scrum inspiriert sind. Durch persönliche Projekte und kontinuierliches Lernen habe ich eine solide Grundlage in der modernen Frontend-Entwicklung aufgebaut und eine starke Leidenschaft für die Gestaltung intuitiver Benutzererlebnisse entwickelt.",
 
-      "skills.description2": 
+    "skills.description2":
       "Die Webentwicklung entwickelt sich ständig weiter, weshalb kontinuierliches Lernen ein wesentlicher Bestandteil meines Weges als Entwickler ist. Ich erkunde gerne neue Technologien, erweitere meine Fähigkeiten und halte mich über aktuelle Trends und Best Practices der Branche auf dem Laufenden. Besonders interessiere ich mich für Vue.js und React, um mein Wissen zu erweitern und mich als Frontend-Entwickler weiterzuentwickeln.",
 
     "skills.otherSkill": "Auf der Suche nach",
@@ -237,14 +236,13 @@ window.translations = {
 
     "testimonials.heading": "Was meine Kollegen über mich sagen",
     "testimonials.card1":
-      "Aliaqa war während unseres Projekts ein zuverlässiges und engagiertes Teammitglied. Sein technisches Verständnis, seine Detailgenauigkeit und seine proaktive Denkweise haben maßgeblich zum Erreichen unserer Ziele beigetragen.",
+      "Die Zusammenarbeit mit Aliaqa im JOIN-Projekt war eine sehr positive Erfahrung. Er ist ein zuverlässiger, hilfsbereiter und engagierter Teamkollege, der aktiv nach Lösungen sucht und offen für Feedback ist. Durch seine strukturierte Arbeitsweise und Teamfähigkeit hat er wesentlich zum Erfolg des Projekts beigetragen.",
     "testimonials.card2":
-      "Die Zusammenarbeit mit Aliaqa war eine großartige Erfahrung. Er blieb auch unter Druck lösungsorientiert, kommunizierte effektiv und unterstützte das Team stets, wenn Herausforderungen auftraten.",
+      "Die Zusammenarbeit mit Aliaqa im JOIN-Projekt war sehr positiv. Er war ein zuverlässiges und engagiertes Teammitglied, das sich aktiv in die Scrum-Arbeit eingebracht und Verantwortung für seine Aufgaben übernommen hat. Seine Hilfsbereitschaft, Kommunikation und Lösungsorientierung machten ihn zu einem wertvollen Teil des Teams.",
     "testimonials.card3":
-    "Es war eine Freude, mit Aliaqa zusammenzuarbeiten. Er zeigte analytisches Denken, Zuverlässigkeit und eine positive Einstellung und strebte stets danach, hochwertige Ergebnisse zu liefern. Ich würde jederzeit wieder mit ihm zusammenarbeiten.",
+      "Die Zusammenarbeit mit Aliaqa an Projekten bei der Developer Akademie war eine großartige Erfahrung. Er ist sehr fleißig, lernt neue Dinge schnell und bleibt während des gesamten Prozesses motiviert. Ich empfehle ihn sehr, da seine starke Arbeitsmoral, Anpassungsfähigkeit und Teamfähigkeit besonders hervorstechen. Aliaqas Engagement und seine Integrität sind Eigenschaften, die ich wirklich respektiere und schätze.",
     "testimonials.card4":
-    "Aliaqa geht seine Arbeit strukturiert und professionell an. Seine ausgeprägten Kommunikations\nfähigkeiten und seine Bereitschaft zur Zusammenarbeit machten ihn zu einem wertvollen Beitragenden im Projekt.",
-      
+      "Es war eine Freude, mit Aliaqa zusammenzuarbeiten. Er zeigte analytisches Denken, Zuverlässigkeit und eine positive Einstellung und strebte stets danach, hochwertige Ergebnisse zu liefern. Ich würde jederzeit wieder mit ihm zusammenarbeiten.",
 
     "contact.label": "Kontakt",
     "contact.heading": "Lass uns zusammen\narbeiten",
@@ -401,9 +399,9 @@ function initLanguage() {
   const langToggle = document.getElementById("language-toggle");
   if (langToggle) {
     if (window.currentLang === "de") {
-      langToggle.checked = true; 
+      langToggle.checked = true;
     } else {
-      langToggle.checked = false; 
+      langToggle.checked = false;
     }
 
     langToggle.addEventListener("change", () => {
