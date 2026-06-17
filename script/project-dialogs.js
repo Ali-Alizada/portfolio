@@ -38,7 +38,6 @@ function initDialog() {
       if (!clickedInside) {
         dialog.close();
       }
-      document.body.style.overflow = "auto";
     });
   });
 
