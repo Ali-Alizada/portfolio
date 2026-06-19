@@ -430,7 +430,8 @@ input.check-toggle-round-flat:checked + label:after {
   text-decoration: none;
   transition: 0.3s ease;
   margin-bottom: 70px;
-  font-family: "klara";
+  font-family: "karla";
+  font-size: 16px;
 }
 
 .mail-to-icon {
