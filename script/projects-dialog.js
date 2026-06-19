@@ -1,6 +1,6 @@
 async function loadDialogs() {
   const container = document.getElementById("dialogs");
-  const response = await fetch("html/project-dialogs.html");
+  const response = await fetch("html/projects-dialog.html");
   const html = await response.text();
   container.innerHTML = html;
   if (window.applyLanguage) {

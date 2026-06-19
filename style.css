@@ -1216,7 +1216,7 @@ main {
 .project-dialog {
   width: calc(100% - 192px);
   max-width: 1440px;
-  min-height: 80vh;
+  min-height: 80dvh;
   margin: auto;
   padding: 96px;
   border: 1px solid #3dcfb6;

@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="styles/testimonial-slider.css">
     <link rel="stylesheet" href="styles/contact.css">
     <script src="script/i18n.js" defer></script>
-    <script src="script/project-dialogs.js" defer></script>
+    <script src="script/projects-dialog.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 
@@ -515,7 +515,7 @@
                 </div>
 
                 <div class="contact-form">
-                    <form id="contactForm" class="form-content" onsubmit="addMessage(); return false;" action="">
+                    <form id="contactForm" class="form-content" action="">
 
                         <div class="name">
                             <label for="username" data-i18n="form.nameLabel">What is your name?</label>
@@ -528,7 +528,7 @@
                             <label for="useremail" data-i18n="form.emailLabel">What is Your email?</label>
                             <input type="email" id="useremail" placeholder="youremail@email.com"
                                 data-i18n-placeholder="form.emailPlaceholder">
-                            <div class="email-error-message" id="error-email"></div>
+                            <div class="error-message" id="error-email"></div>
                         </div>
 
                         <div class="textarea">

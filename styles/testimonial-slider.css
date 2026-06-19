@@ -39,7 +39,6 @@
 }
 
 .testimonial-card {
-  /* background: rgba(71, 224, 199, 0.15); */
   background: linear-gradient(45deg, #1c1c1c 35%, #08463b 100%);
   border: 1px solid #3dcfb6;
   border-radius: 32px;
@@ -129,14 +128,12 @@
 
 .slider-btn-right:hover img {
   transform: translateX(5px) scale(1.1);
-  filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%)
-    hue-rotate(118deg) brightness(140%) contrast(100%);
+  filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%) hue-rotate(118deg) brightness(140%) contrast(100%);
 }
 
 .slider-btn-left:hover img {
   transform: translateX(-5px) scale(1.1);
-  filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%)
-    hue-rotate(118deg) brightness(140%) contrast(100%);
+  filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%) hue-rotate(118deg) brightness(140%) contrast(100%);
 }
 
 .slider-dots {
