@@ -1,4 +1,3 @@
-
 /*----------------------------------------------- Dialog */
 
 .project-dialog {
@@ -242,7 +241,6 @@ body:has(dialog[open]) {
     hue-rotate(118deg) brightness(95%) contrast(100%);
 }
 
-
 /* scrollbalekn X achse */
 .project-dialog {
   scrollbar-width: none;
@@ -318,23 +316,6 @@ body:has(dialog[open]) {
   }
 }
 /* ########################### */
-
-@media (max-width: 1440px) {
-    .project-card {
-        width: 65%;
-    }
-}
-
-@media (max-width: 1300px) {
-    .project-card {
-        width: 60%;
-    }
-}
-@media (max-width: 1230px) {
-    .project-card {
-        width: 55%;
-    }
-}
 
 @media (max-width: 768px) {
   .project-dialog {
