@@ -98,6 +98,13 @@
   background: white;
 }
 
+.testimonial-card a {
+    z-index: 10;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+
 .testimonial-footer span {
   color: white;
   font-size: 20px;
