@@ -695,10 +695,10 @@ main {
 .diagonal-banner {
   position: absolute;
   bottom: 74px;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%) rotate(-3.5deg);
   overflow: hidden;
-  transform: rotate(-3.5deg);
   background-color: rgba(255, 255, 255, 0.12);
   padding: 14px 0;
 }
@@ -707,7 +707,8 @@ main {
   display: flex;
   align-items: center;
   gap: 60px;
-  width: max-content;
+  min-width: max-content;
+  padding-left: 50vw;
   animation: bannerMove 20s linear infinite;
   background: transparent;
 }
@@ -736,7 +737,7 @@ main {
   }
 }
 
-/* ------------------diagoaal ende */
+/* ------------------diagonal ende */
 
 .technologies {
   display: flex;
@@ -2127,7 +2128,7 @@ footer {
 
   .diagonal-banner {
     bottom: 38px;
-    transform: rotate(-2.5deg);
+    /* transform: rotate(-2.5deg); */
   }
 
   .mail-to {
@@ -2259,8 +2260,8 @@ footer {
 
   .diagonal-banner {
     padding: 6px 0;
-    bottom: 26px;
-    transform: rotate(-4.5deg);
+    /* bottom: 26px; */
+    /* transform: rotate(-4.5deg); */
   }
 
   .banner-track span {
@@ -2318,8 +2319,8 @@ footer {
 
   .diagonal-banner {
     padding: 6px 0;
-    bottom: 26px;
-    transform: rotate(-4.5deg);
+    /* bottom: 26px; */
+    /* transform: rotate(-4.5deg); */
   }
 
   .banner-track span {
