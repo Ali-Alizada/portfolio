@@ -1734,6 +1734,11 @@ footer {
     width: calc(100% - 0px);
     padding: 48px 20px;
   }
+
+  .close-dialog {
+    top: 20px;
+    right: 20px;
+    }
 }
 
 @media (max-width: 368px) {
