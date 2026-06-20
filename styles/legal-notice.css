@@ -1,13 +1,27 @@
+html, 
+body{
+  min-height: 100%;
+}
+
 body {
   width: 100%;
   background: linear-gradient(45deg, #1c1c1c 35%, #08463b 100%);
   word-break: break-word;
+  min-height: 100%;
+}
+
+.page-wrapper{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .main-container {
+  flex: 1;
   margin-inline: auto;
   padding-inline: 206px;
   color: white;
+  /* width: 100%; */
 }
 
 .main-container h1 {
@@ -69,6 +83,10 @@ p a {
 }
 
 footer {
+  margin-top: auto;
+}
+
+.footer-wrapper{
   padding-top: 100px;
 }
 
