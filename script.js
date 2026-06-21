@@ -19,6 +19,21 @@ let viewport = document.querySelector(".testimonial-viewport");
 let currentIndex = 1;
 let slideDistance = 0;
 
+// wait for images within the testimonial viewport to be ready (prevents layout shifts)
+function waitForViewportImages() {
+  if (!viewport) return Promise.resolve();
+  const imgs = Array.from(viewport.querySelectorAll('img'));
+  if (!imgs.length) return Promise.resolve();
+  const decodes = imgs.map((img) => {
+    if (img.complete && img.naturalWidth !== 0) return Promise.resolve();
+    return new Promise((res) => {
+      img.addEventListener('load', res, { once: true });
+      img.addEventListener('error', res, { once: true });
+    });
+  });
+  return Promise.all(decodes);
+}
+
 function updateSlideDistance() {
   if (!viewport) return;
   const viewportWidth = viewport.getBoundingClientRect().width;
@@ -27,13 +42,31 @@ function updateSlideDistance() {
 }
 
 function updateSlider() {
-  if (!slider || !cards.length || !dots.length) {
-    return;
-  }
+  if (!slider || !cards.length || !dots.length) return;
 
   updateSlideDistance();
 
-  slider.style.transform = `translateX(-${currentIndex * slideDistance}px)`;
+  const targetCard = cards[currentIndex];
+  let targetX = 0;
+  if (targetCard) {
+    targetX = targetCard.offsetLeft;
+  } else {
+    targetX = currentIndex * slideDistance;
+  }
+
+  const isFirstLayout = !slider.dataset.inited;
+  if (isFirstLayout) slider.style.transition = "none";
+
+  slider.style.transform = `translateX(-${targetX}px)`;
+
+  slider.getBoundingClientRect();
+
+  if (isFirstLayout) {
+    requestAnimationFrame(() => {
+      slider.style.transition = "";
+      slider.dataset.inited = "true";
+    });
+  }
 
   dots.forEach((dot) => dot.classList.remove("active"));
   cards.forEach((card) => card.classList.remove("active"));
@@ -65,11 +98,18 @@ dots.forEach((dot, index) => {
   });
 });
 
-window.addEventListener("resize", () => {
-  updateSlider();
-});
+window.addEventListener("resize", () => updateSlider());
 
-updateSlider();
+async function initSlider() {
+  await waitForViewportImages();
+  updateSlider();
+}
+
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+  initSlider();
+} else {
+  window.addEventListener('DOMContentLoaded', initSlider);
+}
 
 //  -------------------------- Contact Form
 
@@ -324,6 +364,25 @@ const observer = new IntersectionObserver(
 );
 
 hiddenElements.forEach((el) => observer.observe(el));
+
+function revealVisibleHiddenElements() {
+  const vw = window.innerWidth || document.documentElement.clientWidth;
+  hiddenElements.forEach((el) => {
+    if (el.classList.contains('show')) return;
+    const rect = el.getBoundingClientRect();
+    const isVisible = rect.top < (window.innerHeight || document.documentElement.clientHeight) && rect.bottom > 0;
+    if (isVisible || vw <= 350) {
+      el.classList.add('show');
+      try { observer.unobserve(el); } catch (e) {}
+    }
+  });
+}
+
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+  revealVisibleHiddenElements();
+} else {
+  window.addEventListener('DOMContentLoaded', revealVisibleHiddenElements);
+}
 
 function smoothScrollTo(target, duration = 1600) {
   const start = window.scrollY;
