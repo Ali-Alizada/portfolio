@@ -252,7 +252,6 @@ window.translations = {
       "Ich suche derzeit nach Möglichkeiten als Junior Frontend-Entwickler und freue mich darauf, in einem motivierten Team mitzuwirken, zu lernen und mich weiterzuentwickeln. Ich entwickle gerne benutzerfreundliche Webanwendungen und verwandle Ideen in praktische digitale Lösungen. \n\nWenn du jemanden suchst, der motiviert, zuverlässig und bereit für neue Herausforderungen ist, freue ich mich auf deine Nachricht.",
     "contact.question": "Brauchst du einen Frontend-Entwickler? ",
     "contact.questionSpan": "Lass uns sprechen!",
-    // -------
 
     "form.nameLabel": "Wie heißt du?",
     "form.namePlaceholder": "Dein Name",

@@ -26,8 +26,11 @@
     <link rel="stylesheet" href="styles/contact.css">
     <link rel="stylesheet" href="styles/projects-dialog.css">
     <link rel="stylesheet" href="styles/responsive.css">
+
     <script src="script/i18n.js" defer></script>
     <script src="script/projects-dialog.js" defer></script>
+    <script src="script/testimonial-section.js" defer></script>
+
     <script src="script.js" defer></script>
 </head>
 
@@ -161,144 +164,9 @@
 
     <main>
 
-        <section id="aboutme" class="aboutme-section">
-            <div class="img-profile hidden">
-                <img src="assets/imgs/Alizada-ProfileBild.webp" alt="Profilbild">
-            </div>
-            <div class="text-content hidden">
-                <span class="about" data-i18n="about.label">who i am</span>
-                <div class="text">
-                    <h2 class="title" data-i18n="about.heading">About me</h2>
-                    <p class="description" data-i18n="about.description">Hey there, I'm Aliaqa! Frontend Developer with
-                        a passion for creating intuitive and engaging digital experiences. I enjoy transforming ideas
-                        into interactive applications and finding creative ways to solve real-world problems. What
-                        inspires me most is the opportunity to continuously grow, take on new challenges, and turn
-                        concepts into meaningful solutions that people can use and enjoy.</p>
+        <div id="aboutme-container"></div>
 
-                    <div class="info-row">
-                        <img class="hidden" src="assets/imgs/icons/location_on.svg" alt="location-icon">
-                        <p data-i18n="about.info1">Based in brandenburg, I am open to remote opportunities and
-                            international collaboration. I enjoy working with people from different backgrounds and
-                            believe that diverse perspectives lead to better products and stronger teams.</p>
-                    </div>
-                    <div class="info-row">
-                        <img class="hidden" src="assets/imgs/icons/Property 1=cognition.svg" alt="cognition-icon">
-                        <p data-i18n="about.info2">I am open-minded, adaptable, and always eager to learn. The
-                            fast-paced nature of the tech industry motivates me to explore new concepts, improve my
-                            knowledge, and grow both professionally and personally. Continuous learning is an essential
-                            part of my journey as a developer.</p>
-                    </div>
-                    <div class="info-row">
-                        <img class="hidden" src="assets/imgs/icons/Property 1=Quality.svg" alt="Quality-icon">
-                        <p data-i18n="about.info3">My approach to problem-solving combines analytical thinking,
-                            creativity, persistence, and collaboration. I enjoy breaking down complex challenges into
-                            manageable steps and learning from every obstacle along the way. For me, every project is an
-                            opportunity to discover more efficient, elegant, and user-focused solutions.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="technologies">
-            <div class="text-contents hidden">
-                <span class="skills" data-i18n="skills.label">Technologies</span>
-                <div class="text">
-                    <h2 class="title" data-i18n="skills.heading">Skills Set</h2>
-
-                    <p class="tech-description" data-i18n="skills.description1">I have gained practical experience
-                        building web applications using technologies such as HTML, CSS, JavaScript, TypeScript, Angular,
-                        Firebase, Material Design, and REST APIs. I also work with Git and GitHub for version control
-                        and have experience working with agile principles inspired by Scrum. Through personal projects
-                        and continuous learning, I have developed a solid foundation in modern frontend development and
-                        a strong passion for creating intuitive user experiences.
-                    </p>
-                    <p class="tech-description" data-i18n="skills.description2">Web development is constantly evolving,
-                        which is why continuous learning is an essential part of my journey as a developer. I enjoy
-                        exploring new technologies, expanding my skill set, and staying up to date with industry trends
-                        and best practices. In particular, I have a strong interest in learning Vue.js and React to
-                        broaden my knowledge and grow as a Frontend Developer.</p>
-
-                    <p class="other-skills"><span data-i18n="skills.otherSkill">Looking for</span><span
-                            data-i18n="skills.otherSkillSpan">a specific skill or technology?</span></p>
-
-                    <p class="tech-description" data-i18n="skills.contact">Feel free to contact me. I am always excited
-                        to take on new challenges, expand my expertise, and continue developing both professionally and
-                        personally.</p>
-
-                    <a href="#contactForm" class="marquee-talk">
-                        <div class="marquee-track">
-                            <span data-i18n="skills.btnTalk">let's Talk</span>
-                            <span data-i18n="skills.btnTalk">let's Talk</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="techs-icons">
-                <div class="hidden">
-                    <img src="assets/imgs/icons/HTML.svg" alt="html-icon">
-                    <span>HTML</span>
-                </div>
-                <div class="hidden">
-                    <img src="assets/imgs/icons/CSS.svg" alt="css-icon">
-                    <span>CSS</span>
-                </div>
-                <div class="hidden">
-                    <img src="assets/imgs/icons/JS.svg" alt="js-icon">
-                    <span>JavaSript</span>
-                </div>
-                <div class="hidden">
-                    <img src="assets/imgs/icons/MD.svg" alt="Material-icon">
-                    <span>Material Design</span>
-                </div>
-                <div class="hidden">
-                    <img src="assets/imgs/icons/TS.svg" alt="TypeScript-icon">
-                    <span>TypeScript</span>
-                </div>
-                <div class="hidden">
-                    <img src="assets/imgs/icons/Ag.svg" alt="angular-icon">
-                    <span>Angular</span>
-                </div>
-                <div class="hidden">
-                    <img src="assets/imgs/icons/FB.svg" alt="firebase-icon">
-                    <span>Firebase</span>
-                </div>
-                <div>
-                    <img src="assets/imgs/icons/Git.svg" alt="Git-icon">
-                    <span>Git</span>
-                </div>
-                <div class="hidden">
-                    <img src="assets/imgs/icons/API.svg" alt="API-icon">
-                    <span>REST-API</span>
-                </div>
-                <div class="hidden">
-                    <img src="assets/imgs/icons/Scrum.svg" alt="Scrum-icon">
-                    <span>Scrum</span>
-                </div>
-
-                <div class="growth-item hidden">
-                    <div class="icon-wrapper">
-                        <img class="growth-icon" src="assets/imgs/icons/Growth.svg" alt="Growth mindset">
-                    </div>
-                    <span class="growth-text">Growth mindset</span>
-
-                    <div class="growth-hover">
-                        <p class="hover-text" data-i18n="skills.growthHover">I have a special interest in learning</p>
-                        <div class="hover-techs">
-                            <div class="tech-card">
-                                <img src="assets/imgs/icons/React.svg" alt="React">
-                                <span>React</span>
-                            </div>
-                            <div class="tech-card">
-                                <img src="assets/imgs/icons/Vue Js.svg" alt="Vue.js">
-                                <span>Vue.js</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
+        <div id="technologies-container"></div>
 
         <section id="project" class="featured-projects hidden">
             <span class="section-title" data-i18n="projects.label">Portfolio</span>
@@ -400,103 +268,7 @@
 
         </section>
         <!-- Testimonial Slider  -->
-
-        <section class="comments hidden">
-            <div class="comments-header">
-                <h3 data-i18n="testimonials.heading">What my colleagues say about me</h3>
-            </div>
-
-            <div class="testimonial-wrapper">
-
-                <div class="testimonial-viewport">
-                    <div class="quote-mark"><img src="assets/imgs/icons/quotes.svg" alt="quote-mark"></div>
-                    <div class="testimonial-slider">
-
-                        <!-- Card-1 -->
-
-                        <article class="testimonial-card">
-
-                            <p class="testimonial-text" data-i18n="testimonials.card1">
-                                Working with Aliaqa on the JOIN project was a very positive experience. He is a
-                                reliable, supportive, and dedicated teammate who actively looks for solutions and is
-                                open to feedback. His structured approach and teamwork contributed significantly to the
-                                success of the project.
-                            </p>
-
-                            <div class="testimonial-footer">
-                                <div class="line"></div>
-
-                                <a href="https://github.com/AdamBaranyi" target="_blank" rel="noopener"><span>A.Baranyi
-                                        - Team partner</span></a>
-                            </div>
-                        </article>
-
-                        <!-- Card-2 -->
-
-                        <article class="testimonial-card active">
-                            <p class="testimonial-text" data-i18n="testimonials.card2">
-                                Working with Aliaqa was a great experience. He remained solution-oriented under
-                                pressure, communicated effectively, and consistently supported the team whenever
-                                challenges arose.
-                            </p>
-                            <div class="testimonial-footer">
-                                <div class="line"></div>
-                                <a href="https://github.com/SandroTec" target="_blank" rel="noopener"><span>A.Bonomo -
-                                        Team Partner</span></a>
-
-                            </div>
-                        </article>
-
-                        <!-- Card-3 -->
-
-                        <article class="testimonial-card">
-                            <p class="testimonial-text" data-i18n="testimonials.card3">
-                                Working with Aliaqa on projects at Developer Akademie was a great experience. He is
-                                hardworking, learns new things quickly, and stays motivated throughout the process. I
-                                highly recommend him because his strong work ethic, adaptability, and teamwork truly
-                                stand out. Aliaqa’s commitment and integrity are qualities I genuinely respect and
-                                appreciate.
-                            </p>
-                            <div class="testimonial-footer">
-                                <div class="line"></div>
-                                <a href="https://github.com/rezabehruz" target="_blank" rel="noopener"><span>R. Behruz -
-                                        Frontend Developer</span></a>
-                            </div>
-                        </article>
-
-                        <!-- card-4 -->
-                        <article class="testimonial-card">
-                            <p class="testimonial-text" data-i18n="testimonials.card4">
-                                It was a pleasure working with Aliaqa. He demonstrated analytical thinking, reliability,
-                                and a positive attitude, always striving to deliver high-quality results. I would gladly
-                                collaborate with him again in the future.
-                            </p>
-                            <div class="testimonial-footer">
-                                <div class="line"></div>
-                                <a href="https://github.com/fante123456" target="_blank" rel="noopener"><span>R. Amar
-                                        Fullstack Developer</span></a>
-
-                            </div>
-                        </article>
-
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Dots -->
-            <div class="slider-dots">
-                <button class="slider-btn-left prev"><img src="assets/imgs/icons/arrow-Left-mainseite.svg"
-                        alt="arrow-icon-left"></button>
-                <span class="dot"></span>
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <button class="slider-btn-right next"><img src="assets/imgs/icons/arrow-right-white.svg"
-                        alt="arrow-icon-right"></button>
-            </div>
-
-        </section>
+        <div id="testimonial-container"></div>
 
         <!-- Section: Contact -->
         <section class="contactme">

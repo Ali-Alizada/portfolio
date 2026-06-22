@@ -32,6 +32,7 @@ body {
     transition:
         opacity .8s cubic-bezier(.17,.55,.55,1),
         transform .8s cubic-bezier(.17,.55,.55,1);
+  will-change: opacity, transform;
 }
 
 .show {
@@ -61,4 +62,16 @@ body {
   filter: blur(20px);
 
   transition: transform 0.1s ease-out;
+}
+
+html.scroll-restore-pending,
+body.scroll-restore-pending {
+  visibility: hidden !important;
+}
+
+/* Prevent browser scroll anchoring jumps when dynamic content is inserted */
+#testimonial-container,
+#technologies-container,
+.projects-container {
+  overflow-anchor: none;
 }

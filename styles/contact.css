@@ -29,7 +29,6 @@ div .title {
   line-height: 1.4;
   padding-bottom: 14px;
   white-space: pre-wrap;
-  /* pre-wrpa */
 }
 
 .question-text {
@@ -55,13 +54,10 @@ div .title {
   flex: 1;
 }
 
-/* -------------------Contqact-form */
-
 .contact-form form {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  /* min-width: 500px; */
 }
 
 .form-content label {
@@ -99,7 +95,6 @@ div .title {
   /* resize: none; */
 }
 
-/* Autofill-Hintergrund entfernen: Chrome, Edge, Safari */
 .form-content input:-webkit-autofill,
 .form-content input:-webkit-autofill:hover,
 .form-content input:-webkit-autofill:focus,
@@ -115,7 +110,6 @@ div .title {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-/* Firefox */
 .form-content input,
 .form-content textarea {
   transition: background-color 50000s ease-in-out 0s;
@@ -276,8 +270,6 @@ textarea::placeholder {
   padding-top: 16px;
 }
 
-/* --------------Overlay */
-
 .overlay {
   position: fixed;
   top: 0;
@@ -293,7 +285,6 @@ textarea::placeholder {
 
 .overlay-content {
   background: linear-gradient(45deg, #1c1c1c 35%, #08463b 100%);
-  /* border: 1px solid #3dcfb6; */
   color: white;
   padding: 40px 60px;
   border-radius: 16px;

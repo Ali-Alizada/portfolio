@@ -1,5 +1,5 @@
-html, 
-body{
+html,
+body {
   min-height: 100%;
 }
 
@@ -10,7 +10,7 @@ body {
   min-height: 100%;
 }
 
-.page-wrapper{
+.page-wrapper {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,20 +35,18 @@ body {
   font-family: "karla";
 }
 
-.arrow-left img{
-    position: absolute;
-     /* top: 138px; */
-    top: 15px;
-    left: 10px;
-    width: 40px;
-    height: 40px;   
-    display: none;
+.arrow-left img {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  display: none;
 }
 
-.arrow-left img:hover{
+.arrow-left img:hover {
   transform: translateX(-5px) scale(1.1);
-  filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%)
-    hue-rotate(118deg) brightness(140%) contrast(100%);
+  filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%) hue-rotate(118deg) brightness(140%) contrast(100%);
 }
 
 .main-container h2 {
@@ -86,7 +84,7 @@ footer {
   margin-top: auto;
 }
 
-.footer-wrapper{
+.footer-wrapper {
   padding-top: 100px;
 }
 
@@ -105,7 +103,7 @@ footer {
     font-size: 16px;
   }
 
-  .arrow-left img{
+  .arrow-left img {
     display: block;
   }
 }
@@ -114,6 +112,7 @@ footer {
   .logo-text-small {
     display: none;
   }
+
   .main-container h1 {
     padding: 190px 0 40px 0;
   }

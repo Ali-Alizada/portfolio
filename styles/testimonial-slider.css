@@ -99,18 +99,16 @@
 }
 
 .testimonial-card a {
-    z-index: 10;
-    cursor: pointer;
-    color: white;
-    text-decoration: none;
+  z-index: 10;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
 }
 
 .testimonial-footer span {
   color: white;
   font-size: 20px;
 }
-
-/* --------------------buttons */
 
 .slider-btn-left,
 .slider-btn-right {
@@ -164,8 +162,6 @@
   background: #3dcfb6;
   box-shadow: 0 0 5px #3dcfb6;
 }
-
-/* ------------------Responsive */
 
 @media (max-width: 1300px) {
   .testimonial-viewport {

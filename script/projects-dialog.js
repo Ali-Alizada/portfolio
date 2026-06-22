@@ -11,7 +11,6 @@ async function loadDialogs() {
 
 loadDialogs();
 
-// -----------------------------Dilaog
 function openDialog(dialogId) {
   const dialog = document.getElementById(dialogId);
   dialog.showModal();
