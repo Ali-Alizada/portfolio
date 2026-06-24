@@ -1,63 +1,60 @@
 # Aliaqa Alizada | Frontend Developer Portfolio
 
-Eine moderne, performante und bilinguale Portfolio-Website zur ansprechenden Präsentation von Projekten, technischen Fähigkeiten und beruflichem Werdegang. 
+A modern, high-performance, and bilingual portfolio website designed to showcase web development projects, technical skills, and professional experience.
 
-Die Website besticht durch ihr minimalistisches, dunkles Design (Dark Theme), flüssige Mikro-Animationen, einen dynamischen Cursor-Schatten und eine modulare, asynchrone Ladearchitektur.
+The website features a clean, minimal dark theme, smooth micro-animations, a dynamic cursor shadow effect, and a modular asynchronous template loading architecture.
 
-[Live Demo ansehen](https://alizada-portfolio.de/) | [Kontakt aufnehmen](mailto:alimhd276@gmail.com) | [LinkedIn](https://www.linkedin.com/feed/)
+[View Live Demo](https://alizada-portfolio.de/) | [Get in Touch](mailto:alimhd276@gmail.com) | [LinkedIn](https://www.linkedin.com/feed/)
 
 ---
 
 ## 🚀 Key Features
 
-*   **Modulare & Dynamische Architektur:** Einzelne Sektionen (About Me, Technologies, Testimonials, Dialogs) sind als eigenständige HTML-Templates ausgelagert und werden asynchron per JavaScript Fetch-API geladen. Das hält die `index.html` schlank und verbessert die Wartbarkeit.
-*   **Zweisprachigkeit (i18n):** Vollständige Lokalisierung (Deutsch und Englisch) ohne Page-Reload. Die Sprachpräferenz wird im `localStorage` gespeichert, um die Auswahl bei zukünftigen Besuchen zu erhalten.
-*   **Interaktiver Projekt-Showcase:** Detaillierte Projektvorstellungen (z. B. *Join*, *El Pollo Loco*, *DABubble*) werden in interaktiven Modal-Dialogen geöffnet, inklusive einer direkten Karussell-Navigation zum nächsten Projekt.
-*   **Dynamischer Testimonial-Slider:** Ein intuitiver Karussell-Slider für Feedback und Empfehlungen von Kollegen und Projektpartnern.
-*   **Barrierefreiheit & SEO:** Verwendung semantischer HTML5-Elemente, strukturierter Überschriften-Hierarchien sowie Metadaten für Suchmaschinen und OpenGraph (Social Media Previews).
-*   **Kontaktformular mit Echtzeit-Validierung:** Clientseitige Formularprüfung mit benutzerfreundlichen Fehlermeldungen und Anbindung an ein PHP-Mailer-Skript (`send.php`) für die sichere E-Mail-Zustellung.
+*   **Modular & Dynamic Architecture:** Sections (About Me, Technologies, Testimonials, Dialogs) are modularized as separate HTML templates and loaded asynchronously using the JavaScript Fetch API. This keeps `index.html` lightweight and improves codebase maintainability.
+*   **Internationalization (i18n):** Seamless translation switching (English and German) without page reloads. The selected language is persisted in `localStorage` to preserve the user's preference for future visits.
+*   **Interactive Project Showcase:** Detailed project cards open in responsive modal dialogs (including projects like *Join*, *El Pollo Loco*, and *DABubble*), featuring carousel-style navigation between projects.
+*   **Dynamic Testimonial Carousel:** A custom slider demonstrating recommendations and feedback from colleagues and project partners.
+*   **Accessibility & SEO:** Built using semantic HTML5, structured heading hierarchies, and metadata optimized for search engines and social media previews (OpenGraph).
+*   **Contact Form with Real-time Validation:** Client-side input validation with friendly error feedback, integrated with a secure backend PHP mailer (`send.php`) for email delivery.
 
 ---
 
 ## 🛠️ Tech Stack
 
-Die Kernanwendung basiert auf purem (Vanilla) HTML, CSS und JavaScript, um maximale Performance und Ladezeiten ohne Overhead zu garantieren. Folgende Technologien und Tools kommen zum Einsatz:
+The core portfolio is built using native web technologies to ensure lightning-fast load times, clean code, and zero runtime overhead:
 
-| Technologie / Tool | Badge / Logo | Beschreibung |
+| Technology / Tool | Badge | Description |
 | :--- | :--- | :--- |
-| **HTML5** | ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white) | Strukturierung der Seite und Bereitstellung der dynamisch ladbaren Sektionen. |
-| **CSS3** | ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white) | Modulares Styling, Custom Scrollbars, CSS-Variablen für das Dark-Theme und responsive Layouts. |
-| **JavaScript (ES6+)** | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) | Steuerung der Fetch-API, Internationalisierung (i18n), Slider-Steuerung und Dialog-Modals. |
-| **PHP** | ![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white) | Serverseitiges Skript (`send.php`) zur sicheren E-Mail-Übertragung des Kontaktformulars. |
-| **Firebase** | ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black) | Backend-Infrastruktur (Auth, Echtzeit-Datenbank) für die gezeigten Projekte (*Join* & *DABubble*). |
-| **Angular** | ![Angular](https://img.shields.io/badge/Angular-DD0031?style=flat-square&logo=angular&logoColor=white) | Framework für anspruchsvolle SPA-Entwicklung in den ausgestellten Projekten (*Join* & *DABubble*). |
-| **TypeScript** | ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white) | Typsichere Anwendungslogik in den komplexeren Portfolio-Projekten. |
-| **Git** | ![Git](https://img.shields.io/badge/Git-F05033?style=flat-square&logo=git&logoColor=white) | Versionsverwaltung und kollaboratives Arbeiten. |
+| **HTML5** | ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white) | Structure of the application shell and modular templates. |
+| **CSS3** | ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white) | Modular stylesheets, custom scrollbars, CSS variables for the dark theme, and responsive layouts. |
+| **JavaScript (ES6+)** | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) | Section orchestration, internationalization (i18n) handling, carousel logic, and modal dialog control. |
+| **PHP** | ![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white) | Server-side script (`send.php`) for sending contact form messages via email. |
+| **Git** | ![Git](https://img.shields.io/badge/Git-F05033?style=flat-square&logo=git&logoColor=white) | Version control and source code management. |
 
 ---
 
 ## 📂 Project Structure
 
-Die Dateistruktur ist modular organisiert. Styles und Skripte sind getrennt und nach Sektionen strukturiert, was eine einfache Skalierbarkeit des Portfolios ermöglicht:
+The files are structured logically to separate styling, scripting, and modular HTML sections, facilitating clean development and scalability:
 
 ```text
 portfolio/
-├── assets/             # Statische Ressourcen
-│   ├── fonts/          # Eingebundene Web-Fonts
-│   └── imgs/           # Bilder, Screenshots und Vektor-Icons (SVG)
-├── html/               # Dynamische HTML-Sektionen (vom JavaScript nachgeladen)
+├── assets/             # Static assets
+│   ├── fonts/          # Custom web typography
+│   └── imgs/           # Project screenshots, preview images, and SVG icons
+├── html/               # Modular HTML sections fetched dynamically via JavaScript
 │   ├── aboutme-section.html
 │   ├── legal-notice.html
 │   ├── privacy-policy.html
 │   ├── projects-dialog.html
 │   ├── technologies-section.html
 │   └── testimonial-section.html
-├── script/             # Modularisierte JavaScript-Dateien
-│   ├── i18n.js         # Lokalisierungs-Logik & Übersetzungswörterbuch
-│   ├── projects-dialog.js # Steuerung der Projekt-Detail-Modals
-│   ├── scroll-restore.js  # Scrollverhalten-Optimierungen
-│   └── testimonial-section.js # Slider-Logik für Empfehlungen
-├── styles/             # Modularisierte Stylesheets (CSS)
+├── script/             # Modularized JavaScript source files
+│   ├── i18n.js         # Localization logic and translation dictionary
+│   ├── projects-dialog.js # Interactive modal overlay logic
+│   ├── scroll-restore.js  # Scroll position management
+│   └── testimonial-section.js # Carousel slider implementation
+├── styles/             # Modularized CSS stylesheets
 │   ├── aboutme-technologies.css
 │   ├── cards-burger-footer.css
 │   ├── contact.css
@@ -65,48 +62,34 @@ portfolio/
 │   ├── legal-notice.css
 │   ├── privacy-policy.css
 │   ├── projects-dialog.css
-│   ├── responsive.css  # Mobile-First Media Queries
+│   ├── responsive.css  # Mobile-first responsiveness
 │   └── testimonial-slider.css
-├── index.html          # Haupteinstiegspunkt (App-Shell)
-├── script.js           # Zentraler Orchestrator (lädt Sektionen & initialisiert Logik)
-├── style.css           # Globale CSS-Variablen, Resets und Keyframe-Animationen
-├── send.php            # PHP-Skript für den E-Mail-Versand des Kontaktformulars
-├── .prettierrc         # Konfiguration für einheitliche Code-Formatierung
-└── .gitignore          # Versionierungsausschlüsse
+├── index.html          # Main application entry point (App Shell)
+├── script.js           # Core script manager (loads templates and hooks event listeners)
+├── style.css           # Global layout styles, design tokens, and animation keyframes
+├── send.php            # PHP contact mail processor
+├── .prettierrc         # Code formatting configuration
+└── .gitignore          # Version control ignore rules
 ```
 
 ---
 
-## ⚙️ Installation & Lokale Ausführung
+## ⚙️ Local Development & Setup
 
-Da die Website asynchrone Anfragen (`fetch`) verwendet, um HTML-Komponenten aus dem Ordner `html/` zu laden, blockieren moderne Webbrowser diese Aufrufe aus Sicherheitsgründen (CORS-Richtlinie), wenn die Datei `index.html` direkt über das Dateisystem (`file://`) geöffnet wird. 
+Because this project dynamically fetches HTML modules from the `html/` directory using JavaScript, standard browsers will block these asynchronous calls under the CORS security policy if `index.html` is opened directly via the local file system (`file://`).
 
-Für die lokale Ausführung wird daher ein lokaler Webserver benötigt.
+To run the project locally, you must run it through a local web server:
 
-### Option 1: VS Code "Live Server" (Empfohlen)
-1. Installiere die Erweiterung **Live Server** in Visual Studio Code.
-2. Öffne den Projektordner in VS Code.
-3. Klicke unten rechts in der Statusleiste auf den Button **Go Live** (oder mache einen Rechtsklick auf `index.html` und wähle *Open with Live Server*).
-
-### Option 2: Python HTTP Server
-Falls du Python installiert hast, kannst du im Hauptverzeichnis des Projekts folgenden Befehl ausführen:
-```bash
-python -m http.server 8000
-```
-Öffne anschließend [http://localhost:8000](http://localhost:8000) in deinem Browser.
-
-### Option 3: Node.js (npx)
-Falls du Node.js installiert hast, kannst du einen schnellen Server über `npx` starten:
-```bash
-npx http-server
-```
-Öffne die in der Konsole angegebene Adresse (meistens [http://localhost:8080](http://localhost:8080)).
+### VS Code "Live Server" (Recommended)
+1. Open the project folder in **Visual Studio Code**.
+2. Install the **Live Server** extension from the extensions marketplace.
+3. Click the **Go Live** button in the status bar at the bottom right, or right-click `index.html` and select **Open with Live Server**.
 
 ---
 
-## 📬 Kontakt
+## 📬 Contact
 
-*   **Name:** Aliaqa Alizada
-*   **E-Mail:** [alimhd276@gmail.com](mailto:alimhd276@gmail.com)
+*   **Developer:** Aliaqa Alizada
+*   **Email:** [alimhd276@gmail.com](mailto:alimhd276@gmail.com)
 *   **LinkedIn:** [Aliaqa Alizada](https://www.linkedin.com/feed/)
 *   **GitHub:** [Ali-Alizada](https://github.com/Ali-Alizada)
