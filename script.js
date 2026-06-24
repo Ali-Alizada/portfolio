@@ -1,19 +1,3 @@
-(function () {
-  try {
-    const key = 'portfolio-scroll-pos';
-    const raw = sessionStorage.getItem(key);
-    if (!raw) return;
-    const pos = JSON.parse(raw);
-    if (!pos || typeof pos.x !== 'number' || typeof pos.y !== 'number') return;
-    history.scrollRestoration = 'manual';
-    window.__scrollRestorePending = true;
-    window.__savedScrollPos = pos;
-    document.documentElement.classList.add('scroll-restore-pending');
-    document.body.classList.add('scroll-restore-pending');
-    window.scrollTo(pos.x, pos.y);
-  } catch (err) {
-  }
-})();
 
 
 (function initCursorShadow() {
@@ -128,6 +112,8 @@ async function loadTechnologiesHTML() {
   const form = document.getElementById('contactForm');
   const checkbox = document.getElementById('checkbox');
 
+  if (!form) return;
+
   const originalPlaceholders = {
     username: username ? username.placeholder : '',
     email: email ? email.placeholder : '',
@@ -238,22 +224,55 @@ async function loadTechnologiesHTML() {
     }
   }
 
-  function addMessage() {
-    if (!validateForm()) return;
-    console.log('Formular erfolgreich abgesendet!');
-    showSuccessOverlay();
-    form.reset();
-    privacyAccepted = false;
-    if (checkbox) checkbox.src = 'assets/imgs/icons/checkbox-unchecked.svg';
-    clearErrors();
+      async function addMessage() {
+
+        if (!validateForm()) return;
+
+        const data = {
+        name: username.value,
+        email: email.value,
+        message: textarea.value
+        };
+
+        try {
+        const response = await fetch("send.php", {
+        method:"POST",
+        headers:{
+        "Content-Type":"application/json"
+        },
+
+        body: JSON.stringify(data)
+
+        });
+
+        const result = await response.json();
+
+        if(result.success){
+        showSuccessOverlay();
+        form.reset();
+        privacyAccepted=false;
+
+
+        checkbox.src =
+        "assets/imgs/icons/checkbox-unchecked.svg";
+        }else{
+        alert("Sending failed");
+
+        }
+
+        }
+        catch(error){
+        console.error(error);
+        alert("Server error");
+        }
+
   }
 
-  if (submitBtn) {
-    submitBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      addMessage();
-    });
-  }
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    addMessage();
+  });
+
 
   function updateMarqueeLabels() {
     document.querySelectorAll('.marquee-btn, .marquee-contact, .marquee-talk, .marquee-submit')
@@ -376,12 +395,12 @@ function smoothScrollTo(target, duration = 1600) {
   requestAnimationFrame(animation);
 }
 
-document.querySelectorAll('a[href^="#"]').forEach((link) => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute('href'));
-    if (target) smoothScrollTo(target, 1600);
-  });
+document.addEventListener('click', function(e) {
+  const link = e.target.closest('a[href^="#"]');
+  if (!link) return;
+  e.preventDefault();
+  const target = document.querySelector(link.getAttribute('href'));
+  if (target) smoothScrollTo(target, 1600);
 });
 
 const SCROLL_STORAGE_KEY = 'portfolio-scroll-pos';

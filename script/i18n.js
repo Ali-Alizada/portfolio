@@ -4,18 +4,15 @@ window.translations = {
     "nav.about": "About Me",
     "nav.skills": "Skills",
     "nav.projects": "Projects",
-
     // Hero
     "hero.subtitle": "Frontend Developer",
     "hero.btnWork": "Check my Work",
     "hero.btnContact": "Contact me",
-
     // Banner
     "banner.role": "Frontend Developer",
     "banner.location": "Based in Brandenburg",
     "banner.open": "Open to work",
     "banner.remote": "Available for remote work",
-
     // About Me
     "about.label": "who i am",
     "about.heading": "About me",
@@ -27,7 +24,6 @@ window.translations = {
       "I am open-minded, adaptable, and always eager to learn. The fast-paced nature of the tech industry motivates me to explore new concepts, improve my knowledge, and grow both professionally and personally. Continuous learning is an essential part of my journey as a developer.",
     "about.info3":
       "My approach to problem-solving combines analytical thinking, creativity, persistence, and collaboration. I enjoy breaking down complex challenges into manageable steps and learning from every obstacle along the way. For me, every project is an opportunity to discover more efficient, elegant, and user-focused solutions.",
-
     // Skills
     "skills.label": "Technologies",
     "skills.heading": "Skills Set",
@@ -43,9 +39,7 @@ window.translations = {
       "Feel free to contact me. I am always excited to take on new challenges, expand my expertise, and continue developing both professionally and personally.",
     "skills.btnTalk": "let's Talk",
     "skills.growthHover": "I have a special interest in learning",
-
     // Projects
-
     "projects.label": "Portfolio",
     "projects.heading": "Featured Projects",
     "projects.dialogTitle": "What is this project about?",
@@ -58,7 +52,6 @@ window.translations = {
     "projects.bubbleDesc":
       "This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization.",
     "projects.nextBtn": "Next project",
-
     // Testimonials
     "testimonials.heading": "What my colleagues say about me",
     "testimonials.card1":
@@ -69,7 +62,6 @@ window.translations = {
       "Working with Aliaqa on projects at Developer Akademie was a great experience. He is hardworking, learns new things quickly, and stays motivated throughout the process. I highly recommend him because his strong work ethic, adaptability, and teamwork truly stand out. Aliaqa’s commitment and integrity are qualities I genuinely respect and appreciate.",
     "testimonials.card4":
       "It was a pleasure working with Aliaqa. He demonstrated analytical thinking, reliability, and a positive attitude, always striving to deliver high-quality results. I would gladly collaborate with him again in the future.",
-
     // Contact section
     "contact.label": "Contact me",
     "contact.heading": "Let's work \n\ntogether",
@@ -78,7 +70,6 @@ window.translations = {
       "I am currently looking for opportunities as a Junior Frontend Developer and eager to contribute, learn, and grow within a motivated team. I enjoy building user-friendly web applications and turning ideas into practical digital solutions. \n\nIf you need someone who is motivated, reliable, and ready to take on new challenges, feel free to reach out.",
     "contact.question": "Need a Frontend developer? ",
     "contact.questionSpan": "Let's talk!",
-
     // Form
     "form.nameLabel": "What is your name?",
     "form.namePlaceholder": "Your name goes here",
@@ -92,17 +83,14 @@ window.translations = {
       " and agree to the processing of my data as outlined.",
     "form.submit": "Say Hello :)",
     "form.successMsg": "Message sent successfully!",
-
     // Validation errors
     "error.nameRequired": "Oops! It seems your name is missing.",
     "error.emailRequired": "Hoppla! Your email is required.",
     "error.emailInvalid": "Please enter a valid email address.",
     "error.messageRequired": "What do you need to develop?",
     "error.policyRequired": "Please accept the privacy policy.",
-
     // Footer
     "footer.banner": "Web Developer\nBrandenburg Germany",
-
     // Legal Notice Subpage
     "legal.title": "Legal Notice",
     "legal.imprint": "Imprint",
@@ -120,7 +108,6 @@ window.translations = {
       "Without such consent, the use of the website's content for Text and Data Mining purposes is prohibited. This restriction applies regardless of whether meta tags or other technical measures preventing such activities are present and even if bots used for Text and Data Mining are not explicitly blocked.",
     "legal.generator":
       "Created using the free legal text generator by Dr. Thomas Schwenke (Datenschutz-Generator.de)",
-
     // Privacy Policy Subpage
     "privacy.title": "Privacy Policy",
     "privacy.section1.title": "1. Data Protection at a Glance",
@@ -273,7 +260,6 @@ window.translations = {
     "error.policyRequired": "Bitte akzeptiere die Datenschutzerklärung.",
 
     "footer.banner": "Webentwickler\nBrandenburg, Deutschland",
-
     // Legal Notice Subpage
     "legal.title": "Impressum",
     "legal.imprint": "Impressum",
@@ -291,7 +277,6 @@ window.translations = {
       "Ohne eine solche Zustimmung ist die Nutzung der Inhalte der Website für Zwecke des Text- und Data-Minings untersagt. Diese Einschränkung gilt unabhängig davon, ob Meta-Tags oder andere technische Maßnahmen zur Verhinderung solcher Aktivitäten vorhanden sind und selbst dann, wenn für Text- und Data-Mining verwendete Bots nicht explizit blockiert werden.",
     "legal.generator":
       "Erstellt mit dem kostenlosen Datenschutz-Generator.de von Dr. Thomas Schwenke",
-
     // Privacy Policy Subpage
     "privacy.title": "Datenschutzerklärung",
     "privacy.section1.title": "1. Datenschutz auf einen Blick",
@@ -353,8 +338,18 @@ window.translations = {
   },
 };
 
+/**
+ * The currently selected language code ('en' or 'de'), stored in localStorage.
+ * @global
+ * @type {string}
+ */
 window.currentLang = localStorage.getItem("portfolioLang") || "en";
 
+/**
+ * Applies the selected language to the entire page by updating text content,
+ * placeholders, and the HTML lang attribute.
+ * @param {string} lang - The language code ('en' or 'de').
+ */
 window.applyLanguage = function (lang) {
   const t = window.translations[lang];
   if (!t) return;
@@ -394,6 +389,10 @@ window.applyLanguage = function (lang) {
   }
 };
 
+/**
+ * Initializes the language toggle switch and applies the stored language.
+ * Listens to changes on the toggle and updates the language accordingly.
+ */
 function initLanguage() {
   const langToggle = document.getElementById("language-toggle");
   if (langToggle) {
@@ -413,6 +412,7 @@ function initLanguage() {
   window.applyLanguage(window.currentLang);
 }
 
+// Run initLanguage once the DOM is ready
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initLanguage);
 } else {

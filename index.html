@@ -21,17 +21,19 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/header-hero.css">
     <link rel="stylesheet" href="styles/aboutme-technologies.css">
-    <link rel="stylesheet" href="styles/portfolio-footer.css">
+    <link rel="stylesheet" href="styles/cards-burger-footer.css">
     <link rel="stylesheet" href="styles/testimonial-slider.css">
     <link rel="stylesheet" href="styles/contact.css">
     <link rel="stylesheet" href="styles/projects-dialog.css">
     <link rel="stylesheet" href="styles/responsive.css">
 
+    <script src="script/scroll-restore.js"></script>
     <script src="script/i18n.js" defer></script>
     <script src="script/projects-dialog.js" defer></script>
     <script src="script/testimonial-section.js" defer></script>
 
     <script src="script.js" defer></script>
+
 </head>
 
 <body id="main-site">
@@ -299,25 +301,25 @@
                 </div>
 
                 <div class="contact-form">
-                    <form id="contactForm" class="form-content" action="">
+                    <form id="contactForm" class="form-content">
 
                         <div class="name">
                             <label for="username" data-i18n="form.nameLabel">What is your name?</label>
-                            <input type="text" id="username" placeholder="Your name goes here"
+                            <input type="text" id="username" name="name" placeholder="Your name goes here"
                                 data-i18n-placeholder="form.namePlaceholder">
                             <div class="error-message" id="error-username"></div>
                         </div>
 
                         <div class="email">
                             <label for="useremail" data-i18n="form.emailLabel">What is Your email?</label>
-                            <input type="email" id="useremail" placeholder="youremail@email.com"
+                            <input type="email" id="useremail" name="email" placeholder="youremail@email.com"
                                 data-i18n-placeholder="form.emailPlaceholder">
                             <div class="error-message" id="error-email"></div>
                         </div>
 
                         <div class="textarea">
                             <label for="usertextarea" data-i18n="form.messageLabel">How can i help you?</label>
-                            <textarea id="usertextarea" placeholder="Hello Aliaqa, I am interested in..."
+                            <textarea id="usertextarea" name="message" placeholder="Hello Aliaqa, I am interested in..."
                                 data-i18n-placeholder="form.messagePlaceholder"></textarea>
                             <div class="error-message" id="error-textarea"></div>
                         </div>
@@ -387,7 +389,7 @@
         </div>
 
     </footer>
-
+    <!-- Dialog Container -->
     <div id="dialogs"></div>
 
 </body>

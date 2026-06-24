@@ -69,7 +69,6 @@ body.scroll-restore-pending {
   visibility: hidden !important;
 }
 
-/* Prevent browser scroll anchoring jumps when dynamic content is inserted */
 #testimonial-container,
 #technologies-container,
 .projects-container {

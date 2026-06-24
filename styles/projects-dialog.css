@@ -235,7 +235,6 @@ body:has(dialog[open]) {
     filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%) hue-rotate(118deg) brightness(95%) contrast(100%);
 }
 
-/* scrollbalekn X achse */
 .project-dialog {
     scrollbar-width: none;
     scrollbar-color: #3dcfb6 #1c1c1c;

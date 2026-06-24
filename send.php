@@ -1,7 +1,7 @@
 <?php
 
 // CORS headers (for Angular / frontend apps)
-header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: https://alizada-portfolio.de");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json; charset=utf-8");
@@ -12,7 +12,7 @@ header("Content-Type: application/json; charset=utf-8");
 // ------------------------------------------------------------
 
 // >>> DEINE EMAIL HIER EINTRAGEN <<<
-$siteEmail = "DEINE_EMAIL_HIER";
+$siteEmail = "alimhd276@gmail.com";
 
 switch ($_SERVER['REQUEST_METHOD']) {
 
