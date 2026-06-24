@@ -5,8 +5,10 @@ out/
 .vscode/
 
 .env
+
 dist/
 build/
+
 *.log
 .Ds_Store
 
