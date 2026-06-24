@@ -4,7 +4,7 @@ A modern, high-performance, and bilingual portfolio website designed to showcase
 
 The website features a clean, minimal dark theme, smooth micro-animations, a dynamic cursor shadow effect, and a modular asynchronous template loading architecture.
 
-[View Live Demo](https://alizada-portfolio.de/) | [Get in Touch](mailto:alimhd276@gmail.com) | [LinkedIn](https://www.linkedin.com/feed/)
+[View Live Demo](https://alizada-portfolio.de/) | [LinkedIn](https://www.linkedin.com/feed/)
 
 ---
 
@@ -90,6 +90,5 @@ To run the project locally, you must run it through a local web server:
 ## 📬 Contact
 
 *   **Developer:** Aliaqa Alizada
-*   **Email:** [alimhd276@gmail.com](mailto:alimhd276@gmail.com)
 *   **LinkedIn:** [Aliaqa Alizada](https://www.linkedin.com/feed/)
 *   **GitHub:** [Ali-Alizada](https://github.com/Ali-Alizada)
