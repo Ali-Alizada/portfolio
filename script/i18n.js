@@ -49,8 +49,8 @@ window.translations = {
       "Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.",
     "projects.elPolloDesc":
       "Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.",
-    "projects.bubbleDesc":
-      "This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization.",
+    "projects.pokedexDesc":
+      "Interactive Pokedex app based on PokeAPI. Browse, search and filter Pokemon with dynamic type-based designs, detailed stats, evolution chains and optimized loading with caching.",
     "projects.nextBtn": "Next project",
     // Testimonials
     "testimonials.heading": "What my colleagues say about me",
@@ -217,8 +217,8 @@ window.translations = {
       "Auf dem Kanban-System basierender Aufgabenmanager. Erstelle und organisiere Aufgaben per Drag-and-Drop und weise Benutzern sowie Kategorien zu.",
     "projects.elPolloDesc":
       "Jump-and-Run-Spiel auf Basis eines objektorientierten Ansatzes. Hilf Pepe dabei, Münzen und Tabasco-Sauce zu finden, um gegen das verrückte Huhn zu kämpfen.",
-    "projects.bubbleDesc":
-      "Diese App ist ein Slack-Klon. Sie revolutioniert die Teamkommunikation und Zusammenarbeit durch eine intuitive Benutzeroberfläche, Echtzeit-Nachrichten und eine strukturierte Kanalorganisation.",
+    "projects.pokedexDesc":
+      "Interaktive Pokedex-App basierend auf der PokeAPI. Durchsuche und filtere Pokemon mit dynamischem Typ-Design, detaillierten Werten, Entwicklungsstufen und optimiertem Laden durch Caching.",
     "projects.nextBtn": "Nächstes Projekt",
 
     "testimonials.heading": "Was meine Kollegen über mich sagen",
