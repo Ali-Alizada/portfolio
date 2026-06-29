@@ -4,7 +4,7 @@ A modern, high-performance, and bilingual portfolio website designed to showcase
 
 The website features a clean, minimal dark theme, smooth micro-animations, a dynamic cursor shadow effect, and a modular asynchronous template loading architecture.
 
-[View Live Demo](https://alizada-portfolio.de/) | [LinkedIn](https://www.linkedin.com/feed/)
+[View Live Demo](https://aliaqa-alizada.de/) | [LinkedIn](https://www.linkedin.com/feed/)
 
 ---
 
