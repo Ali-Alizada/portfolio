@@ -13,9 +13,9 @@
     <meta name="description"
         content="Frontend Developer portfolio of Aliaqa Alizada. Projects built with HTML, CSS, JavaScript, TypeScript, Angular and Firebase.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://alizada-portfolio.de/assets/imgs/preview.jpg">
+    <meta property="og:image" content="https://aliaqa-alizada.de/assets/imgs/preview.jpg">
     <!--  link später anpassen-->
-    <link rel="canonical" href="https://alizada-portfolio.de/">
+    <link rel="canonical" href="https://aliaqa-alizada.de/">
 
     <link rel="icon" type="image/svg+xml" href="assets/imgs/icons/favicon-32x32.svg">
     <link rel="stylesheet" href="style.css">
@@ -303,7 +303,7 @@
                 </div>
 
                 <div class="contact-form">
-                    <form id="contactForm" class="form-content">
+                    <form id="contactForm" class="form-content" novalidate>
 
                         <div class="name">
                             <label for="username" data-i18n="form.nameLabel">What is your name?</label>
@@ -314,8 +314,8 @@
 
                         <div class="email">
                             <label for="useremail" data-i18n="form.emailLabel">What is Your email?</label>
-                            <input type="email" id="useremail" name="email" placeholder="youremail@email.com"
-                                data-i18n-placeholder="form.emailPlaceholder">
+                            <input type="text" id="useremail" name="email" placeholder="youremail@email.com"
+                                inputmode="email" autocomplete="email" data-i18n-placeholder="form.emailPlaceholder">
                             <div class="error-message" id="error-email"></div>
                         </div>
 

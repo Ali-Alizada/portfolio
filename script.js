@@ -158,9 +158,19 @@ function resetField(fieldId, originalText) {
 function clearErrors(placeholders) {
   document.querySelectorAll('.error-message').forEach((e) => (e.textContent = ''));
   resetField('username', placeholders.username);
-  resetField('email', placeholders.email);
-  resetField('textarea', placeholders.textarea);
-  document.getElementById('error-policy').textContent = '';
+  resetField('useremail', placeholders.email);
+  resetField('usertextarea', placeholders.textarea);
+  const policyError = document.getElementById('error-policy');
+  if (policyError) policyError.textContent = '';
+}
+
+/**
+ * Counts characters that are not whitespace.
+ * @param {string} value - The input string.
+ * @returns {number} The amount of meaningful characters.
+ */
+function countRealCharacters(value) {
+  return String(value || '').replace(/\s/g, '').length;
 }
 
 /**
@@ -169,7 +179,7 @@ function clearErrors(placeholders) {
  * @returns {boolean} True if valid.
  */
 function isValidEmail(value) {
-  return /^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$/.test(value);
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
 }
 
 /**
@@ -180,9 +190,14 @@ function isValidEmail(value) {
  * @returns {boolean} True if valid.
  */
 function validateName(username, placeholders, translations) {
-  if (username.value.trim() === '') {
+  const value = username.value;
+  if (countRealCharacters(value) < 3) {
     username.placeholder = translations['error.nameRequired'] || 'Name erforderlich';
     username.classList.add('error-placeholder');
+    const errorEl = document.getElementById('error-username');
+    if (errorEl) {
+      errorEl.textContent = translations['error.nameRequired'] || 'Name erforderlich';
+    }
     return false;
   }
   return true;
@@ -196,13 +211,20 @@ function validateName(username, placeholders, translations) {
  * @returns {boolean} True if valid.
  */
 function validateEmailField(email, placeholders, translations) {
-  if (email.value.trim() === '') {
+  const value = email.value.trim();
+  if (value === '') {
     email.placeholder = translations['error.emailRequired'] || 'E‑Mail erforderlich';
     email.classList.add('error-placeholder');
+    const errorEl = document.getElementById('error-email');
+    if (errorEl) {
+      errorEl.textContent = translations['error.emailRequired'] || 'E‑Mail erforderlich';
+    }
     return false;
-  } else if (!isValidEmail(email.value.trim())) {
-    document.getElementById('error-email').textContent =
-      translations['error.emailInvalid'] || 'Ungültige E‑Mail';
+  } else if (!isValidEmail(value)) {
+    const errorEl = document.getElementById('error-email');
+    if (errorEl) {
+      errorEl.textContent = translations['error.emailInvalid'] || 'Ungültige E‑Mail';
+    }
     return false;
   }
   return true;
@@ -216,9 +238,13 @@ function validateEmailField(email, placeholders, translations) {
  * @returns {boolean} True if valid.
  */
 function validateMessage(textarea, placeholders, translations) {
-  if (textarea.value.trim() === '') {
+  if (countRealCharacters(textarea.value) < 5) {
     textarea.placeholder = translations['error.messageRequired'] || 'Nachricht erforderlich';
     textarea.classList.add('error-placeholder');
+    const errorEl = document.getElementById('error-textarea');
+    if (errorEl) {
+      errorEl.textContent = translations['error.messageRequired'] || 'Nachricht erforderlich';
+    }
     return false;
   }
   return true;
@@ -279,7 +305,21 @@ async function sendMessage(data) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
   });
-  return response.json();
+
+  const responseText = await response.text();
+  let result = {};
+
+  try {
+    result = responseText ? JSON.parse(responseText) : {};
+  } catch (error) {
+    result = { success: false, error: 'Invalid server response' };
+  }
+
+  if (!response.ok || !result.success) {
+    throw new Error(result.error || 'Server error');
+  }
+
+  return result;
 }
 
 /**
@@ -302,11 +342,10 @@ async function handleSubmit(e, elements, getPrivacyAccepted, resetForm) {
     if (result.success) {
       showSuccessOverlay();
       resetForm();
-    } else {
-      alert('Sending failed');
     }
-  } catch (_) {
-    alert('Server error');
+  } catch (error) {
+    console.error('Contact form submission failed:', error);
+    alert(error.message || 'Server error');
   }
 }
 
@@ -330,20 +369,39 @@ function initContactForm() {
   const placeholders = getOriginalPlaceholders(elements);
   let privacyAccepted = false;
 
-  // Input listeners to clear errors on typing
-  const inputListener = (fieldId, placeholderKey) => {
+  // Input listeners to clear errors only when the field becomes valid
+  const inputListener = (fieldId, placeholderKey, errorFieldId) => {
     const field = document.getElementById(fieldId);
-    if (field) {
-      field.addEventListener('input', () => {
-        field.placeholder = placeholders[placeholderKey];
-        removeErrorClass(field);
-        document.getElementById(`error-${fieldId}`).textContent = '';
-      });
-    }
+    if (!field) return;
+
+    field.addEventListener('input', () => {
+      const errorEl = document.getElementById(`error-${errorFieldId}`);
+      const value = field.value;
+
+      if (fieldId === 'username') {
+        if (countRealCharacters(value) >= 3) {
+          field.placeholder = placeholders[placeholderKey];
+          removeErrorClass(field);
+          if (errorEl) errorEl.textContent = '';
+        }
+      } else if (fieldId === 'useremail') {
+        if (isValidEmail(value)) {
+          field.placeholder = placeholders[placeholderKey];
+          removeErrorClass(field);
+          if (errorEl) errorEl.textContent = '';
+        }
+      } else if (fieldId === 'usertextarea') {
+        if (countRealCharacters(value) >= 5) {
+          field.placeholder = placeholders[placeholderKey];
+          removeErrorClass(field);
+          if (errorEl) errorEl.textContent = '';
+        }
+      }
+    });
   };
-  inputListener('username', 'username');
-  inputListener('email', 'email');
-  inputListener('textarea', 'textarea');
+  inputListener('username', 'username', 'username');
+  inputListener('useremail', 'email', 'email');
+  inputListener('usertextarea', 'textarea', 'textarea');
 
   // Checkbox toggle
   if (elements.checkbox) {

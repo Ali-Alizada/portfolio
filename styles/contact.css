@@ -257,6 +257,9 @@ textarea::placeholder {
   color: #b33;
   background: transparent;
   font-size: 17px;
+  display: block;
+  min-height: 1.3em;
+  margin-top: 8px;
 }
 
 .email-error-message {

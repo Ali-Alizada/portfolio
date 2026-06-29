@@ -1,18 +1,23 @@
 <?php
 
 // CORS headers (for Angular / frontend apps)
-header("Access-Control-Allow-Origin: https://alizada-portfolio.de");
+header("Access-Control-Allow-Origin: https://aliaqa-alizada.de");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json; charset=utf-8");
 
 // ------------------------------------------------------------
 // WICHTIG:
-// Deine eigene Adresse in Zeile 15 setzen!
+// Gmail akzeptiert keine unauthentifizierten Mails, die von einem fremden
+// Server als @gmail.com versendet werden. Deshalb muss der technische
+// Absender eine Mailadresse der Website-Domain sein.
 // ------------------------------------------------------------
 
-// >>> DEINE EMAIL HIER EINTRAGEN <<<
-$siteEmail = "alimhd276@gmail.com";
+// Hier sollen die Kontaktanfragen ankommen.
+$recipientEmail = "alimhd276@gmail.com";
+
+// Diese Adresse muss bei deinem Hoster existieren, z. B. als Postfach oder Alias.
+$senderEmail = "kontakt@aliaqa-alizada.de";
 
 switch ($_SERVER['REQUEST_METHOD']) {
 
@@ -33,12 +38,12 @@ switch ($_SERVER['REQUEST_METHOD']) {
             exit;
         }
 
-        $email = $params->email ?? '';
-        $name = $params->name ?? '';
-        $userMessage = $params->message ?? '';
+        $email = isset($params->email) ? trim($params->email) : '';
+        $name = isset($params->name) ? trim($params->name) : '';
+        $userMessage = isset($params->message) ? trim($params->message) : '';
 
         // Basic validation
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL) || empty($name) || empty($userMessage)) {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen(preg_replace('/\s+/', '', $name)) < 3 || strlen(preg_replace('/\s+/', '', $userMessage)) < 5) {
             http_response_code(400);
             echo json_encode(['success' => false, 'error' => 'Invalid input data']);
             exit;
@@ -49,8 +54,8 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $safeEmail = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
         $safeMessage = nl2br(htmlspecialchars($userMessage, ENT_QUOTES, 'UTF-8'));
 
-        // Empfängeradresse (nutzt die oben definierte Mail)
-        $recipient = $siteEmail; 
+        // Empfängeradresse und authentifizierter Domain-Absender
+        $recipient = $recipientEmail;
         $subject = 'Website Contact Form';
 
         $mailBody = "
@@ -61,12 +66,19 @@ switch ($_SERVER['REQUEST_METHOD']) {
         ";
 
         // Mail headers
+        $replyToEmail = str_replace(["\r", "\n"], '', $email);
         $headers = [];
         $headers[] = 'MIME-Version: 1.0';
         $headers[] = 'Content-type: text/html; charset=utf-8';
-        $headers[] = 'From: Website Kontakt <' . $siteEmail . '>'; 
-        $headers[] = 'Reply-To: ' . $email;
-        $headers[] = 'Return-Path: ' . $siteEmail; 
+        $headers[] = 'From: Website Kontakt <' . $senderEmail . '>';
+        $headers[] = 'Reply-To: ' . $replyToEmail;
+        $headers[] = 'Return-Path: ' . $senderEmail;
+
+        if (!function_exists('mail')) {
+            http_response_code(500);
+            echo json_encode(['success' => false, 'error' => 'Mail function is not available']);
+            exit;
+        }
 
         // Send mail
         $success = mail(
@@ -74,7 +86,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
             $subject,
             $mailBody,
             implode("\r\n", $headers),
-            '-f ' . $siteEmail 
+            '-f ' . escapeshellarg($senderEmail)
         );
 
         if ($success) {
