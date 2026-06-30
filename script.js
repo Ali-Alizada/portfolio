@@ -117,51 +117,16 @@ function getFormElements() {
   return { email, username, textarea, form, checkbox, submitBtn };
 }
 
-/**
- * Returns the original placeholder texts for the form fields.
- * @param {Object} elements - The form elements object.
- * @returns {Object} Placeholder texts.
- */
-function getOriginalPlaceholders(elements) {
-  return {
-    username: elements.username ? elements.username.placeholder : '',
-    email: elements.email ? elements.email.placeholder : '',
-    textarea: elements.textarea ? elements.textarea.placeholder : '',
-  };
-}
 
 /**
  * Removes the error-placeholder class from an element.
  * @param {HTMLElement} el - The element to clean.
  */
-function removeErrorClass(el) {
-  if (el) el.classList.remove('error-placeholder');
-}
-
 /**
- * Resets a specific field's placeholder to its original text.
- * @param {string} fieldId - The ID of the field.
- * @param {string} originalText - The original placeholder text.
+ * Clears all error messages.
  */
-function resetField(fieldId, originalText) {
-  const field = document.getElementById(fieldId);
-  if (field) {
-    field.placeholder = originalText;
-    removeErrorClass(field);
-  }
-}
-
-/**
- * Clears all error messages and resets placeholders.
- * @param {Object} placeholders - The original placeholder texts.
- */
-function clearErrors(placeholders) {
+function clearErrors() {
   document.querySelectorAll('.error-message').forEach((e) => (e.textContent = ''));
-  resetField('username', placeholders.username);
-  resetField('useremail', placeholders.email);
-  resetField('usertextarea', placeholders.textarea);
-  const policyError = document.getElementById('error-policy');
-  if (policyError) policyError.textContent = '';
 }
 
 /**
@@ -183,49 +148,43 @@ function isValidEmail(value) {
 }
 
 /**
- * Validates the username field, sets an error placeholder if empty.
+ * Validates the username field and sets an error message if invalid.
  * @param {HTMLElement} username - The username input element.
- * @param {Object} placeholders - Original placeholder texts.
  * @param {Object} translations - Translation object.
  * @returns {boolean} True if valid.
  */
-function validateName(username, placeholders, translations) {
+function validateName(username, translations) {
   const value = username.value;
-  if (countRealCharacters(value) < 3) {
-    username.placeholder = translations['error.nameRequired'] || 'Name erforderlich';
-    username.classList.add('error-placeholder');
-    const errorEl = document.getElementById('error-username');
-    if (errorEl) {
-      errorEl.textContent = translations['error.nameRequired'] || 'Name erforderlich';
-    }
-    return false;
+  const isValid = countRealCharacters(value) >= 3;
+  const errorEl = document.getElementById('error-username');
+  if (errorEl) {
+    errorEl.textContent = isValid ? '' : (translations['error.nameRequired'] || 'Name erforderlich');
   }
-  return true;
+  return isValid;
 }
 
 /**
  * Validates the email field, checks format and emptiness.
  * @param {HTMLElement} email - The email input element.
- * @param {Object} placeholders - Original placeholder texts.
  * @param {Object} translations - Translation object.
  * @returns {boolean} True if valid.
  */
-function validateEmailField(email, placeholders, translations) {
+function validateEmailField(email, translations) {
   const value = email.value.trim();
+  const errorEl = document.getElementById('error-email');
   if (value === '') {
-    email.placeholder = translations['error.emailRequired'] || 'E‑Mail erforderlich';
-    email.classList.add('error-placeholder');
-    const errorEl = document.getElementById('error-email');
     if (errorEl) {
       errorEl.textContent = translations['error.emailRequired'] || 'E‑Mail erforderlich';
     }
     return false;
   } else if (!isValidEmail(value)) {
-    const errorEl = document.getElementById('error-email');
     if (errorEl) {
       errorEl.textContent = translations['error.emailInvalid'] || 'Ungültige E‑Mail';
     }
     return false;
+  }
+  if (errorEl) {
+    errorEl.textContent = '';
   }
   return true;
 }
@@ -233,21 +192,17 @@ function validateEmailField(email, placeholders, translations) {
 /**
  * Validates the message textarea, ensures it is not empty.
  * @param {HTMLElement} textarea - The textarea element.
- * @param {Object} placeholders - Original placeholder texts.
  * @param {Object} translations - Translation object.
  * @returns {boolean} True if valid.
  */
-function validateMessage(textarea, placeholders, translations) {
-  if (countRealCharacters(textarea.value) < 5) {
-    textarea.placeholder = translations['error.messageRequired'] || 'Nachricht erforderlich';
-    textarea.classList.add('error-placeholder');
-    const errorEl = document.getElementById('error-textarea');
-    if (errorEl) {
-      errorEl.textContent = translations['error.messageRequired'] || 'Nachricht erforderlich';
-    }
-    return false;
+function validateMessage(textarea, translations) {
+  const value = textarea.value;
+  const isValid = countRealCharacters(value) >= 5;
+  const errorEl = document.getElementById('error-textarea');
+  if (errorEl) {
+    errorEl.textContent = isValid ? '' : (translations['error.messageRequired'] || 'Nachricht erforderlich');
   }
-  return true;
+  return isValid;
 }
 
 /**
@@ -258,8 +213,11 @@ function validateMessage(textarea, placeholders, translations) {
  */
 function validatePolicy(privacyAccepted, translations) {
   if (!privacyAccepted) {
-    document.getElementById('error-policy').textContent =
-      translations['error.policyRequired'] || 'Bitte akzeptieren Sie die Datenschutzbestimmungen.';
+    const errorEl = document.getElementById('error-policy');
+    if (errorEl) {
+      errorEl.textContent =
+        translations['error.policyRequired'] || 'Bitte akzeptieren Sie die Datenschutzbestimmungen.';
+    }
     return false;
   }
   return true;
@@ -269,16 +227,14 @@ function validatePolicy(privacyAccepted, translations) {
  * Performs full form validation and displays error messages.
  * @param {Object} elements - Form elements.
  * @param {boolean} privacyAccepted - Privacy checkbox state.
- * @param {Object} placeholders - Original placeholders.
  * @returns {boolean} True if the form is valid.
  */
-function validateForm(elements, privacyAccepted, placeholders) {
-  clearErrors(placeholders);
+function validateForm(elements, privacyAccepted) {
   const t = window.translations?.[window.currentLang] || {};
   let valid = true;
-  if (!validateName(elements.username, placeholders, t)) valid = false;
-  if (!validateEmailField(elements.email, placeholders, t)) valid = false;
-  if (!validateMessage(elements.textarea, placeholders, t)) valid = false;
+  if (!validateName(elements.username, t)) valid = false;
+  if (!validateEmailField(elements.email, t)) valid = false;
+  if (!validateMessage(elements.textarea, t)) valid = false;
   if (!validatePolicy(privacyAccepted, t)) valid = false;
   return valid;
 }
@@ -331,7 +287,7 @@ async function sendMessage(data) {
  */
 async function handleSubmit(e, elements, getPrivacyAccepted, resetForm) {
   e.preventDefault();
-  if (!validateForm(elements, getPrivacyAccepted(), getOriginalPlaceholders(elements))) return;
+  if (!validateForm(elements, getPrivacyAccepted())) return;
   const data = {
     name: elements.username.value,
     email: elements.email.value,
@@ -366,42 +322,42 @@ function updateMarqueeLabels() {
 function initContactForm() {
   const elements = getFormElements();
   if (!elements.form) return;
-  const placeholders = getOriginalPlaceholders(elements);
   let privacyAccepted = false;
 
-  // Input listeners to clear errors only when the field becomes valid
-  const inputListener = (fieldId, placeholderKey, errorFieldId) => {
-    const field = document.getElementById(fieldId);
+  const getTranslations = () => window.translations?.[window.currentLang] || {};
+
+  // Setup validation events for each field
+  const setupFieldValidation = (field, validateFn, errorElId) => {
     if (!field) return;
+    const errorEl = document.getElementById(errorElId);
 
+    // On blur: validate and show error if invalid
+    field.addEventListener('blur', () => {
+      validateFn(field, getTranslations());
+    });
+
+    // On input: if valid, clear error
     field.addEventListener('input', () => {
-      const errorEl = document.getElementById(`error-${errorFieldId}`);
       const value = field.value;
+      let isValid = false;
 
-      if (fieldId === 'username') {
-        if (countRealCharacters(value) >= 3) {
-          field.placeholder = placeholders[placeholderKey];
-          removeErrorClass(field);
-          if (errorEl) errorEl.textContent = '';
-        }
-      } else if (fieldId === 'useremail') {
-        if (isValidEmail(value)) {
-          field.placeholder = placeholders[placeholderKey];
-          removeErrorClass(field);
-          if (errorEl) errorEl.textContent = '';
-        }
-      } else if (fieldId === 'usertextarea') {
-        if (countRealCharacters(value) >= 5) {
-          field.placeholder = placeholders[placeholderKey];
-          removeErrorClass(field);
-          if (errorEl) errorEl.textContent = '';
-        }
+      if (field.id === 'username') {
+        isValid = countRealCharacters(value) >= 3;
+      } else if (field.id === 'useremail') {
+        isValid = isValidEmail(value);
+      } else if (field.id === 'usertextarea') {
+        isValid = countRealCharacters(value) >= 5;
+      }
+
+      if (isValid && errorEl) {
+        errorEl.textContent = '';
       }
     });
   };
-  inputListener('username', 'username', 'username');
-  inputListener('useremail', 'email', 'email');
-  inputListener('usertextarea', 'textarea', 'textarea');
+
+  setupFieldValidation(elements.username, validateName, 'error-username');
+  setupFieldValidation(elements.email, validateEmailField, 'error-email');
+  setupFieldValidation(elements.textarea, validateMessage, 'error-textarea');
 
   // Checkbox toggle
   if (elements.checkbox) {
@@ -421,6 +377,7 @@ function initContactForm() {
     if (elements.checkbox) {
       elements.checkbox.src = 'assets/imgs/icons/checkbox-unchecked.svg';
     }
+    clearErrors();
   };
   elements.form.addEventListener('submit', (e) => {
     handleSubmit(e, elements, () => privacyAccepted, resetForm);

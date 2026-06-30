@@ -76,7 +76,7 @@ div .title {
   background: none;
   border: none;
   outline: none;
-  padding-bottom: 40px;
+  padding-bottom: 10px;
 }
 
 #useremail {
@@ -90,7 +90,6 @@ div .title {
   background: none;
   border: none;
   outline: none;
-  padding-bottom: 30px;
   overflow-y: hidden;
   /* resize: none; */
 }
@@ -258,8 +257,9 @@ textarea::placeholder {
   background: transparent;
   font-size: 17px;
   display: block;
-  min-height: 1.3em;
-  margin-top: 8px;
+  min-height: 2.5em;
+  margin-top: 5px;
+  padding-bottom: 20px;
 }
 
 .email-error-message {
@@ -271,6 +271,7 @@ textarea::placeholder {
 
 .privacy-policy .error-message {
   padding-top: 16px;
+  margin: 0 0 24px 0;
 }
 
 .overlay {
@@ -303,7 +304,7 @@ textarea::placeholder {
 
 @media (max-width: 1240px) {
   .privacy-policy .error-message {
-    margin: 12px 0;
+    margin: 0 0 12px 0;
   }
 }
 
@@ -358,15 +359,24 @@ textarea::placeholder {
     font-size: 16px;
   }
 
+  .form-content .error-message {
+    font-size: 16px;
+  }
+
   .privacy-policy div {
     padding-top: 76px;
     hyphens: auto;
     overflow-wrap: break-word;
   }
+
+  .privacy-policy p {
+    font-size: 16px;
+  }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 370px) {
   .privacy-policy .error-message {
-    margin: 40px 0 24px 0;
+    margin: 14px 0 40px 0;
+    word-break: break-all;
   }
 }

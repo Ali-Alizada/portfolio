@@ -110,6 +110,26 @@
   font-size: 20px;
 }
 
+.testimonial-footer .refrence-name {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.testimonial-footer .refrence-name::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #3dcfb6;
+  transition: width 0.4s ease;
+}
+
+.testimonial-footer .refrence-name:hover::after {
+  width: 100%;
+}
 .slider-btn-left,
 .slider-btn-right {
   display: flex;
@@ -133,12 +153,14 @@
 
 .slider-btn-right:hover img {
   transform: translateX(5px) scale(1.1);
-  filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%) hue-rotate(118deg) brightness(140%) contrast(100%);
+  filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%)
+    hue-rotate(118deg) brightness(140%) contrast(100%);
 }
 
 .slider-btn-left:hover img {
   transform: translateX(-5px) scale(1.1);
-  filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%) hue-rotate(118deg) brightness(140%) contrast(100%);
+  filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%)
+    hue-rotate(118deg) brightness(140%) contrast(100%);
 }
 
 .slider-dots {

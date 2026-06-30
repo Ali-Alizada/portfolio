@@ -84,8 +84,8 @@ window.translations = {
     "form.submit": "Say Hello :)",
     "form.successMsg": "Message sent successfully!",
     // Validation errors
-    "error.nameRequired": "Oops! It seems your name is missing.",
-    "error.emailRequired": "Hoppla! Your email is required.",
+    "error.nameRequired": "Oops! It seems your name is missing!",
+    "error.emailRequired": "Your email is required.",
     "error.emailInvalid": "Please enter a valid email address.",
     "error.messageRequired": "What do you need to develop?",
     "error.policyRequired": "Please accept the privacy policy.",
@@ -254,7 +254,7 @@ window.translations = {
     "form.successMsg": "Nachricht erfolgreich gesendet!",
 
     "error.nameRequired": "Ups! Dein Name fehlt noch.",
-    "error.emailRequired": "Ups! Deine E-Mail-Adresse ist erforderlich.",
+    "error.emailRequired": "Hoppla! Deine E-Mail-Adresse ist erforderlich.",
     "error.emailInvalid": "Bitte gib eine gültige E-Mail-Adresse ein.",
     "error.messageRequired": "Was möchtest du entwickeln lassen?",
     "error.policyRequired": "Bitte akzeptiere die Datenschutzerklärung.",
@@ -401,14 +401,12 @@ function initLanguage() {
     } else {
       langToggle.checked = false;
     }
-
     langToggle.addEventListener("change", () => {
       window.currentLang = langToggle.checked ? "de" : "en";
       localStorage.setItem("portfolioLang", window.currentLang);
       window.applyLanguage(window.currentLang);
     });
   }
-
   window.applyLanguage(window.currentLang);
 }
 
