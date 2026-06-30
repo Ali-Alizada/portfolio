@@ -22,7 +22,7 @@ body {
   width: 100%;
   min-height: 100vh;
   background-color: #1c1c1c;
-  font-family: 'karla', sans-serif, Verdana, Geneva, Tahoma;
+  font-family: 'karla', sans-serif, Verdana;
   overflow-x: hidden;
 }
 
