@@ -59,7 +59,7 @@ window.translations = {
     "testimonials.card2":
       "Working with Aliaqa on the JOIN project was a very positive experience. He was a reliable and engaged team member who actively contributed to Scrum teamwork and took responsibility for his tasks. His helpfulness, communication skills, and problem-solving mindset made him a valuable part of the team.",
     "testimonials.card3":
-      "Working with Aliaqa on projects at Developer Akademie was a great experience. He is hardworking, learns new things quickly, and stays motivated throughout the process. I highly recommend him because his strong work ethic, adaptability, and teamwork truly stand out. Aliaqa’s commitment and integrity are qualities I genuinely respect and appreciate.",
+      "Working with Aliaqa at Developer Akademie was a great experience. He is hardworking, learns quickly, and stays motivated throughout every project. His strong work ethic, adaptability, and teamwork make him a valuable and reliable colleague.",
     "testimonials.card4":
       "It was a pleasure working with Aliaqa. He demonstrated analytical thinking, reliability, and a positive attitude, always striving to deliver high-quality results. I would gladly collaborate with him again in the future.",
     // Contact section
@@ -227,7 +227,7 @@ window.translations = {
     "testimonials.card2":
       "Die Zusammenarbeit mit Aliaqa im JOIN-Projekt war sehr positiv. Er war ein zuverlässiges und engagiertes Teammitglied, das sich aktiv in die Scrum-Arbeit eingebracht und Verantwortung für seine Aufgaben übernommen hat. Seine Hilfsbereitschaft, Kommunikation und Lösungsorientierung machten ihn zu einem wertvollen Teil des Teams.",
     "testimonials.card3":
-      "Die Zusammenarbeit mit Aliaqa an Projekten bei der Developer Akademie war eine großartige Erfahrung. Er ist sehr fleißig, lernt neue Dinge schnell und bleibt während des gesamten Prozesses motiviert. Ich empfehle ihn sehr, da seine starke Arbeitsmoral, Anpassungsfähigkeit und Teamfähigkeit besonders hervorstechen. Aliaqas Engagement und seine Integrität sind Eigenschaften, die ich wirklich respektiere und schätze.",
+      "Die Zusammenarbeit mit Aliaqa an der Developer Akademie war eine großartige Erfahrung. Er arbeitet engagiert, lernt schnell und bleibt während jedes Projekts motiviert. Seine starke Arbeitsmoral, Anpassungsfähigkeit und Teamfähigkeit machen ihn zu einem wertvollen und zuverlässigen Kollegen.",
     "testimonials.card4":
       "Es war eine Freude, mit Aliaqa zusammenzuarbeiten. Er zeigte analytisches Denken, Zuverlässigkeit und eine positive Einstellung und strebte stets danach, hochwertige Ergebnisse zu liefern. Ich würde jederzeit wieder mit ihm zusammenarbeiten.",
 

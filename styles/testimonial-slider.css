@@ -77,7 +77,7 @@
 }
 
 .testimonial-text {
-  font-size: 18px;
+  font-size: 24px;
   line-height: 1.6;
   color: white;
   margin-bottom: 50px;
@@ -274,7 +274,7 @@
   }
 
   .testimonial-text {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .quote-mark img {
@@ -315,6 +315,27 @@
   }
 }
 
+
+@media (max-width: 768px) {
+  .comments-header h3 {
+    font-size: 34px;
+  }
+
+  .testimonial-card {
+    padding: 40px 24px;
+  }
+
+  .testimonial-text {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .testimonial-text {
+    font-size: 18px;
+  }
+}
+
 @media (max-width: 665px) {
   .testimonial-viewport {
     max-width: 300px;
@@ -335,72 +356,6 @@
   .quote-mark {
     left: -30px;
     top: -10px;
-  }
-}
-
-@media (max-width: 550px) {
-  .testimonial-viewport {
-    max-width: 250px;
-  }
-
-  .testimonial-card {
-    padding: 40px;
-  }
-
-  .testimonial-text {
-    font-size: 16px;
-  }
-
-  .quote-mark img {
-    width: 60px;
-  }
-
-  .quote-mark {
-    left: -30px;
-    top: -10px;
-  }
-}
-
-@media (max-width: 430px) {
-  .testimonial-viewport {
-    max-width: 200px;
-  }
-
-  .testimonial-card {
-    padding: 30px;
-  }
-
-  .testimonial-text {
-    font-size: 16px;
-  }
-
-  .quote-mark img {
-    width: 60px;
-  }
-
-  .quote-mark {
-    left: -30px;
-    top: -10px;
-  }
-}
-
-@media (max-width: 768px) {
-  .comments-header h3 {
-    font-size: 34px;
-  }
-
-  .testimonial-card {
-    padding: 40px 24px;
-  }
-
-  .testimonial-text {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 600px) {
-  .testimonial-text {
-    font-size: 18px;
   }
 }
 
@@ -426,9 +381,37 @@
 }
 
 @media (max-width: 430px) {
+  .testimonial-viewport {
+    max-width: 248px;
+  }
+
+  .testimonial-slider {
+    gap: 0;
+  }
+
+  .testimonial-text {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  .quote-mark img {
+    width: 60px;
+  }
+
+  .quote-mark {
+    left: -30px;
+    top: -10px;
+  }
+}
+
+@media (max-width: 430px) {
   .comments-header h3 {
     font-size: 24px;
   }
+
+  .testimonial-card {
+        padding: 24px 14px;
+    }
 
   .quote-mark img {
     width: 60px;
