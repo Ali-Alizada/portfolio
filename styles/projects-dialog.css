@@ -9,7 +9,6 @@
     background: linear-gradient(90deg, #1c1c1c 0%, #0b3d36 100%);
     color: white;
     overflow: auto;
-    border: none;
     will-change: transform, opacity;
     animation: dialogClose 0.3s ease forwards;
 }

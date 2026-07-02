@@ -323,6 +323,19 @@ input.check-toggle-round-flat:checked+label:after {
     height: 280px;
     background-color: #3dcfb6;
     border-radius: 999px;
+    position: relative;
+}
+
+.vertical-line::after {
+    content: "";
+    position: absolute;
+    bottom: 38px;
+    left: -2px;
+    width: 6px;
+    height: 55px;
+    background: #08463b;
+    filter: blur(2px);
+    pointer-events: none;
 }
 
 .hero-side-right {
@@ -340,6 +353,26 @@ input.check-toggle-round-flat:checked+label:after {
     width: 1px;
     height: 310px;
     background-color: white;
+    border-radius: 999px;
+    position: relative;
+}
+
+.vertical-line-right::after {
+    content: "";
+    position: absolute;
+    bottom: 112px;
+    left: -2px;
+    width: 6px;
+    height: 55px;
+    background: white;
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+.project-vertical-line {
+    width: 1px;
+    height: 20px;
+    background-color: #3dcfb6;
     border-radius: 999px;
 }
 
@@ -510,5 +543,99 @@ input.check-toggle-round-flat:checked+label:after {
 
     to {
         transform: translateX(-70%);
+    }
+}
+
+@media (max-width: 1420px) {
+    .vertical-line::after {
+        bottom: 40px;
+    }
+
+    .vertical-line-right::after {
+        bottom: 110px;
+    }
+}
+
+@media (max-width: 1370px) {
+    .vertical-line::after {
+        bottom: 44px;
+    }
+
+    .vertical-line-right::after {
+        bottom: 106px;
+    }
+}
+
+@media (max-width: 1220px) {
+    .vertical-line::after {
+        bottom: 48px;
+    }
+
+    .vertical-line-right::after {
+        bottom: 100px;
+    }
+}
+
+@media (max-width: 970px) {
+    .vertical-line::after {
+        bottom: 11px;
+    }
+
+    .vertical-line-right::after {
+        bottom: 65px;
+    }
+}
+
+@media (max-width: 850px) {
+    .vertical-line::after {
+        bottom: 15px;
+    }
+
+    .vertical-line-right::after {
+        bottom: 60px;
+    }
+}
+
+@media (max-width: 750px) {
+    .vertical-line::after {
+        bottom: 20px;
+    }
+
+    .vertical-line-right::after {
+        bottom: 55px;
+    }
+}
+
+@media (max-width: 550px) {
+    .vertical-line::after {
+        bottom: 26px;
+    }
+
+    .vertical-line-right::after {
+        bottom: 50px;
+    }
+}
+
+@media (max-width: 430px) {
+    .vertical-line::after {
+        bottom: 26px;
+        height: 40px;
+    }
+
+    .vertical-line-right::after {
+        bottom: 45px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 360px) {
+    .vertical-line::after {
+        bottom: 31px;
+        height: 36px;
+    }
+
+    .vertical-line-right::after {
+        bottom: 47px;
+        height: 36px;
     }
 }

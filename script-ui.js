@@ -135,7 +135,7 @@ function scrollToFragment() {
   const hash = window.location.hash;
   if (!hash || hash === '') return false;
   
-  const fragmentId = hash.substring(1); // Remove '#'
+  const fragmentId = hash.substring(1);
   const target = document.getElementById(fragmentId);
   
   if (!target) {

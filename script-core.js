@@ -126,7 +126,7 @@ function countRealCharacters(value) {
  * @returns {boolean} True if valid.
  */
 function isValidEmail(value) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+  return /^(?!.*\.\.)[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
 }
 
 /**

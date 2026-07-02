@@ -110,8 +110,10 @@ main {
     width: 100vw;
     transform: translateX(-50%) rotate(-3.5deg);
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.12);
+    /* background-color: rgba(255, 255, 255, 0.12); */
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 14px 0;
+    z-index: 10;
 }
 
 .banner-track {
@@ -119,9 +121,9 @@ main {
     align-items: center;
     gap: 60px;
     min-width: max-content;
-    padding-left: 50vw;
-    animation: bannerMove 20s linear infinite;
+    animation: bannerMove 30s linear infinite;
     background: transparent;
+    will-change: transform;
 }
 
 .banner-track span {
@@ -140,11 +142,11 @@ main {
 
 @keyframes bannerMove {
     from {
-        transform: translateX(0);
+        transform: translate3d(0, 0, 0);
     }
 
     to {
-        transform: translateX(-50%);
+        transform: translate3d(-50%, 0, 0);
     }
 }
 

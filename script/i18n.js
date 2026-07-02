@@ -97,7 +97,7 @@ window.translations = {
     "legal.contactInfo": "Contact Information",
     "legal.socialMedia": "Social Media and Online Profiles",
     "legal.socialMediaDesc":
-      "This legal notice also applies to the following social media profiles and online presences: <br> Linkedin <br> Xing ...",
+      "This legal notice also applies to the following social media profiles and online presences: <br> LinkedIn <br> Xing.",
     "legal.designAttr": "Design Attribution",
     "legal.designAttrDesc":
       'The design concept of this portfolio project was originally provided by <a href="https://developerakademie.com/" target="_blank" rel="noopener">Developer Akademie GmbH</a> as part of a learning project. The implementation, development, customization, and adaptation of the portfolio website were carried out independently by <span>Aliaqa Alizada</span>.',
@@ -135,8 +135,8 @@ window.translations = {
     "privacy.section2.p1":
       "This website is hosted by an external service provider. Personal data collected on this website may be stored on the host provider's servers. This may include IP addresses, contact requests, communication data, contact details, and website access data. Hosting is carried out to ensure the secure, fast, and reliable provision of this website.",
     "privacy.section2.h4": "Hosting Provider",
-    "privacy.section2.p2":
-      "[Insert your hosting provider's name and address here]",
+
+
     "privacy.section3.title": "3. Information About the Responsible Party",
     "privacy.section3.p1":
       "The responsible party for data processing on this website is:",
@@ -266,7 +266,7 @@ window.translations = {
     "legal.contactInfo": "Kontakt",
     "legal.socialMedia": "Social Media und Online-Profile",
     "legal.socialMediaDesc":
-      "Dieses Impressum gilt auch für die folgenden Social-Media-Profile und Online-Präsenzen: <br> Linkedin <br> Xing ...",
+      "Dieses Impressum gilt auch für die folgenden Social-Media-Profile und Online-Präsenzen: <br> LinkedIn <br> Xing.",
     "legal.designAttr": "Design-Attribution",
     "legal.designAttrDesc":
       'Das Designkonzept dieses Portfolio-Projekts wurde ursprünglich von der <a href="https://developerakademie.com/" target="_blank" rel="noopener">Developer Akademie GmbH</a> im Rahmen eines Lernprojekts zur Verfügung gestellt. Die Umsetzung, Entwicklung, Anpassung und Adaption der Portfolio-Website wurden eigenständig von <span>Aliaqa Alizada</span> durchgeführt.',
@@ -304,8 +304,10 @@ window.translations = {
     "privacy.section2.p1":
       "Diese Website wird extern gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Dies können z. B. IP-Adressen, Kontaktanfragen, Kommunikationsdaten, Kontaktdaten und Webseitenzugriffe sein. Das Hosting erfolgt zum Zwecke einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots.",
     "privacy.section2.h4": "Hosting-Anbieter",
-    "privacy.section2.p2":
-      "[Name und Anschrift des Hosting-Anbieters hier eintragen]",
+    
+
+
+
     "privacy.section3.title": "3. Allgemeine Hinweise und Pflichtinformationen",
     "privacy.section3.p1":
       "Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:",
