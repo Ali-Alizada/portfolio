@@ -13,6 +13,10 @@
     let isInitialized = false;
     let resizeListenerAttached = false;
     let testimonialContainer = null;
+    let touchStartX = 0;
+    let touchDeltaX = 0;
+    let touchActive = false;
+    const touchThreshold = 70;
 
     /**
      * Waits for all images inside the viewport to finish loading.
@@ -94,14 +98,23 @@
     }
 
     /**
+     * Moves the slider to the next or previous card.
+     * @param {number} direction - The direction to move: 1 for next, -1 for previous.
+     */
+    function navigateSlider(direction) {
+        currentIndex += direction;
+        if (currentIndex >= cards.length) currentIndex = 0;
+        if (currentIndex < 0) currentIndex = cards.length - 1;
+        updateSlider();
+    }
+
+    /**
      * Handles the click on the "next" button.
      * @param {Event} e - The click event.
      */
     function handleNextClick(e) {
         e.preventDefault();
-        currentIndex++;
-        if (currentIndex >= cards.length) currentIndex = 0;
-        updateSlider();
+        navigateSlider(1);
     }
 
     /**
@@ -110,9 +123,7 @@
      */
     function handlePrevClick(e) {
         e.preventDefault();
-        currentIndex--;
-        if (currentIndex < 0) currentIndex = cards.length - 1;
-        updateSlider();
+        navigateSlider(-1);
     }
 
     /**
@@ -129,7 +140,59 @@
     }
 
     /**
-     * Binds all event listeners (click delegation on the container and window resize).
+     * Applies the current drag offset while the user is swiping.
+     * @param {number} deltaX - The horizontal drag distance.
+     */
+    function applySwipeOffset(deltaX) {
+        if (!slider) return;
+        slider.style.transition = 'none';
+        const baseX = computeTargetX(currentIndex);
+        slider.style.transform = `translateX(-${baseX + deltaX}px)`;
+    }
+
+    /**
+     * Starts a touch swipe interaction.
+     * @param {TouchEvent} e - The touch start event.
+     */
+    function handleTouchStart(e) {
+        if (!window.matchMedia('(hover: none) and (pointer: coarse)').matches && !('ontouchstart' in window)) return;
+        if (!slider || e.touches.length !== 1) return;
+        touchStartX = e.touches[0].clientX;
+        touchDeltaX = 0;
+        touchActive = true;
+    }
+
+    /**
+     * Tracks the current horizontal distance while swiping.
+     * @param {TouchEvent} e - The touch move event.
+     */
+    function handleTouchMove(e) {
+        if (!touchActive || !slider || e.touches.length !== 1) return;
+        touchDeltaX = e.touches[0].clientX - touchStartX;
+        if (Math.abs(touchDeltaX) > 8) {
+            e.preventDefault();
+            applySwipeOffset(touchDeltaX);
+        }
+    }
+
+    /**
+     * Completes the swipe and navigates to the next or previous card when the threshold is reached.
+     * @param {TouchEvent} e - The touch end event.
+     */
+    function handleTouchEnd(e) {
+        if (!touchActive) return;
+        if (Math.abs(touchDeltaX) > touchThreshold) {
+            if (touchDeltaX < 0) navigateSlider(1);
+            else navigateSlider(-1);
+        } else {
+            updateSlider();
+        }
+        touchActive = false;
+        touchDeltaX = 0;
+    }
+
+    /**
+     * Binds all event listeners (click delegation on the container, swipe gestures, and window resize).
      */
     function bindEvents() {
         if (!testimonialContainer || resizeListenerAttached) return;
@@ -138,6 +201,12 @@
             else if (e.target.closest('.prev')) handlePrevClick(e);
             else handleDotClick(e);
         });
+        if (viewport && (window.matchMedia('(hover: none) and (pointer: coarse)').matches || 'ontouchstart' in window)) {
+            viewport.addEventListener('touchstart', handleTouchStart, { passive: false });
+            viewport.addEventListener('touchmove', handleTouchMove, { passive: false });
+            viewport.addEventListener('touchend', handleTouchEnd);
+            viewport.addEventListener('touchcancel', handleTouchEnd);
+        }
         window.addEventListener('resize', () => {
             if (isInitialized) updateSlider();
         });
