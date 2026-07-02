@@ -136,7 +136,6 @@ window.translations = {
       "This website is hosted by an external service provider. Personal data collected on this website may be stored on the host provider's servers. This may include IP addresses, contact requests, communication data, contact details, and website access data. Hosting is carried out to ensure the secure, fast, and reliable provision of this website.",
     "privacy.section2.h4": "Hosting Provider",
 
-
     "privacy.section3.title": "3. Information About the Responsible Party",
     "privacy.section3.p1":
       "The responsible party for data processing on this website is:",
@@ -304,9 +303,6 @@ window.translations = {
     "privacy.section2.p1":
       "Diese Website wird extern gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Dies können z. B. IP-Adressen, Kontaktanfragen, Kommunikationsdaten, Kontaktdaten und Webseitenzugriffe sein. Das Hosting erfolgt zum Zwecke einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots.",
     "privacy.section2.h4": "Hosting-Anbieter",
-    
-
-
 
     "privacy.section3.title": "3. Allgemeine Hinweise und Pflichtinformationen",
     "privacy.section3.p1":

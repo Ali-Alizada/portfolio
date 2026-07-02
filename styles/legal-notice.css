@@ -43,13 +43,14 @@ body {
   display: none;
 }
 
-.logo-container-legal{
+.logo-container-legal {
   text-decoration: none;
 }
 
 .arrow-left img:hover {
   transform: translateX(-5px) scale(1.1);
-  filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%) hue-rotate(118deg) brightness(140%) contrast(100%);
+  filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%)
+    hue-rotate(118deg) brightness(140%) contrast(100%);
 }
 
 .main-container h2 {

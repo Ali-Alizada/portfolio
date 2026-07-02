@@ -317,7 +317,6 @@
   }
 }
 
-
 @media (max-width: 768px) {
   .comments-header h3 {
     font-size: 34px;
@@ -412,8 +411,8 @@
   }
 
   .testimonial-card {
-        padding: 24px 14px;
-    }
+    padding: 24px 14px;
+  }
 
   .quote-mark img {
     width: 60px;

@@ -297,8 +297,8 @@ body:has(dialog[open]) {
     }
 
     .tech-icons {
-    margin-bottom: 36px;
-}
+        margin-bottom: 36px;
+    }
 
     .next-project {
         position: static;
@@ -308,6 +308,7 @@ body:has(dialog[open]) {
         margin-right: 0;
         width: fit-content;
     }
+
     .next-project img {
         width: 45px;
         height: 45px;
@@ -397,6 +398,6 @@ body:has(dialog[open]) {
     }
 
     .tech-icons {
-    margin-bottom: 36px;
-}
+        margin-bottom: 36px;
+    }
 }
