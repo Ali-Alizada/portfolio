@@ -126,6 +126,28 @@ function smoothScrollTo(target, duration = 1600) {
   createScrollAnimation(start, end, duration);
 }
 
+/**
+ * Scrolls instantly to the element specified by the current URL fragment.
+ * Used when navigating from external pages (e.g., legal-notice.html) with a fragment.
+ * @returns {boolean} True if a fragment element was found and scrolled to, false otherwise.
+ */
+function scrollToFragment() {
+  const hash = window.location.hash;
+  if (!hash || hash === '') return false;
+  
+  const fragmentId = hash.substring(1); // Remove '#'
+  const target = document.getElementById(fragmentId);
+  
+  if (!target) {
+    console.warn(`Fragment-Element #${fragmentId} nicht gefunden`);
+    return false;
+  }
+  
+  // Scroll instantly to fragment (browser's default behavior)
+  window.scrollTo(0, target.getBoundingClientRect().top + window.scrollY);
+  return true;
+}
+
 // Intercept anchor clicks for smooth scrolling
 document.addEventListener('click', function (e) {
   const link = e.target.closest('a[href^="#"]');
@@ -197,12 +219,21 @@ function prepareScrollRestore() {
 }
 
 /**
- * Finalizes loading: restores scroll position, clears storage, and processes deferred hidden elements.
+ * Finalizes loading: scrolls to fragment if present, otherwise restores scroll position,
+ * clears storage, and processes deferred hidden elements.
  * @param {Object} savedPos - The saved scroll position.
  * @param {Object} prevScrollRest - The previous scrollRestoration setting.
  */
 function finalizeAfterLoad(savedPos, prevScrollRest) {
-  restoreScrollPosition(savedPos);
+  // Prioritize fragment navigation over saved scroll position
+  const hasFragment = window.location.hash && window.location.hash !== '';
+  const fragmentScrolled = hasFragment ? scrollToFragment() : false;
+  
+  if (!fragmentScrolled) {
+    // Only restore saved position if no fragment was present or found
+    restoreScrollPosition(savedPos);
+  }
+  
   clearSavedScrollPosition();
   if (window.__scrollRestorePending) {
     window.__scrollRestorePending = false;

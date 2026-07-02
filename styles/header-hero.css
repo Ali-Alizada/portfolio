@@ -191,7 +191,6 @@ input.check-toggle-round-flat:checked+label:after {
 .logo-container {
     display: flex;
     gap: 6px;
-    cursor: pointer;
     text-decoration: none;
     position: relative;
     font-family: "karla";

@@ -34,6 +34,10 @@ body {
   font-family: "karla";
 }
 
+.logo-container-privacy{
+  text-decoration: none;
+}
+
 .arrow-left img {
   position: absolute;
   top: 15px;

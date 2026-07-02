@@ -29,17 +29,6 @@
   }
 
   /**
-   * Setzt die Scroll-Wiederherstellung des Browsers auf 'manual', um Konflikte mit der eigenen
-   * Logik zur Wiederherstellung der Scroll-Position zu vermeiden.
-   * @returns {void}
-   */
-  function setupScrollRestoration() {
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
-    }
-  }
-
-  /**
    * Setzt globale Flags (`__scrollRestorePending` und `__savedScrollPos`), um den
    * Wiederherstellungsstatus für andere Skripte oder Erweiterungen sichtbar zu machen.
    * @param {object} pos - Das zu speichernde Position-Objekt mit `x` und `y`.
@@ -51,8 +40,7 @@
   }
 
   /**
-   * Fügt die Klasse 'scroll-restore-pending' zum `<html>`-Element hinzu, um einen globalen
-   * CSS-Selektor für den Wiederherstellungsstatus bereitzustellen.
+   * Fügt die Klasse 'scroll-restore-pending' zum `<html>`-Element hinzu.
    * @returns {void}
    */
   function addPendingClassToDocument() {
@@ -61,8 +49,6 @@
 
   /**
    * Fügt die Klasse 'scroll-restore-pending' zum `<body>`-Element hinzu.
-   * Falls der Body beim Aufruf noch nicht existiert, wird dies beim `DOMContentLoaded`-Ereignis
-   * nachgeholt, um eine fehlende Element-Referenz zu verhindern.
    * @returns {void}
    */
   function addPendingClassToBody() {
@@ -77,7 +63,7 @@
 
   /**
    * Führt den tatsächlichen Scroll-Vorgang zu den übergebenen Koordinaten durch.
-   * @param {object} pos - Objekt mit den Ziel-Scrollkoordinaten (`x` für horizontal, `y` für vertikal).
+   * @param {object} pos - Objekt mit den Ziel-Scrollkoordinaten.
    * @returns {void}
    */
   function performScroll(pos) {
@@ -86,31 +72,32 @@
 
   /**
    * Steuert den gesamten Wiederherstellungsprozess.
-   * 1. Holt die gespeicherte Position aus dem sessionStorage.
-   * 2. Validiert das Positions-Objekt.
-   * 3. Stellt die Scroll-Wiederherstellung auf 'manual' um.
-   * 4. Setzt die globalen Status-Flags.
-   * 5. Fügt die Wiederherstellungs-Klassen zu `<html>` und `<body>` hinzu.
-   * 6. Scrollt an die gespeicherte Position.
-   * Fehler während des Prozesses werden still ignoriert (wie im Original).
+   * Wird NICHT bei Fragment-Navigation aufgerufen (script-ui.js handhabt das).
    * @returns {void}
    */
   function restoreScrollPosition() {
     try {
+      // Nur Scroll-Position wiederherstellen, wenn KEIN Fragment in der URL ist
+      // Bei Fragment-Navigation wird script-ui.js das handhaben
+      if (window.location.hash && window.location.hash !== '') {
+        setPendingFlags(null);
+        addPendingClassToDocument();
+        addPendingClassToBody();
+        return;
+      }
+
       const pos = getSavedPosition();
       if (!pos) return;
       if (!isValidPosition(pos)) return;
 
-      setupScrollRestoration();
       setPendingFlags(pos);
       addPendingClassToDocument();
       addPendingClassToBody();
       performScroll(pos);
     } catch (err) {
-      // Fehler beim Wiederherstellen werden ignoriert (wie im Original)
+      // Fehler werden ignoriert
     }
   }
 
-  // Selbstausführender Aufruf der Hauptsteuerungsfunktion
   restoreScrollPosition();
 })();

@@ -14,7 +14,7 @@ window.translations = {
     "banner.open": "Open to work",
     "banner.remote": "Available for remote work",
     // About Me
-    "about.label": "who i am",
+    "about.label": "Who I Am",
     "about.heading": "About me",
     "about.description":
       "Hey there, I'm Aliaqa! Frontend Developer with a passion for creating intuitive and engaging digital experiences. I enjoy transforming ideas into interactive applications and finding creative ways to solve real-world problems. What inspires me most is the opportunity to continuously grow, take on new challenges, and turn concepts into meaningful solutions that people can use and enjoy.",
@@ -37,7 +37,7 @@ window.translations = {
     "skills.otherSkillSpan": " a specific skill or technology?",
     "skills.contact":
       "Feel free to contact me. I am always excited to take on new challenges, expand my expertise, and continue developing both professionally and personally.",
-    "skills.btnTalk": "let's Talk",
+    "skills.btnTalk": "Let's Talk",
     "skills.growthHover": "I have a special interest in learning",
     // Projects
     "projects.label": "Portfolio",
@@ -182,7 +182,7 @@ window.translations = {
     "banner.open": "Offen für neue Möglichkeiten",
     "banner.remote": "Verfügbar für Remote-Arbeit",
 
-    "about.label": "wer ich bin",
+    "about.label": "Wer ich bin",
     "about.heading": "Über mich",
     "about.description":
       "Hallo, ich bin Aliaqa! Frontend-Entwickler mit einer Leidenschaft für die Entwicklung intuitiver und ansprechender digitaler Erlebnisse. Ich liebe es, Ideen in interaktive Anwendungen zu verwandeln und kreative Lösungen für reale Probleme zu finden. Besonders motiviert mich die Möglichkeit, mich kontinuierlich weiterzuentwickeln, neue Herausforderungen anzunehmen und Konzepte in sinnvolle Lösungen umzusetzen, die Menschen nutzen und genießen können.",
