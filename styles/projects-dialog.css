@@ -1,403 +1,405 @@
 .project-dialog {
-    width: calc(100% - 192px);
-    max-width: 1440px;
-    min-height: 80dvh;
-    margin: auto;
-    padding: 96px;
-    border: 1px solid #3dcfb6;
-    border-radius: 32px;
-    background: linear-gradient(90deg, #1c1c1c 0%, #0b3d36 100%);
-    color: white;
-    overflow: auto;
-    will-change: transform, opacity;
-    animation: dialogClose 0.3s ease forwards;
+  width: calc(100% - 192px);
+  max-width: 1440px;
+  min-height: 80dvh;
+  margin: auto;
+  padding: 96px;
+  border: 1px solid #3dcfb6;
+  border-radius: 32px;
+  background: linear-gradient(90deg, #1c1c1c 0%, #0b3d36 100%);
+  color: white;
+  overflow: auto;
+  will-change: transform, opacity;
+  animation: dialogClose 0.3s ease forwards;
 }
 
 .project-dialog[open] {
-    animation: dialogOpen 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: dialogOpen 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 body:has(dialog[open]) {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .project-dialog.closing {
-    animation: dialogClose 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: dialogClose 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .project-dialog::backdrop {
-    background: rgba(0, 0, 0, 0);
-    backdrop-filter: blur(0);
-    animation: backdropFade 0.4s ease forwards;
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0);
+  animation: backdropFade 0.4s ease forwards;
 }
 
 @keyframes backdropFade {
-    to {
-        background: rgba(0, 0, 0, 0.75);
-        backdrop-filter: blur(10px);
-    }
+  to {
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+  }
 }
 
 @keyframes dialogOpen {
-    from {
-        opacity: 0;
-        transform: translateY(80px) scale(0.9);
-        filter: blur(12px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(80px) scale(0.9);
+    filter: blur(12px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
 }
 
 @keyframes dialogClose {
-    from {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0);
-    }
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
 
-    to {
-        opacity: 0;
-        transform: translateY(40px) scale(0.95);
-        filter: blur(10px);
-    }
+  to {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    filter: blur(10px);
+  }
 }
 
 .dialog-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 80px;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  width: 100%;
+  height: 100%;
 }
 
 .dialog-left {
-    flex: 1;
-    max-width: 50%;
+  flex: 1;
+  max-width: 50%;
 }
 
 .dialog-left h2 {
-    font-size: 180px;
-    line-height: 1;
-    color: #3dcfb6;
-    margin-bottom: 16px;
-    font-family: "Karla";
+  font-size: 180px;
+  line-height: 1;
+  color: #3dcfb6;
+  margin-bottom: 16px;
+  font-family: "Karla";
 }
 
 .dialog-name {
-    font-size: 92px;
-    font-weight: 700;
-    font-family: "Fira Code";
-    margin-bottom: 48px;
+  font-size: 92px;
+  font-weight: 700;
+  font-family: "Fira Code";
+  margin-bottom: 48px;
 }
 
 .dialog-title {
-    font-size: 42px;
-    font-weight: 700;
-    color: #3dcfb6;
-    margin-bottom: 32px;
+  font-size: 42px;
+  font-weight: 700;
+  color: #3dcfb6;
+  margin-bottom: 32px;
 }
 
 .dialog-description {
-    font-size: 24px;
-    line-height: 1.6;
-    max-width: 700px;
-    margin-bottom: 48px;
+  font-size: 24px;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-bottom: 48px;
 }
 
 .tech-icons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 28px;
-    margin-bottom: 56px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-bottom: 56px;
 }
 
 .tech-icons div {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .tech-icons img {
-    width: 28px;
-    height: 28px;
+  width: 28px;
+  height: 28px;
 }
 
 .tech-icons span {
-    font-size: 22px;
+  font-size: 22px;
 }
 
 .dialog-buttons {
-    display: flex;
-    gap: 24px;
+  display: flex;
+  gap: 24px;
 }
 
 .dialog-buttons a {
-    padding: 12px 22px;
-    border: 1px solid white;
-    border-radius: 999px;
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-    transition: 0.3s ease;
+  padding: 12px 22px;
+  border: 1px solid white;
+  border-radius: 999px;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  transition: 0.3s ease;
 }
 
 .dialog-buttons a:hover {
-    border-color: #3dcfb6;
-    color: #3dcfb6;
+  border-color: #3dcfb6;
+  color: #3dcfb6;
 }
 
 .dialog-right {
-    flex: 1;
-    max-width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .dialog-right img {
-    width: 100%;
-    border-radius: 26px;
-    display: block;
-    object-fit: contain;
-    image-rendering: auto;
-    backface-visibility: hidden;
+  width: 100%;
+  border-radius: 26px;
+  display: block;
+  object-fit: contain;
+  image-rendering: auto;
+  backface-visibility: hidden;
 }
 
 .close-dialog {
-    position: absolute;
-    top: 86px;
-    right: 80px;
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 42px;
-    cursor: pointer;
+  position: absolute;
+  top: 86px;
+  right: 80px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 42px;
+  cursor: pointer;
 }
 
 .next-project {
-    position: absolute;
-    right: 88px;
-    bottom: 88px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    border: none;
-    color: #3dcfb6;
-    font-size: 26px;
-    cursor: pointer;
-    gap: 12px;
+  position: absolute;
+  right: 88px;
+  bottom: 88px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  color: #3dcfb6;
+  font-size: 26px;
+  cursor: pointer;
+  gap: 12px;
 }
 
 .next-project img {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
 .next-project:hover {
-    color: white;
+  color: white;
 }
 
 .close-dialog img,
 .next-project img,
 .dialog-buttons a img,
 .arrow-icon img {
-    transition:
-        transform 0.3s ease,
-        filter 0.3s ease,
-        opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .close-dialog:hover img {
-    transform: translateX(5px) rotate(90deg) scale(1.1);
-    filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%) hue-rotate(118deg) brightness(140%) contrast(100%);
+  transform: translateX(5px) rotate(90deg) scale(1.1);
+  filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%)
+    hue-rotate(118deg) brightness(140%) contrast(100%);
 }
 
 .next-project:hover img {
-    transform: translateX(5px) scale(1.1);
-    filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%) hue-rotate(118deg) brightness(140%) contrast(100%);
+  transform: translateX(5px) scale(1.1);
+  filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%)
+    hue-rotate(118deg) brightness(140%) contrast(100%);
 }
 
 .dialog-buttons a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .dialog-buttons a:hover img {
-    transform: translateX(5px) scale(1.1);
-    filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%) hue-rotate(118deg) brightness(95%) contrast(100%);
+  transform: translateX(5px) scale(1.1);
+  filter: brightness(0) saturate(100%) invert(73%) sepia(29%) saturate(614%)
+    hue-rotate(118deg) brightness(95%) contrast(100%);
 }
 
 .project-dialog {
-    scrollbar-width: none;
-    scrollbar-color: #3dcfb6 #1c1c1c;
+  scrollbar-width: none;
+  scrollbar-color: #3dcfb6 #1c1c1c;
 }
 
 @media (max-width: 1165px) {
-    .project-card {
-        padding: 0;
-    }
+  .project-card {
+    padding: 0;
+  }
 
-    .close-dialog {
-        top: 30px;
-        right: 36px;
-    }
+  .close-dialog {
+    top: 30px;
+    right: 36px;
+  }
 
-    .project-dialog {
-        padding: 48px 50px;
-    }
+  .project-dialog {
+    padding: 48px 50px;
+  }
 
-    .dialog-right img {
-        max-width: auto;
-    }
+  .dialog-right img {
+    max-width: auto;
+  }
 
-    .dialog-wrapper {
-        flex-direction: column-reverse;
-        gap: 0;
-        align-items: unset;
-    }
+  .dialog-wrapper {
+    flex-direction: column-reverse;
+    gap: 0;
+    align-items: unset;
+  }
 
-    .dialog-right {
-        max-width: 100%;
-        padding-top: 50px;
-    }
+  .dialog-right {
+    max-width: 100%;
+    padding-top: 50px;
+  }
 
-    .dialog-left {
-        max-width: 100%;
-        padding-top: 50px;
-    }
+  .dialog-left {
+    max-width: 100%;
+    padding-top: 50px;
+  }
 
-    .dialog-left h2 {
-        font-size: 100px;
-    }
+  .dialog-left h2 {
+    font-size: 100px;
+  }
 
-    .dialog-name {
-        font-size: 64px;
-        line-height: 1;
-    }
+  .dialog-name {
+    font-size: 64px;
+    line-height: 1;
+  }
 
-    .dialog-title {
-        font-size: 30px;
-        margin-bottom: 22px;
-    }
+  .dialog-title {
+    font-size: 30px;
+    margin-bottom: 22px;
+  }
 
-    .dialog-description {
-        font-size: 18px;
-        margin-bottom: 34px;
-    }
+  .dialog-description {
+    font-size: 18px;
+    margin-bottom: 34px;
+  }
 
-    .dialog-buttons {
-        flex-wrap: wrap;
-    }
+  .dialog-buttons {
+    flex-wrap: wrap;
+  }
 
-    .tech-icons {
-        margin-bottom: 36px;
-    }
+  .tech-icons {
+    margin-bottom: 36px;
+  }
 
-    .next-project {
-        position: static;
-        margin-top: 36px;
-        font-size: 22px;
-        margin-left: auto;
-        margin-right: 0;
-        width: fit-content;
-    }
+  .next-project {
+    position: static;
+    margin-top: 36px;
+    font-size: 22px;
+    margin-left: auto;
+    margin-right: 0;
+    width: fit-content;
+  }
 
-    .next-project img {
-        width: 45px;
-        height: 45px;
-    }
+  .next-project img {
+    width: 45px;
+    height: 45px;
+  }
 }
 
 @media (max-width: 768px) {
-    .project-dialog {
-        width: calc(100% - 42px);
-    }
+  .project-dialog {
+    width: calc(100% - 42px);
+  }
 
-    .next-project {
-        font-size: 20px;
-    }
+  .next-project {
+    font-size: 20px;
+  }
 
-    .next-project img {
-        width: 40px;
-        height: 40px;
-    }
+  .next-project img {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 @media (max-width: 480px) {
-    .project-dialog {
-        width: calc(100% - 20px);
-        padding: 28px 16px;
-    }
+  .project-dialog {
+    width: calc(100% - 20px);
+    padding: 28px 16px;
+  }
 
-    .close-dialog {
-        top: 20px;
-        right: 20px;
-    }
+  .close-dialog {
+    top: 20px;
+    right: 20px;
+  }
 
+  .dialog-left {
+    max-width: 100%;
+    padding-top: 30px;
+  }
 
-    .dialog-left {
-        max-width: 100%;
-        padding-top: 30px;
-    }
+  .dialog-left h2 {
+    font-size: 100px;
+    font-size: 72px;
+    margin-bottom: 0px;
+  }
 
-    .dialog-left h2 {
-        font-size: 100px;
-        font-size: 72px;
-        margin-bottom: 0px;
-    }
+  .dialog-name {
+    font-size: 56px;
+    margin-bottom: 16px;
+    line-height: 1;
+  }
 
-    .dialog-name {
-        font-size: 56px;
-        margin-bottom: 16px;
-        line-height: 1;
-    }
+  .dialog-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
 
-    .dialog-title {
-        font-size: 28px;
-        font-weight: 600;
-        margin-bottom: 14px;
-    }
-
-    .dialog-description {
-        font-size: 18px;
-    }
+  .dialog-description {
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 374px) {
-    .dialog-buttons {
-        font-size: 16px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 12px;
-    }
+  .dialog-buttons {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
 
-    .dialog-buttons a {
-        gap: 4px;
-        padding: 8px 12px;
-    }
+  .dialog-buttons a {
+    gap: 4px;
+    padding: 8px 12px;
+  }
 
-    .next-project {
-        font-size: 18px;
-    }
+  .next-project {
+    font-size: 18px;
+  }
 
-    .next-project img {
-        width: 38px;
-        height: 38px;
-    }
+  .next-project img {
+    width: 38px;
+    height: 38px;
+  }
 
-    .next-project {
-        margin-top: 36px;
-    }
+  .next-project {
+    margin-top: 36px;
+  }
 
-    .tech-icons {
-        margin-bottom: 36px;
-    }
+  .tech-icons {
+    margin-bottom: 36px;
+  }
 }

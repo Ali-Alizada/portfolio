@@ -609,11 +609,13 @@ input.check-toggle-round-flat:checked + label:after {
 
 @media (max-width: 550px) {
   .vertical-line::after {
-    bottom: 26px;
+    bottom: 24px;
+    height: 40px;
   }
 
   .vertical-line-right::after {
-    bottom: 50px;
+    bottom: 52px;
+    height: 36px;
   }
 }
 
@@ -624,8 +626,8 @@ input.check-toggle-round-flat:checked + label:after {
   }
 
   .vertical-line-right::after {
-    bottom: 45px;
-    height: 40px;
+    bottom: 49px;
+    height: 36px;
   }
 }
 

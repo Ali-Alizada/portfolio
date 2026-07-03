@@ -1,5 +1,5 @@
 .comments {
-  padding-block: 120px;
+  padding-top: 100px;
   overflow: hidden;
 }
 
@@ -220,6 +220,12 @@
   .quote-mark {
     left: -30px;
     top: -10px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .comments {
+    padding-top: 74px;
   }
 }
 
