@@ -226,6 +226,24 @@
 @media (max-width: 1100px) {
   .comments {
     padding-top: 74px;
+    padding-inline: 0;
+    margin-inline: -20px;
+  }
+
+  .testimonial-slider {
+    gap: 10px;
+  }
+
+  .testimonial-card {
+    padding: 28px;
+  }
+
+  .testimonial-text {
+    margin-bottom: 24px;
+  }
+
+  .testimonial-text {
+    font-size: 18px;
   }
 }
 
@@ -233,15 +251,6 @@
   .testimonial-viewport {
     max-width: 496px;
   }
-
-  .testimonial-card {
-    padding: 40px;
-  }
-
-  .testimonial-text {
-    font-size: 22px;
-  }
-
   .testimonial-footer {
     gap: 10px;
     flex-direction: column;
@@ -273,16 +282,15 @@
 }
 
 @media (max-width: 920px) {
+  .comments-header h3 {
+    padding-inline: 20px;
+  }
   .testimonial-viewport {
     max-width: 396px;
   }
 
   .testimonial-card {
-    padding: 40px;
-  }
-
-  .testimonial-text {
-    font-size: 20px;
+    padding: 26px;
   }
 
   .quote-mark img {
@@ -329,7 +337,7 @@
   }
 
   .testimonial-card {
-    padding: 40px 24px;
+    padding: 24px 20px;
   }
 
   .testimonial-text {
@@ -346,10 +354,6 @@
 @media (max-width: 665px) {
   .testimonial-viewport {
     max-width: 300px;
-  }
-
-  .testimonial-card {
-    padding: 40px;
   }
 
   .testimonial-text {
@@ -369,7 +373,6 @@
 @media (max-width: 480px) {
   .testimonial-text {
     font-size: 16px;
-    margin-bottom: 30px;
   }
 
   .slider-dots {
@@ -389,7 +392,7 @@
 
 @media (max-width: 430px) {
   .testimonial-viewport {
-    max-width: 248px;
+    max-width: 275px;
   }
 
   .testimonial-slider {
