@@ -114,7 +114,7 @@ function getFormElements() {
   const email = document.getElementById("useremail");
   const username = document.getElementById("username");
   const textarea = document.getElementById("usertextarea");
-  const form = document.getElementById("contactForm");
+  const form = document.querySelector("#contactForm form");
   const checkbox = document.getElementById("checkbox");
   const submitBtn = document.querySelector(".button button");
   return { email, username, textarea, form, checkbox, submitBtn };
