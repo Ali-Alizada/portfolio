@@ -1,28 +1,44 @@
-(function () {
-  "use strict";
+"use strict";
 
-  let slider = null;
-  let cards = [];
-  let nextBtn = null;
-  let prevBtn = null;
-  let dots = [];
-  let viewport = null;
+let slider = null;
+let cards = [];
+let nextBtn = null;
+let prevBtn = null;
+let dots = [];
+let viewport = null;
 
-  let currentIndex = 1;
-  let slideDistance = 0;
-  let isInitialized = false;
-  let resizeListenerAttached = false;
-  let testimonialContainer = null;
-  let touchStartX = 0;
-  let touchDeltaX = 0;
-  let touchActive = false;
-  const touchThreshold = 70;
+let currentIndex = 1;
+let slideDistance = 0;
+let isInitialized = false;
+let resizeListenerAttached = false;
+let testimonialContainer = null;
+let touchStartX = 0;
+let touchDeltaX = 0;
+let touchActive = false;
+const touchThreshold = 70;
 
-  /**
-   * Waits for all images inside the viewport to finish loading.
-   * @returns {Promise<void>} A promise that resolves when all images are loaded or fail.
-   */
-  function waitForViewportImages() {
+/**
+ * Auto-initializes the testimonial slider once the DOM is ready.
+ */
+function initializeSlider() {
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+    if (document.querySelector(".testimonial-slider") && !isInitialized) {
+      init();
+    }
+  } else {
+    window.addEventListener("DOMContentLoaded", () => {
+      if (document.querySelector(".testimonial-slider") && !isInitialized) {
+        init();
+      }
+    });
+  }
+}
+
+/**
+ * Waits for all images inside the viewport to finish loading.
+ * @returns {Promise<void>} Resolves when all images are either loaded or failed.
+ */
+function waitForViewportImages() {
     if (!viewport) return Promise.resolve();
     const imgs = Array.from(viewport.querySelectorAll("img"));
     if (!imgs.length) return Promise.resolve();
@@ -37,29 +53,27 @@
   }
 
   /**
-   * Calculates the slide distance based on the viewport width and a fixed gap.
+   * Recalculates the slide distance based on the viewport width and a fixed gap.
    */
   function updateSlideDistance() {
     if (!viewport) return;
     const viewportWidth = viewport.getBoundingClientRect().width;
-    const gap = 22;
-    slideDistance = viewportWidth + gap;
+    slideDistance = viewportWidth + 22;
   }
 
   /**
-   * Computes the target X translation offset for a given card index.
+   * Computes the absolute translateX offset for a given card index.
    * @param {number} index - The index of the target card.
    * @returns {number} The translateX value in pixels.
    */
   function computeTargetX(index) {
-    const card = cards[index];
-    return card ? card.offsetLeft : index * slideDistance;
+    return cards[index] ? cards[index].offsetLeft : index * slideDistance;
   }
 
   /**
-   * Applies the CSS transform to the slider, optionally disabling the transition.
+   * Applies the transform to the slider, optionally disabling the CSS transition.
    * @param {number} x - The translateX value.
-   * @param {boolean} noTransition - Whether to remove the CSS transition temporarily.
+   * @param {boolean} noTransition - If true, removes the transition temporarily.
    */
   function applySliderTransform(x, noTransition) {
     if (noTransition) slider.style.transition = "none";
@@ -74,7 +88,7 @@
   }
 
   /**
-   * Updates the active classes on dots and cards based on the current index.
+   * Updates the active CSS classes on dots and cards to reflect the current index.
    * @param {number} index - The index to set as active.
    */
   function updateActiveStates(index) {
@@ -85,8 +99,8 @@
   }
 
   /**
-   * Orchestrates the full slider update: recalculates distance, applies transform,
-   * and updates active states.
+   * Orchestrates a full slider update: recalculates distance, applies the transform,
+   * and updates the active states.
    */
   function updateSlider() {
     if (!slider || !cards.length || !dots.length) return;
@@ -98,8 +112,8 @@
   }
 
   /**
-   * Moves the slider to the next or previous card.
-   * @param {number} direction - The direction to move: 1 for next, -1 for previous.
+   * Moves the slider to the next or previous card (with loop).
+   * @param {number} direction - 1 for next, -1 for previous.
    */
   function navigateSlider(direction) {
     currentIndex += direction;
@@ -127,7 +141,7 @@
   }
 
   /**
-   * Handles the click on a dot indicator.
+   * Handles the click on a dot indicator, jumping to the corresponding slide.
    * @param {Event} e - The click event.
    */
   function handleDotClick(e) {
@@ -140,7 +154,7 @@
   }
 
   /**
-   * Applies the current drag offset while the user is swiping.
+   * Applies the current drag offset while the user is swiping, disabling the transition.
    * @param {number} deltaX - The horizontal drag distance.
    */
   function applySwipeOffset(deltaX) {
@@ -151,15 +165,11 @@
   }
 
   /**
-   * Starts a touch swipe interaction.
+   * Starts a touch swipe interaction by storing the initial touch position.
    * @param {TouchEvent} e - The touch start event.
    */
   function handleTouchStart(e) {
-    if (
-      !window.matchMedia("(hover: none) and (pointer: coarse)").matches &&
-      !("ontouchstart" in window)
-    )
-      return;
+    if (!window.matchMedia("(hover: none) and (pointer: coarse)").matches && !("ontouchstart" in window)) return;
     if (!slider || e.touches.length !== 1) return;
     touchStartX = e.touches[0].clientX;
     touchDeltaX = 0;
@@ -167,7 +177,7 @@
   }
 
   /**
-   * Tracks the current horizontal distance while swiping.
+   * Tracks the horizontal movement during a swipe and updates the slider offset.
    * @param {TouchEvent} e - The touch move event.
    */
   function handleTouchMove(e) {
@@ -180,7 +190,7 @@
   }
 
   /**
-   * Completes the swipe and navigates to the next or previous card when the threshold is reached.
+   * Completes the swipe and navigates to the next/previous slide if the threshold is exceeded.
    * @param {TouchEvent} e - The touch end event.
    */
   function handleTouchEnd(e) {
@@ -196,38 +206,62 @@
   }
 
   /**
-   * Binds all event listeners (click delegation on the container, swipe gestures, and window resize).
+   * Checks whether the device supports touch events.
+   * @returns {boolean} True if touch is supported.
+   */
+  function isTouchSupported() {
+    return window.matchMedia("(hover: none) and (pointer: coarse)").matches || "ontouchstart" in window;
+  }
+
+  /**
+   * Centralised click handler for the testimonial container (delegation).
+   * Handles clicks on .next, .prev and .dot elements.
+   * @param {Event} e - The click event.
+   */
+  function handleContainerClick(e) {
+    const btn = e.target.closest(".next, .prev, .dot");
+    if (!btn) return;
+    e.preventDefault();
+    if (btn.matches(".next")) navigateSlider(1);
+    else if (btn.matches(".prev")) navigateSlider(-1);
+    else {
+      const idx = Array.from(dots).indexOf(btn);
+      if (idx >= 0) { currentIndex = idx; updateSlider(); }
+    }
+  }
+
+  /**
+   * Adds touch event listeners to the viewport if touch is supported.
+   */
+  function setupTouchEvents() {
+    if (!viewport) return;
+    viewport.addEventListener("touchstart", handleTouchStart, { passive: false });
+    viewport.addEventListener("touchmove", handleTouchMove, { passive: false });
+    viewport.addEventListener("touchend", handleTouchEnd);
+    viewport.addEventListener("touchcancel", handleTouchEnd);
+  }
+
+  /**
+   * Handles window resize events by updating the slider if it is initialized.
+   */
+  function handleResize() {
+    if (isInitialized) updateSlider();
+  }
+
+  /**
+   * Binds all event listeners (click delegation, touch events, and window resize).
    */
   function bindEvents() {
     if (!testimonialContainer || resizeListenerAttached) return;
-    testimonialContainer.addEventListener("click", function (e) {
-      if (e.target.closest(".next")) handleNextClick(e);
-      else if (e.target.closest(".prev")) handlePrevClick(e);
-      else handleDotClick(e);
-    });
-    if (
-      viewport &&
-      (window.matchMedia("(hover: none) and (pointer: coarse)").matches ||
-        "ontouchstart" in window)
-    ) {
-      viewport.addEventListener("touchstart", handleTouchStart, {
-        passive: false,
-      });
-      viewport.addEventListener("touchmove", handleTouchMove, {
-        passive: false,
-      });
-      viewport.addEventListener("touchend", handleTouchEnd);
-      viewport.addEventListener("touchcancel", handleTouchEnd);
-    }
-    window.addEventListener("resize", () => {
-      if (isInitialized) updateSlider();
-    });
+    testimonialContainer.addEventListener("click", handleContainerClick);
+    if (viewport && isTouchSupported()) setupTouchEvents();
+    window.addEventListener("resize", handleResize);
     resizeListenerAttached = true;
   }
 
   /**
    * Queries and caches all required DOM elements.
-   * @returns {boolean} True if all essential elements were found, otherwise false.
+   * @returns {boolean} True if all essential elements are found, otherwise false.
    */
   function getElements() {
     slider = document.querySelector(".testimonial-slider");
@@ -236,17 +270,34 @@
     prevBtn = document.querySelector(".prev");
     dots = document.querySelectorAll(".dot");
     viewport = document.querySelector(".testimonial-viewport");
-    testimonialContainer =
-      document.getElementById("testimonial-container") ||
-      document.querySelector(".comments") ||
-      slider;
+    testimonialContainer = document.getElementById("testimonial-container") || document.querySelector(".comments") || slider;
     return slider && cards.length && dots.length && testimonialContainer;
   }
 
   /**
-   * Initializes the testimonial slider. Waits for images, sets the initial slide,
-   * binds events, and triggers the first repositioning.
-   * @returns {Promise<void>} A promise that resolves after initialization.
+   * Bounds check and set the initial slider index.
+   */
+  function setInitialIndex() {
+    if (currentIndex >= cards.length) currentIndex = cards.length - 1;
+    if (currentIndex < 0) currentIndex = 0;
+  }
+
+  /**
+   * Finalizes the slider setup, positions it, and attaches event listeners.
+   */
+  function finalizeInitialization() {
+    updateSlider();
+    if (!isInitialized) {
+      bindEvents();
+      isInitialized = true;
+    }
+    setTimeout(updateSlider, 300);
+  }
+
+  /**
+   * Initialises the testimonial slider: waits for images, sets initial slide,
+   * binds events and triggers the first positioning.
+   * @returns {Promise<void>} Resolves when initialisation is complete.
    */
   async function init() {
     const prevSlider = slider;
@@ -256,31 +307,12 @@
     }
     if (prevSlider && prevSlider !== slider) isInitialized = false;
     await waitForViewportImages();
-    if (currentIndex >= cards.length) currentIndex = cards.length - 1;
-    if (currentIndex < 0) currentIndex = 0;
-    updateSlider();
-    if (!isInitialized) {
-      bindEvents();
-      isInitialized = true;
-    }
-    setTimeout(updateSlider, 300);
+    setInitialIndex();
+    finalizeInitialization();
   }
 
-  window.initTestimonialSlider = init;
-  if (
-    document.readyState === "complete" ||
-    document.readyState === "interactive"
-  ) {
-    if (document.querySelector(".testimonial-slider")) {
-      if (!isInitialized) {
-        init();
-      }
-    }
-  } else {
-    window.addEventListener("DOMContentLoaded", () => {
-      if (document.querySelector(".testimonial-slider") && !isInitialized) {
-        init();
-      }
-    });
-  }
-})();
+// Expose the init function globally.
+window.initTestimonialSlider = init;
+
+// Auto‑initialise if the DOM is already ready.
+initializeSlider();

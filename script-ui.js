@@ -18,28 +18,44 @@
   const burger = document.querySelector(".burger");
   const menu = document.querySelector(".header-content");
   if (!burger || !menu) return;
+  attachMenuEvents(burger, menu, toggleMenu, closeMenu);
+})();
 
-  /**
-   * Toggles the active state of the burger and menu.
-   */
-  function toggleMenu() {
-    burger.classList.toggle("active");
-    menu.classList.toggle("active");
-    burger.setAttribute(
-      "aria-expanded",
-      burger.classList.contains("active") ? "true" : "false",
-    );
-  }
+/**
+ * Toggles the visibility of the mobile menu and updates accessibility attributes.
+ */
+function toggleMenu() {
+  const burger = document.querySelector(".burger");
+  const menu = document.querySelector(".header-content");
+  if (!burger || !menu) return;
+  burger.classList.toggle("active");
+  menu.classList.toggle("active");
+  burger.setAttribute(
+    "aria-expanded",
+    burger.classList.contains("active") ? "true" : "false",
+  );
+}
 
-  /**
-   * Closes the menu and resets the burger state.
-   */
-  function closeMenu() {
-    burger.classList.remove("active");
-    menu.classList.remove("active");
-    burger.setAttribute("aria-expanded", "false");
-  }
+/**
+ * Closes the mobile navigation menu and updates accessibility attributes.
+ */
+function closeMenu() {
+  const burger = document.querySelector(".burger");
+  const menu = document.querySelector(".header-content");
+  if (!burger || !menu) return;
+  burger.classList.remove("active");
+  menu.classList.remove("active");
+  burger.setAttribute("aria-expanded", "false");
+}
 
+/**
+ * Attaches event listeners for clicking the menu trigger, menu links, or outside of the menu.
+ * @param {HTMLElement} burger - Burger icon element.
+ * @param {HTMLElement} menu - Navigation menu content container.
+ * @param {Function} toggleMenu - Toggle menu callback.
+ * @param {Function} closeMenu - Close menu callback.
+ */
+function attachMenuEvents(burger, menu, toggleMenu, closeMenu) {
   burger.addEventListener("click", (e) => {
     e.stopPropagation();
     toggleMenu();
@@ -50,36 +66,48 @@
   document.addEventListener("click", (e) => {
     if (!menu.contains(e.target) && !burger.contains(e.target)) closeMenu();
   });
-})();
+}
 
 let hiddenObserver = null;
 const hiddenObservedSet = new WeakSet();
 let hiddenElementsDeferred = false;
 
 /**
+ * Selects all DOM elements that are hidden but not yet shown.
+ * @returns {NodeListOf<HTMLElement>} List of hidden elements.
+ */
+function getHiddenElements() {
+  return document.querySelectorAll(".hidden:not(.show)");
+}
+
+/**
+ * Returns the existing IntersectionObserver or creates a new one to observe hidden elements.
+ * @returns {IntersectionObserver} The IntersectionObserver instance.
+ */
+function ensureHiddenObserver() {
+  if (hiddenObserver) return hiddenObserver;
+  hiddenObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      requestAnimationFrame(() => entry.target.classList.add("show"));
+      hiddenObserver.unobserve(entry.target);
+      hiddenObservedSet.delete(entry.target);
+    });
+  }, { threshold: 0.2 });
+  return hiddenObserver;
+}
+
+/**
  * Sets up an IntersectionObserver to reveal hidden elements when they enter the viewport.
  */
 function observeHiddenElements() {
-  const hiddenEls = document.querySelectorAll(".hidden:not(.show)");
+  const hiddenEls = getHiddenElements();
   if (!hiddenEls.length) return;
-  if (!hiddenObserver) {
-    hiddenObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            requestAnimationFrame(() => entry.target.classList.add("show"));
-            hiddenObserver.unobserve(entry.target);
-            hiddenObservedSet.delete(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 },
-    );
-  }
+  const observer = ensureHiddenObserver();
   hiddenEls.forEach((el) => {
     if (hiddenObservedSet.has(el)) return;
     hiddenObservedSet.add(el);
-    hiddenObserver.observe(el);
+    observer.observe(el);
   });
 }
 
@@ -109,6 +137,16 @@ window.addEventListener("resize", revealOnTinyScreens);
 revealOnTinyScreens();
 
 /**
+ * Computes an easing value using a cubic easing function for smooth animations.
+ * @param {number} progress - Animation progress between 0 and 1.
+ * @returns {number} The eased progress value.
+ */
+function getEaseValue(progress) {
+  if (progress < 0.5) return 4 * progress * progress * progress;
+  return 1 - Math.pow(-2 * progress + 2, 3) / 2;
+}
+
+/**
  * Creates a smooth scroll animation from start to end over a duration.
  * @param {number} start - Starting Y position.
  * @param {number} end - Target Y position.
@@ -117,17 +155,14 @@ revealOnTinyScreens();
 function createScrollAnimation(start, end, duration) {
   const distance = end - start;
   let startTime = null;
-  function step(currentTime) {
+  const step = (currentTime) => {
     if (!startTime) startTime = currentTime;
     const elapsed = currentTime - startTime;
     const progress = Math.min(elapsed / duration, 1);
-    const ease =
-      progress < 0.5
-        ? 4 * progress * progress * progress
-        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+    const ease = getEaseValue(progress);
     window.scrollTo(0, start + distance * ease);
     if (progress < 1) requestAnimationFrame(step);
-  }
+  };
   requestAnimationFrame(step);
 }
 
@@ -163,14 +198,20 @@ function scrollToFragment() {
   return true;
 }
 
-// Intercept anchor clicks for smooth scrolling
-document.addEventListener("click", function (e) {
+/**
+ * Intercepts anchor clicks and initiates smooth scrolling to the target element.
+ * @param {Event} e - The click event.
+ */
+function handleScrollLinkClick(e) {
   const link = e.target.closest('a[href^="#"]');
   if (!link) return;
   e.preventDefault();
   const target = document.querySelector(link.getAttribute("href"));
   if (target) smoothScrollTo(target, 1600);
-});
+}
+
+// Intercept anchor clicks for smooth scrolling
+document.addEventListener("click", handleScrollLinkClick);
 
 const SCROLL_STORAGE_KEY = "portfolio-scroll-pos";
 
@@ -240,6 +281,31 @@ function prepareScrollRestore() {
 }
 
 /**
+ * Clears the pending scroll restoration state and processes any deferred hidden elements.
+ */
+function clearPendingScrollRestoreState() {
+  if (!window.__scrollRestorePending) return;
+  window.__scrollRestorePending = false;
+  document.documentElement.classList.remove("scroll-restore-pending");
+  document.body.classList.remove("scroll-restore-pending");
+  if (hiddenElementsDeferred) {
+    observeHiddenElements();
+    hiddenElementsDeferred = false;
+  }
+}
+
+/**
+ * Restores the browser's scrollRestoration setting to its original state.
+ * @param {Object} prevScrollRest - Object containing scroll restoration support info and original state.
+ */
+function restoreScrollRestoration(prevScrollRest) {
+  if (!prevScrollRest.supports) return;
+  setTimeout(() => {
+    history.scrollRestoration = prevScrollRest.prev;
+  }, 300);
+}
+
+/**
  * Finalizes loading: scrolls to fragment if present, otherwise restores scroll position,
  * clears storage, and processes deferred hidden elements.
  * @param {Object} savedPos - The saved scroll position.
@@ -254,20 +320,8 @@ function finalizeAfterLoad(savedPos, prevScrollRest) {
   }
 
   clearSavedScrollPosition();
-  if (window.__scrollRestorePending) {
-    window.__scrollRestorePending = false;
-    document.documentElement.classList.remove("scroll-restore-pending");
-    document.body.classList.remove("scroll-restore-pending");
-    if (hiddenElementsDeferred) {
-      observeHiddenElements();
-      hiddenElementsDeferred = false;
-    }
-  }
-  if (prevScrollRest.supports) {
-    setTimeout(() => {
-      history.scrollRestoration = prevScrollRest.prev;
-    }, 300);
-  }
+  clearPendingScrollRestoreState();
+  restoreScrollRestoration(prevScrollRest);
 }
 
 /**

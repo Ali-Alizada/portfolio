@@ -29,14 +29,20 @@ async function fetchHtml(url) {
 function handleAfterLoad() {
   if (window.__scrollRestorePending) {
     hiddenElementsDeferred = true;
-  } else {
-    if (document.activeElement && document.activeElement !== document.body) {
-      try {
-        document.activeElement.blur();
-      } catch (_) {}
-    }
-    observeHiddenElements();
+    return;
   }
+  blurActiveElement();
+  observeHiddenElements();
+}
+
+/**
+ * Blurs the currently focused element when possible.
+ */
+function blurActiveElement() {
+  if (!document.activeElement || document.activeElement === document.body) return;
+  try {
+    document.activeElement.blur();
+  } catch (_) {}
 }
 
 /**
@@ -169,22 +175,26 @@ function validateEmailField(email, translations) {
   const value = email.value.trim();
   const errorEl = document.getElementById("error-email");
   if (value === "") {
-    if (errorEl) {
-      errorEl.textContent =
-        translations["error.emailRequired"] || "E‑Mail erforderlich";
-    }
-    return false;
-  } else if (!isValidEmail(value)) {
-    if (errorEl) {
-      errorEl.textContent =
-        translations["error.emailInvalid"] || "Ungültige E‑Mail";
-    }
-    return false;
+    return setEmailError(errorEl, translations["error.emailRequired"] || "E‑Mail erforderlich");
+  }
+  if (!isValidEmail(value)) {
+    return setEmailError(errorEl, translations["error.emailInvalid"] || "Ungültige E‑Mail");
   }
   if (errorEl) {
     errorEl.textContent = "";
   }
   return true;
+}
+
+/**
+ * Sets the email field error message and returns false.
+ * @param {HTMLElement} errorEl - The error display element.
+ * @param {string} message - The error message.
+ * @returns {boolean} Always returns false.
+ */
+function setEmailError(errorEl, message) {
+  if (errorEl) errorEl.textContent = message;
+  return false;
 }
 
 /**
@@ -264,21 +274,25 @@ async function sendMessage(data) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
-
-  const responseText = await response.text();
-  let result = {};
-
-  try {
-    result = responseText ? JSON.parse(responseText) : {};
-  } catch (error) {
-    result = { success: false, error: "Invalid server response" };
-  }
-
+  const result = await parseServerResponse(response);
   if (!response.ok || !result.success) {
     throw new Error(result.error || "Server error");
   }
-
   return result;
+}
+
+/**
+ * Parses the raw HTTP response from the server as JSON.
+ * @param {Response} response - The fetch Response object.
+ * @returns {Promise<Object>} A promise that resolves to the parsed response object.
+ */
+async function parseServerResponse(response) {
+  const responseText = await response.text();
+  try {
+    return responseText ? JSON.parse(responseText) : {};
+  } catch (error) {
+    return { success: false, error: "Invalid server response" };
+  }
 }
 
 /**
@@ -291,11 +305,17 @@ async function sendMessage(data) {
 async function handleSubmit(e, elements, getPrivacyAccepted, resetForm) {
   e.preventDefault();
   if (!validateForm(elements, getPrivacyAccepted())) return;
-  const data = {
-    name: elements.username.value,
-    email: elements.email.value,
-    message: elements.textarea.value,
-  };
+  const data = createContactPayload(elements);
+  await submitContactForm(data, resetForm);
+}
+
+/**
+ * Sends contact form payload to server and triggers UI feedback.
+ * @param {Object} data - Payload containing name, email, and message.
+ * @param {Function} resetForm - Callback to reset the form.
+ * @returns {Promise<void>}
+ */
+async function submitContactForm(data, resetForm) {
   try {
     const result = await sendMessage(data);
     if (result.success) {
@@ -306,6 +326,19 @@ async function handleSubmit(e, elements, getPrivacyAccepted, resetForm) {
     console.error("Contact form submission failed:", error);
     alert(error.message || "Server error");
   }
+}
+
+/**
+ * Creates the contact form payload object from DOM elements.
+ * @param {Object} elements - The contact form DOM elements.
+ * @returns {Object} Payload object with name, email, and message.
+ */
+function createContactPayload(elements) {
+  return {
+    name: elements.username.value,
+    email: elements.email.value,
+    message: elements.textarea.value,
+  };
 }
 
 /**
@@ -328,76 +361,170 @@ function updateMarqueeLabels() {
 function initContactForm() {
   const elements = getFormElements();
   if (!elements.form) return;
-  let privacyAccepted = false;
+  const handlers = createContactHandlers(elements);
+  setupFormListeners(elements, handlers);
+  wrapApplyLanguage(updateMarqueeLabels);
+}
 
-  const getTranslations = () => window.translations?.[window.currentLang] || {};
+/**
+ * Creates contact form event handlers bound to the current form elements.
+ * @param {Object} elements - The contact form DOM elements.
+ * @returns {Object} Object containing handler functions for form events.
+ */
+function createContactHandlers(elements) {
+  const state = { privacyAccepted: false };
+  return {
+    updateFieldState: createFieldStateUpdater(elements, state),
+    togglePrivacy: createPrivacyToggler(elements, state),
+    resetForm: createResetFormHandler(elements, state),
+    handleFormSubmit: createSubmitHandler(elements, state),
+  };
+}
 
-  // Setup validation events for each field
-  const setupFieldValidation = (field, validateFn, errorElId) => {
+/**
+ * Creates a field state updater that binds validation events to a field.
+ * @param {Object} elements - The form elements.
+ * @param {Object} state - The form state object.
+ * @returns {Function} Function to set up field validation and error updates.
+ */
+function createFieldStateUpdater(elements, state) {
+  return (field, errorElId, validateFn) => {
     if (!field) return;
     const errorEl = document.getElementById(errorElId);
-
-    // On blur: validate and show error if invalid
-    field.addEventListener("blur", () => {
-      validateFn(field, getTranslations());
-    });
-
-    // On input: if valid, clear error
-    field.addEventListener("input", () => {
-      const value = field.value;
-      let isValid = false;
-
-      if (field.id === "username") {
-        isValid = countRealCharacters(value) >= 3;
-      } else if (field.id === "useremail") {
-        isValid = isValidEmail(value);
-      } else if (field.id === "usertextarea") {
-        isValid = countRealCharacters(value) >= 5;
-      }
-
-      if (isValid && errorEl) {
-        errorEl.textContent = "";
-      }
-    });
+    field.addEventListener("blur", () => validateFn(field, getTranslations()));
+    field.addEventListener("input", () => clearFieldErrorIfValid(field, errorEl));
   };
+}
 
-  setupFieldValidation(elements.username, validateName, "error-username");
-  setupFieldValidation(elements.email, validateEmailField, "error-email");
-  setupFieldValidation(elements.textarea, validateMessage, "error-textarea");
+/**
+ * Retrieves the current language translations.
+ * @returns {Object} The translation key-value map.
+ */
+function getTranslations() {
+  return window.translations?.[window.currentLang] || {};
+}
 
-  // Checkbox toggle
-  if (elements.checkbox) {
-    elements.checkbox.addEventListener("click", () => {
-      privacyAccepted = !privacyAccepted;
-      elements.checkbox.src = privacyAccepted
-        ? "assets/imgs/icons/checkbox-checked.svg"
-        : "assets/imgs/icons/checkbox-unchecked.svg";
-      document.getElementById("error-policy").textContent = "";
-    });
-  }
+/**
+ * Creates a handler to toggle the privacy policy checkbox state.
+ * @param {Object} elements - The form elements.
+ * @param {Object} state - The form state object.
+ * @returns {Function} Toggler function.
+ */
+function createPrivacyToggler(elements, state) {
+  return () => {
+    state.privacyAccepted = !state.privacyAccepted;
+    updatePrivacyCheckboxState(elements.checkbox, state.privacyAccepted);
+    document.getElementById("error-policy").textContent = "";
+  };
+}
 
-  // Form submission
-  const resetForm = () => {
+/**
+ * Creates a handler to reset the form elements, error messages, and state.
+ * @param {Object} elements - The form elements.
+ * @param {Object} state - The form state object.
+ * @returns {Function} Reset function.
+ */
+function createResetFormHandler(elements, state) {
+  return () => {
     elements.form.reset();
-    privacyAccepted = false;
-    if (elements.checkbox) {
-      elements.checkbox.src = "assets/imgs/icons/checkbox-unchecked.svg";
-    }
+    state.privacyAccepted = false;
+    resetCheckboxState(elements.checkbox);
     clearErrors();
   };
-  elements.form.addEventListener("submit", (e) => {
-    handleSubmit(e, elements, () => privacyAccepted, resetForm);
-  });
+}
 
-  // Update marquee labels when language changes
-  if (typeof window.applyLanguage === "function") {
-    const orig = window.applyLanguage;
-    window.applyLanguage = function (lang) {
-      orig(lang);
-      updateMarqueeLabels();
-    };
-    window.applyLanguage(window.currentLang);
+/**
+ * Creates the form submit event handler.
+ * @param {Object} elements - The form elements.
+ * @param {Object} state - The form state object.
+ * @returns {Function} Submit handler function.
+ */
+function createSubmitHandler(elements, state) {
+  return (e) => {
+    handleSubmit(e, elements, () => state.privacyAccepted, createResetFormHandler(elements, state));
+  };
+}
+
+/**
+ * Binds DOM event listeners to form validation, submission, and toggling.
+ * @param {Object} elements - The form elements.
+ * @param {Object} handlers - The form event handlers.
+ */
+function setupFormListeners(elements, handlers) {
+  bindFormValidation(elements, handlers.updateFieldState);
+  if (elements.checkbox) elements.checkbox.addEventListener("click", handlers.togglePrivacy);
+  elements.form.addEventListener("submit", handlers.handleFormSubmit);
+}
+
+/**
+ * Attaches validation behaviors to individual form input fields.
+ * @param {Object} elements - The form elements.
+ * @param {Function} updateFieldState - The field state updater function.
+ */
+function bindFormValidation(elements, updateFieldState) {
+  updateFieldState(elements.username, "error-username", validateName);
+  updateFieldState(elements.email, "error-email", validateEmailField);
+  updateFieldState(elements.textarea, "error-textarea", validateMessage);
+}
+
+/**
+ * Clears the error message if the current field input value is valid.
+ * @param {HTMLElement} field - The form input field.
+ * @param {HTMLElement} errorEl - The error message display element.
+ */
+function clearFieldErrorIfValid(field, errorEl) {
+  const value = field.value;
+  const isValid = getFieldValidity(field, value);
+  if (isValid && errorEl) errorEl.textContent = "";
+}
+
+/**
+ * Resets the privacy checkbox image to the unchecked state.
+ * @param {HTMLImageElement} checkbox - The checkbox image element.
+ */
+function resetCheckboxState(checkbox) {
+  if (checkbox) {
+    checkbox.src = "assets/imgs/icons/checkbox-unchecked.svg";
   }
+}
+
+/**
+ * Updates the privacy checkbox image based on current acceptance state.
+ * @param {HTMLImageElement} checkbox - The checkbox image element.
+ * @param {boolean} privacyAccepted - True if policy is accepted, false otherwise.
+ */
+function updatePrivacyCheckboxState(checkbox, privacyAccepted) {
+  if (!checkbox) return;
+  checkbox.src = privacyAccepted
+    ? "assets/imgs/icons/checkbox-checked.svg"
+    : "assets/imgs/icons/checkbox-unchecked.svg";
+}
+
+/**
+ * Determines validation status of a field based on its current value.
+ * @param {HTMLElement} field - The form field element.
+ * @param {string} value - The input value.
+ * @returns {boolean} True if field is valid, false otherwise.
+ */
+function getFieldValidity(field, value) {
+  if (field.id === "username") return countRealCharacters(value) >= 3;
+  if (field.id === "useremail") return isValidEmail(value);
+  if (field.id === "usertextarea") return countRealCharacters(value) >= 5;
+  return false;
+}
+
+/**
+ * Wraps applyLanguage function to run a callback after translation changes.
+ * @param {Function} callback - The callback function to run.
+ */
+function wrapApplyLanguage(callback) {
+  if (typeof window.applyLanguage !== "function") return;
+  const orig = window.applyLanguage;
+  window.applyLanguage = function (lang) {
+    orig(lang);
+    callback();
+  };
+  window.applyLanguage(window.currentLang);
 }
 
 // Initialize contact form after DOM is ready

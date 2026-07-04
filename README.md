@@ -65,7 +65,8 @@ portfolio/
 │   ├── responsive.css  # Mobile-first responsiveness
 │   └── testimonial-slider.css
 ├── index.html          # Main application entry point (App Shell)
-├── script.js           # Core script manager (loads templates and hooks event listeners)
+├── script-core.js      # Core template loading, validation, and backend communication
+├── script-ui.js        # Mobile menu toggle, cursor shadow, smooth scroll, and IntersectionObservers
 ├── style.css           # Global layout styles, design tokens, and animation keyframes
 ├── send.php            # PHP contact mail processor
 ├── .prettierrc         # Code formatting configuration
