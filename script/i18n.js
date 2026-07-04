@@ -348,29 +348,28 @@ window.currentLang = localStorage.getItem("portfolioLang") || "en";
  * placeholders, and the HTML lang attribute.
  * @param {string} lang - The language code ('en' or 'de').
  */
-window.applyLanguage = function (lang) {
-  const t = window.translations[lang];
-  if (!t) return;
-
+function setDocumentLanguage(lang) {
   const htmlRoot = document.getElementById("html-root");
   if (htmlRoot) {
     htmlRoot.lang = lang;
   }
+}
 
+function applyTextTranslation(el, t, key) {
+  if (t[key] === undefined) return;
+  if (key === "footer.banner") {
+    el.innerHTML = t[key].replace(/\n/g, "<br>");
+  } else if (key === "legal.designAttrDesc" || key === "legal.socialMediaDesc") {
+    el.innerHTML = t[key];
+  } else {
+    el.textContent = t[key];
+  }
+}
+
+function applyTranslations(t) {
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    if (t[key] !== undefined) {
-      if (key === "footer.banner") {
-        el.innerHTML = t[key].replace(/\n/g, "<br>");
-      } else if (
-        key === "legal.designAttrDesc" ||
-        key === "legal.socialMediaDesc"
-      ) {
-        el.innerHTML = t[key];
-      } else {
-        el.textContent = t[key];
-      }
-    }
+    applyTextTranslation(el, t, key);
   });
 
   document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
@@ -379,12 +378,22 @@ window.applyLanguage = function (lang) {
       el.placeholder = t[key];
     }
   });
+}
 
-  if (typeof originalPlaceholders !== "undefined") {
-    originalPlaceholders.username = t["form.namePlaceholder"];
-    originalPlaceholders.email = t["form.emailPlaceholder"];
-    originalPlaceholders.textarea = t["form.messagePlaceholder"];
-  }
+function updateOriginalPlaceholders(t) {
+  if (typeof originalPlaceholders === "undefined") return;
+  originalPlaceholders.username = t["form.namePlaceholder"];
+  originalPlaceholders.email = t["form.emailPlaceholder"];
+  originalPlaceholders.textarea = t["form.messagePlaceholder"];
+}
+
+window.applyLanguage = function (lang) {
+  const t = window.translations[lang];
+  if (!t) return;
+
+  setDocumentLanguage(lang);
+  applyTranslations(t);
+  updateOriginalPlaceholders(t);
 };
 
 /**
@@ -394,11 +403,7 @@ window.applyLanguage = function (lang) {
 function initLanguage() {
   const langToggle = document.getElementById("language-toggle");
   if (langToggle) {
-    if (window.currentLang === "de") {
-      langToggle.checked = true;
-    } else {
-      langToggle.checked = false;
-    }
+    setLanguageToggleState(langToggle);
     langToggle.addEventListener("change", () => {
       window.currentLang = langToggle.checked ? "de" : "en";
       localStorage.setItem("portfolioLang", window.currentLang);
@@ -406,6 +411,10 @@ function initLanguage() {
     });
   }
   window.applyLanguage(window.currentLang);
+}
+
+function setLanguageToggleState(langToggle) {
+  langToggle.checked = window.currentLang === "de";
 }
 
 // Run initLanguage once the DOM is ready

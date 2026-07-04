@@ -18,28 +18,31 @@
   const burger = document.querySelector(".burger");
   const menu = document.querySelector(".header-content");
   if (!burger || !menu) return;
+  attachMenuEvents(burger, menu, toggleMenu, closeMenu);
+})();
 
-  /**
-   * Toggles the active state of the burger and menu.
-   */
-  function toggleMenu() {
-    burger.classList.toggle("active");
-    menu.classList.toggle("active");
-    burger.setAttribute(
-      "aria-expanded",
-      burger.classList.contains("active") ? "true" : "false",
-    );
-  }
+function toggleMenu() {
+  const burger = document.querySelector(".burger");
+  const menu = document.querySelector(".header-content");
+  if (!burger || !menu) return;
+  burger.classList.toggle("active");
+  menu.classList.toggle("active");
+  burger.setAttribute(
+    "aria-expanded",
+    burger.classList.contains("active") ? "true" : "false",
+  );
+}
 
-  /**
-   * Closes the menu and resets the burger state.
-   */
-  function closeMenu() {
-    burger.classList.remove("active");
-    menu.classList.remove("active");
-    burger.setAttribute("aria-expanded", "false");
-  }
+function closeMenu() {
+  const burger = document.querySelector(".burger");
+  const menu = document.querySelector(".header-content");
+  if (!burger || !menu) return;
+  burger.classList.remove("active");
+  menu.classList.remove("active");
+  burger.setAttribute("aria-expanded", "false");
+}
 
+function attachMenuEvents(burger, menu, toggleMenu, closeMenu) {
   burger.addEventListener("click", (e) => {
     e.stopPropagation();
     toggleMenu();
@@ -50,36 +53,40 @@
   document.addEventListener("click", (e) => {
     if (!menu.contains(e.target) && !burger.contains(e.target)) closeMenu();
   });
-})();
+}
 
 let hiddenObserver = null;
 const hiddenObservedSet = new WeakSet();
 let hiddenElementsDeferred = false;
 
+function getHiddenElements() {
+  return document.querySelectorAll(".hidden:not(.show)");
+}
+
+function ensureHiddenObserver() {
+  if (hiddenObserver) return hiddenObserver;
+  hiddenObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      requestAnimationFrame(() => entry.target.classList.add("show"));
+      hiddenObserver.unobserve(entry.target);
+      hiddenObservedSet.delete(entry.target);
+    });
+  }, { threshold: 0.2 });
+  return hiddenObserver;
+}
+
 /**
  * Sets up an IntersectionObserver to reveal hidden elements when they enter the viewport.
  */
 function observeHiddenElements() {
-  const hiddenEls = document.querySelectorAll(".hidden:not(.show)");
+  const hiddenEls = getHiddenElements();
   if (!hiddenEls.length) return;
-  if (!hiddenObserver) {
-    hiddenObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            requestAnimationFrame(() => entry.target.classList.add("show"));
-            hiddenObserver.unobserve(entry.target);
-            hiddenObservedSet.delete(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 },
-    );
-  }
+  const observer = ensureHiddenObserver();
   hiddenEls.forEach((el) => {
     if (hiddenObservedSet.has(el)) return;
     hiddenObservedSet.add(el);
-    hiddenObserver.observe(el);
+    observer.observe(el);
   });
 }
 
@@ -108,6 +115,11 @@ if (!window.__scrollRestorePending) {
 window.addEventListener("resize", revealOnTinyScreens);
 revealOnTinyScreens();
 
+function getEaseValue(progress) {
+  if (progress < 0.5) return 4 * progress * progress * progress;
+  return 1 - Math.pow(-2 * progress + 2, 3) / 2;
+}
+
 /**
  * Creates a smooth scroll animation from start to end over a duration.
  * @param {number} start - Starting Y position.
@@ -117,17 +129,14 @@ revealOnTinyScreens();
 function createScrollAnimation(start, end, duration) {
   const distance = end - start;
   let startTime = null;
-  function step(currentTime) {
+  const step = (currentTime) => {
     if (!startTime) startTime = currentTime;
     const elapsed = currentTime - startTime;
     const progress = Math.min(elapsed / duration, 1);
-    const ease =
-      progress < 0.5
-        ? 4 * progress * progress * progress
-        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+    const ease = getEaseValue(progress);
     window.scrollTo(0, start + distance * ease);
     if (progress < 1) requestAnimationFrame(step);
-  }
+  };
   requestAnimationFrame(step);
 }
 
@@ -163,14 +172,16 @@ function scrollToFragment() {
   return true;
 }
 
-// Intercept anchor clicks for smooth scrolling
-document.addEventListener("click", function (e) {
+function handleScrollLinkClick(e) {
   const link = e.target.closest('a[href^="#"]');
   if (!link) return;
   e.preventDefault();
   const target = document.querySelector(link.getAttribute("href"));
   if (target) smoothScrollTo(target, 1600);
-});
+}
+
+// Intercept anchor clicks for smooth scrolling
+document.addEventListener("click", handleScrollLinkClick);
 
 const SCROLL_STORAGE_KEY = "portfolio-scroll-pos";
 
@@ -239,6 +250,24 @@ function prepareScrollRestore() {
   return { supports, prev };
 }
 
+function clearPendingScrollRestoreState() {
+  if (!window.__scrollRestorePending) return;
+  window.__scrollRestorePending = false;
+  document.documentElement.classList.remove("scroll-restore-pending");
+  document.body.classList.remove("scroll-restore-pending");
+  if (hiddenElementsDeferred) {
+    observeHiddenElements();
+    hiddenElementsDeferred = false;
+  }
+}
+
+function restoreScrollRestoration(prevScrollRest) {
+  if (!prevScrollRest.supports) return;
+  setTimeout(() => {
+    history.scrollRestoration = prevScrollRest.prev;
+  }, 300);
+}
+
 /**
  * Finalizes loading: scrolls to fragment if present, otherwise restores scroll position,
  * clears storage, and processes deferred hidden elements.
@@ -254,20 +283,8 @@ function finalizeAfterLoad(savedPos, prevScrollRest) {
   }
 
   clearSavedScrollPosition();
-  if (window.__scrollRestorePending) {
-    window.__scrollRestorePending = false;
-    document.documentElement.classList.remove("scroll-restore-pending");
-    document.body.classList.remove("scroll-restore-pending");
-    if (hiddenElementsDeferred) {
-      observeHiddenElements();
-      hiddenElementsDeferred = false;
-    }
-  }
-  if (prevScrollRest.supports) {
-    setTimeout(() => {
-      history.scrollRestoration = prevScrollRest.prev;
-    }, 300);
-  }
+  clearPendingScrollRestoreState();
+  restoreScrollRestoration(prevScrollRest);
 }
 
 /**
