@@ -12,10 +12,20 @@ The website features a clean, minimal dark theme, smooth micro-animations, a dyn
 
 *   **Modular & Dynamic Architecture:** Sections (About Me, Technologies, Testimonials, Dialogs) are modularized as separate HTML templates and loaded asynchronously using the JavaScript Fetch API. This keeps `index.html` lightweight and improves codebase maintainability.
 *   **Internationalization (i18n):** Seamless translation switching (English and German) without page reloads. The selected language is persisted in `localStorage` to preserve the user's preference for future visits.
-*   **Interactive Project Showcase:** Detailed project cards open in responsive modal dialogs (including projects like *Join*, *El Pollo Loco*, and *DABubble*), featuring carousel-style navigation between projects.
+*   **Interactive Project Showcase:** Detailed project cards open in responsive modal dialogs with bilingual, technology-first descriptions and carousel-style navigation.
 *   **Dynamic Testimonial Carousel:** A custom slider demonstrating recommendations and feedback from colleagues and project partners.
 *   **Accessibility & SEO:** Built using semantic HTML5, structured heading hierarchies, and metadata optimized for search engines and social media previews (OpenGraph).
 *   **Contact Form with Real-time Validation:** Client-side input validation with friendly error feedback, integrated with a secure backend PHP mailer (`send.php`) for email delivery.
+
+---
+
+## 💼 Featured Projects
+
+*   **Join:** An Angular and Firebase task manager for organizing tasks with Kanban-style drag and drop.
+*   **El Pollo Loco:** A JavaScript platform game built with an object-oriented approach.
+*   **Pokédex:** A JavaScript app that uses the PokéAPI to browse and filter Pokémon.
+*   **Memory:** A TypeScript and SCSS card-matching game with multiple difficulty levels.
+*   **Poll App:** An Angular, TypeScript, SCSS, and Supabase app for creating polls, voting, and following results in real time.
 
 ---
 
