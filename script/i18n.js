@@ -51,6 +51,10 @@ window.translations = {
       "Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.",
     "projects.pokedexDesc":
       "Interactive Pokedex app based on PokeAPI. Browse, search and filter Pokemon with dynamic type-based designs, detailed stats, evolution chains and optimized loading with caching.",
+    "projects.memoryDesc":
+      "Built with TypeScript and SCSS, this memory game challenges you to match card pairs across difficulty levels.",
+    "projects.pollappDesc":
+      "Built with Angular, TypeScript, SCSS, and Supabase, this app lets you create polls, vote, and follow results in real time.",
     "projects.nextBtn": "Next project",
     // Testimonials
     "testimonials.heading": "What my colleagues say about me",
@@ -218,6 +222,10 @@ window.translations = {
       "Jump-and-Run-Spiel auf Basis eines objektorientierten Ansatzes. Hilf Pepe dabei, Münzen und Tabasco-Sauce zu finden, um gegen das verrückte Huhn zu kämpfen.",
     "projects.pokedexDesc":
       "Interaktive Pokedex-App basierend auf der PokeAPI. Durchsuche und filtere Pokemon mit dynamischem Typ-Design, detaillierten Werten, Entwicklungsstufen und optimiertem Laden durch Caching.",
+    "projects.memoryDesc":
+      "Dieses mit TypeScript und SCSS entwickelte Memory-Spiel fordert dich heraus, Kartenpaare in verschiedenen Schwierigkeitsstufen zu finden.",
+    "projects.pollappDesc":
+      "Die mit Angular, TypeScript, SCSS und Supabase entwickelte App ermöglicht es, Umfragen zu erstellen, abzustimmen und Ergebnisse in Echtzeit zu verfolgen.",
     "projects.nextBtn": "Nächstes Projekt",
 
     "testimonials.heading": "Was meine Kollegen über mich sagen",
